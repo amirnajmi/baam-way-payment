@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ir.co.sadad.eb</groupId>
+    <artifactId>baam-way-payment</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <!-- tag::appdetails[] -->
+        <app.name>baam-way-payment</app.name>
+        <testServerHttpPort>9080</testServerHttpPort>
+        <testServerHttpsPort>9443</testServerHttpsPort>
+        <!-- end::appdetails[] -->
+        <warContext>${app.name}</warContext>
+        <package.file>${project.build.directory}/${app.name}.zip</package.file>
+        <packaging.type>usr</packaging.type>
+        <war-address>${project.build.directory}/baam-way-1.0-SNAPSHOT.war</war-address>
+        <!-- Zipkin user feature download link -->
+        <zipkin.usr.feature>
+            https://github.com/WASdev/sample.opentracing.zipkintracer/releases/download/1.1/liberty-opentracing-zipkintracer-1.1-sample.zip
+        </zipkin.usr.feature>
+        <!-- versions -->
+        <version.microprofile>2.1</version.microprofile>
+        <version.slf4j>1.7.25</version.slf4j>
+        <version.logback>1.2.3</version.logback>
+        <version.javaee>8.0</version.javaee>
+        <!-- delta spike -->
+        <deltaspike.version>1.8.1</deltaspike.version>
+        <!-- Lombok -->
+        <version.lombok>1.18.4</version.lombok>
+        <version.dropwizard>4.0.5</version.dropwizard>
+        <kumuluzee-logs.version>1.3.0</kumuluzee-logs.version>
+        <version.dockerfile-maven-plugin>1.4.3</version.dockerfile-maven-plugin>
+    </properties>
+
+
+    <profiles>
+        <profile>
+            <id>windows</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <external-lib-directory>D:/externallib/</external-lib-directory>
+            </properties>
+        </profile>
+        <profile>
+            <id>linux</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <external-lib-directory></external-lib-directory>
+            </properties>
+        </profile>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <environment>dev</environment>
+                <web.port>8080</web.port>
+            </properties>
+        </profile>
+        <!-- tag::profile-docker-image[] -->
+        <!--<profile>-->
+        <!--<id>docker-image</id>-->
+        <!--<build>-->
+        <!--<plugins>-->
+        <!--<plugin>-->
+        <!--<groupId>com.spotify</groupId>-->
+        <!--<artifactId>dockerfile-maven-plugin</artifactId>-->
+        <!--<version>${version.dockerfile-maven-plugin}</version>-->
+        <!--<executions>-->
+        <!--<execution>-->
+        <!--<id>build-docker-image</id>-->
+        <!--<goals>-->
+        <!--<goal>build</goal>-->
+        <!--</goals>-->
+        <!--</execution>-->
+        <!--</executions>-->
+        <!--<configuration>-->
+        <!--<repository>openliberty-${project.artifactId}</repository>-->
+        <!--<tag>${project.version}</tag>-->
+        <!--</configuration>-->
+        <!--</plugin>-->
+        <!--</plugins>-->
+        <!--</build>-->
+        <!--<properties>-->
+        <!--<external-lib-directory>D:/externallib/</external-lib-directory>-->
+        <!--</properties>-->
+        <!--</profile>-->
+        <!-- end::profile-docker-image[] -->
+
+    </profiles>
+
+    <dependencies>
+        <!-- Microprofile -->
+        <dependency>
+            <groupId>org.eclipse.microprofile</groupId>
+            <artifactId>microprofile</artifactId>
+            <type>pom</type>
+            <scope>provided</scope>
+            <version>${version.microprofile}</version>
+        </dependency>
+
+
+        <!-- hazelcast -->
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast</artifactId>
+            <version>3.7.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast-client</artifactId>
+            <version>3.7.2</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${version.slf4j}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${version.logback}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>${version.javaee}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Eclipselink -->
+        <!--<dependency>-->
+        <!--<groupId>org.eclipse.persistence</groupId>-->
+        <!--<artifactId>eclipselink</artifactId>-->
+        <!--<version>2.7.3</version>-->
+        <!--</dependency>-->
+
+        <!-- Hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>5.4.0.Final</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Deltaspike[] -->
+        <dependency>
+            <groupId>org.apache.deltaspike.core</groupId>
+            <artifactId>deltaspike-core-api</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.deltaspike.core</groupId>
+            <artifactId>deltaspike-core-impl</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- data & jpa -->
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-jpa-module-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-jpa-module-impl</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-data-module-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-data-module-impl</artifactId>
+        </dependency>
+        <!-- data & jpa -->
+        <!-- Deltaspike[] -->
+
+        <!-- test module -->
+        <!--<dependency>-->
+        <!--<groupId>org.apache.deltaspike.cdictrl</groupId>-->
+        <!--<artifactId>deltaspike-test-control-module-restclientapi</artifactId>-->
+        <!--<version>${deltaspike.version}</version>-->
+        <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.apache.deltaspike.cdictrl</groupId>-->
+        <!--<artifactId>deltaspike-test-control-module-impl</artifactId>-->
+        <!--<version>${deltaspike.version}</version>-->
+        <!--<scope>test</scope>-->
+        <!--</dependency>-->
+
+        <!-- Deltaspike[] -->
+
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${version.lombok}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Joda time -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.10.1</version>
+        </dependency>
+        <!-- IBM ICU -->
+        <dependency>
+            <groupId>com.ibm.icu</groupId>
+            <artifactId>icu4j</artifactId>
+            <version>63.1</version>
+        </dependency>
+        <!-- Kumuluzee kafka-->
+        <!--<dependency>-->
+        <!--<groupId>com.kumuluz.ee.streaming</groupId>-->
+        <!--<artifactId>kumuluzee-streaming-kafka</artifactId>-->
+        <!--<version>${kumuluzee-streaming-kafka.version}</version>-->
+        <!--</dependency>-->
+
+        <!--******************************  BMI REQUIREMENT  ********************************** -->
+        <!-- drop wizard metrics-->
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-core</artifactId>
+            <version>${version.dropwizard}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-servlets</artifactId>
+            <version>${version.dropwizard}</version>
+        </dependency>
+        <!-- Junit -->
+
+        <dependency>
+
+            <groupId>org.jboss.arquillian.junit</groupId>
+
+            <artifactId>arquillian-junit-container</artifactId>
+
+            <scope>test</scope>
+
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- TestNG -->
+        <dependency>
+            <groupId>org.jboss.arquillian.testng</groupId>
+            <artifactId>arquillian-testng-container</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.9.10</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- bmi audit -->
+        <dependency>
+            <groupId>ir.bmi.audit</groupId>
+            <artifactId>audit-client</artifactId>
+            <version>2.0.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-annotations</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- bmi security -->
+        <dependency>
+            <groupId>ir.bmi.identity</groupId>
+            <artifactId>client-security-api</artifactId>
+            <version>3.4.6</version>
+        </dependency>
+        <!-- bmi logging -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!--******************************  BMI REQUIREMENT  ********************************** -->
+    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jboss.arquillian</groupId>
+                <artifactId>arquillian-bom</artifactId>
+                <version>1.1.14.Final</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.deltaspike.distribution</groupId>
+                <artifactId>distributions-bom</artifactId>
+                <version>${deltaspike.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.openliberty.features</groupId>
+                <artifactId>features-bom</artifactId>
+                <version>RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.2</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <packagingExcludes>pom.xml</packagingExcludes>
+                </configuration>
+            </plugin>
+            <!-- Plugin to run unit tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.18.1</version>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <id>default-test</id>
+                        <configuration>
+                            <excludes>
+                                <exclude>**/it/**</exclude>
+                            </excludes>
+                            <reportsDirectory>${project.build.directory}/test-reports/unit</reportsDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Enable liberty-maven plugin -->
+            <plugin>
+                <groupId>net.wasdev.wlp.maven.plugins</groupId>
+                <artifactId>liberty-maven-plugin</artifactId>
+                <version>2.6.1</version>
+                <configuration>
+                    <assemblyArtifact>
+                        <groupId>io.openliberty</groupId>
+                        <artifactId>openliberty-runtime</artifactId>
+                        <version>RELEASE</version>
+                        <type>zip</type>
+                    </assemblyArtifact>
+                    <configFile>src/main/liberty/config/server.xml</configFile>
+                    <packageFile>${package.file}</packageFile>
+                    <include>${packaging.type}</include>
+                    <!-- tag::bootstrap[] -->
+                    <bootstrapProperties>
+                        <default.http.port>${testServerHttpPort}</default.http.port>
+                        <default.https.port>${testServerHttpsPort}</default.https.port>
+                        <app.context.root>${warContext}</app.context.root>
+                        <app.war.address>${war-address}</app.war.address>
+                        <external.lib.directory>${external-lib-directory}</external.lib.directory>
+                    </bootstrapProperties>
+                    <!-- end::bootstrap[] -->
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>install-liberty</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>install-server</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>install-app</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>install-apps</goal>
+                        </goals>
+                        <configuration>
+                            <looseApplication>true</looseApplication>
+                            <stripVersion>true</stripVersion>
+                            <installAppPackages>project</installAppPackages>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>start-server</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>test-start-server</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>stop-server</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>test-stop-server</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>package-app</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>package-server</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>target/wlp-package</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Plugin to run functional tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.18.1</version>
+                <executions>
+                    <execution>
+                        <phase>integration-test</phase>
+                        <id>integration-test</id>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>**/it/**</include>
+                            </includes>
+                            <!-- tag::testsysprops[] -->
+                            <systemPropertyVariables>
+                                <liberty.test.port>${testServerHttpPort}</liberty.test.port>
+                                <war.name>${warContext}</war.name>
+                            </systemPropertyVariables>
+                            <!-- end::testsysprops[] -->
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>verify-results</id>
+                        <goals>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <summaryFile>${project.build.directory}/test-reports/it/failsafe-summary.xml</summaryFile>
+                    <reportsDirectory>${project.build.directory}/test-reports/it</reportsDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
