@@ -22,7 +22,7 @@
         <warContext>${app.name}</warContext>
         <package.file>${project.build.directory}/${app.name}.zip</package.file>
         <packaging.type>usr</packaging.type>
-        <war-address>${project.build.directory}/baam-way-1.0-SNAPSHOT.war</war-address>
+        <war-address>${project.build.directory}/baam-way-payment-1.0-SNAPSHOT.war</war-address>
         <!-- Zipkin user feature download link -->
         <zipkin.usr.feature>
             https://github.com/WASdev/sample.opentracing.zipkintracer/releases/download/1.1/liberty-opentracing-zipkintracer-1.1-sample.zip
@@ -49,7 +49,7 @@
         <profile>
             <id>windows</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
                 <external-lib-directory>D:/externallib/</external-lib-directory>
@@ -62,16 +62,6 @@
             </activation>
             <properties>
                 <external-lib-directory></external-lib-directory>
-            </properties>
-        </profile>
-        <profile>
-            <id>dev</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <environment>dev</environment>
-                <web.port>8080</web.port>
             </properties>
         </profile>
         <profile>
@@ -260,6 +250,7 @@
             <!-- Arquillian WebSphere Liberty Profile support -->
             <groupId>io.openliberty.arquillian</groupId>
             <artifactId>arquillian-liberty-remote</artifactId>
+            <version>1.0.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
