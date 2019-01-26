@@ -1,4 +1,4 @@
-package ir.co.sadad.eb.resource;
+package ir.co.sadad.eb.config.restconfig;
 
 import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.enums.SecuritySchemeIn;

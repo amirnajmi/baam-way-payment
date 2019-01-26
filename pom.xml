@@ -39,8 +39,11 @@
         <version.dropwizard>4.0.5</version.dropwizard>
         <kumuluzee-logs.version>1.3.0</kumuluzee-logs.version>
         <version.dockerfile-maven-plugin>1.4.3</version.dockerfile-maven-plugin>
-    </properties>
+        <!-- Arquillian -->
+        <version.arquillian>1.1.13.Final</version.arquillian>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 
+    </properties>
 
     <profiles>
         <profile>
@@ -70,6 +73,22 @@
                 <environment>dev</environment>
                 <web.port>8080</web.port>
             </properties>
+        </profile>
+        <profile>
+            <id>arquillian-wlp-managed</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.jboss.arquillian.container</groupId>
+                    <artifactId>arquillian-wlp-managed-8.5</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.jboss.spec</groupId>
+                    <artifactId>jboss-javaee-6.0</artifactId>
+                    <type>pom</type>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
         </profile>
         <!-- tag::profile-docker-image[] -->
         <!--<profile>-->
@@ -103,6 +122,7 @@
 
     </profiles>
 
+
     <dependencies>
         <!-- Microprofile -->
         <dependency>
@@ -114,7 +134,7 @@
         </dependency>
 
 
-        <!-- hazelcast -->
+        <!-- tag::hazelcast[] -->
         <dependency>
             <groupId>com.hazelcast</groupId>
             <artifactId>hazelcast</artifactId>
@@ -127,6 +147,7 @@
             <version>3.7.2</version>
             <scope>compile</scope>
         </dependency>
+        <!-- end::hazelcast[] -->
 
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -145,14 +166,8 @@
             <version>${version.javaee}</version>
             <scope>provided</scope>
         </dependency>
-        <!-- Eclipselink -->
-        <!--<dependency>-->
-        <!--<groupId>org.eclipse.persistence</groupId>-->
-        <!--<artifactId>eclipselink</artifactId>-->
-        <!--<version>2.7.3</version>-->
-        <!--</dependency>-->
 
-        <!-- Hibernate -->
+        <!-- tag::Hibernate[] -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
@@ -164,8 +179,8 @@
             <version>5.4.0.Final</version>
             <scope>compile</scope>
         </dependency>
-
-        <!-- Deltaspike[] -->
+        <!-- tag::Hibernate[] -->
+        <!-- tag::Deltaspike[] -->
         <dependency>
             <groupId>org.apache.deltaspike.core</groupId>
             <artifactId>deltaspike-core-api</artifactId>
@@ -177,8 +192,7 @@
             <artifactId>deltaspike-core-impl</artifactId>
             <scope>runtime</scope>
         </dependency>
-
-        <!-- data & jpa -->
+            <!-- data & jpa -->
         <dependency>
             <groupId>org.apache.deltaspike.modules</groupId>
             <artifactId>deltaspike-jpa-module-api</artifactId>
@@ -198,24 +212,8 @@
             <groupId>org.apache.deltaspike.modules</groupId>
             <artifactId>deltaspike-data-module-impl</artifactId>
         </dependency>
-        <!-- data & jpa -->
-        <!-- Deltaspike[] -->
-
-        <!-- test module -->
-        <!--<dependency>-->
-        <!--<groupId>org.apache.deltaspike.cdictrl</groupId>-->
-        <!--<artifactId>deltaspike-test-control-module-restclientapi</artifactId>-->
-        <!--<version>${deltaspike.version}</version>-->
-        <!--<scope>test</scope>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>org.apache.deltaspike.cdictrl</groupId>-->
-        <!--<artifactId>deltaspike-test-control-module-impl</artifactId>-->
-        <!--<version>${deltaspike.version}</version>-->
-        <!--<scope>test</scope>-->
-        <!--</dependency>-->
-
-        <!-- Deltaspike[] -->
+            <!-- data & jpa -->
+        <!-- end::Deltaspike[] -->
 
         <!-- Lombok -->
         <dependency>
@@ -224,27 +222,78 @@
             <version>${version.lombok}</version>
             <scope>provided</scope>
         </dependency>
+
         <!-- Joda time -->
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
             <version>2.10.1</version>
         </dependency>
+
         <!-- IBM ICU -->
         <dependency>
             <groupId>com.ibm.icu</groupId>
             <artifactId>icu4j</artifactId>
             <version>63.1</version>
         </dependency>
-        <!-- Kumuluzee kafka-->
-        <!--<dependency>-->
-        <!--<groupId>com.kumuluz.ee.streaming</groupId>-->
-        <!--<artifactId>kumuluzee-streaming-kafka</artifactId>-->
-        <!--<version>${kumuluzee-streaming-kafka.version}</version>-->
-        <!--</dependency>-->
 
-        <!--******************************  BMI REQUIREMENT  ********************************** -->
-        <!-- drop wizard metrics-->
+        <!-- tag::test[] -->
+        <dependency>
+            <groupId>org.jboss.arquillian.graphene</groupId>
+            <artifactId>graphene-webdriver</artifactId>
+            <version>2.3.2</version>
+            <type>pom</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <scope>test</scope>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.junit</groupId>
+            <artifactId>arquillian-junit-container</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <!-- Arquillian WebSphere Liberty Profile support -->
+            <groupId>io.openliberty.arquillian</groupId>
+            <artifactId>arquillian-liberty-remote</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.jboss.arquillian.junit</groupId>-->
+                <!--<artifactId>arquillian-junit-container</artifactId>-->
+                <!--<scope>test</scope>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.jboss.arquillian.testng</groupId>-->
+                <!--<artifactId>arquillian-testng-container</artifactId>-->
+                <!--<scope>test</scope>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.testng</groupId>-->
+                <!--<artifactId>testng</artifactId>-->
+                <!--<version>6.9.10</version>-->
+                <!--<scope>test</scope>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>io.openliberty.arquillian</groupId>-->
+                <!--<artifactId>arquillian-liberty-managed-junit</artifactId>-->
+                <!--<version>1.0</version>-->
+                <!--<type>pom</type>-->
+                <!--<scope>test</scope>-->
+            <!--</dependency>-->
+        <!-- end::test[] -->
+
+        <!-- tag::dropwizard[] -->
         <dependency>
             <groupId>io.dropwizard.metrics</groupId>
             <artifactId>metrics-core</artifactId>
@@ -255,36 +304,9 @@
             <artifactId>metrics-servlets</artifactId>
             <version>${version.dropwizard}</version>
         </dependency>
-        <!-- Junit -->
+        <!-- end::dropwizard[] -->
 
-        <dependency>
-
-            <groupId>org.jboss.arquillian.junit</groupId>
-
-            <artifactId>arquillian-junit-container</artifactId>
-
-            <scope>test</scope>
-
-        </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- TestNG -->
-        <dependency>
-            <groupId>org.jboss.arquillian.testng</groupId>
-            <artifactId>arquillian-testng-container</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>6.9.10</version>
-            <scope>test</scope>
-        </dependency>
+        <!--******************************  BMI REQUIREMENT  ********************************** -->
         <!-- bmi audit -->
         <dependency>
             <groupId>ir.bmi.audit</groupId>
@@ -322,14 +344,20 @@
 
         <!--******************************  BMI REQUIREMENT  ********************************** -->
     </dependencies>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.jboss.arquillian</groupId>
                 <artifactId>arquillian-bom</artifactId>
-                <version>1.1.14.Final</version>
                 <type>pom</type>
                 <scope>import</scope>
+                <version>${version.arquillian}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.arquillian.container</groupId>
+                <artifactId>arquillian-container-test-api</artifactId>
+                <version>${version.arquillian}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.deltaspike.distribution</groupId>
@@ -350,6 +378,31 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${endorsed.dir}</outputDirectory>
+                            <silent>true</silent>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>javax</groupId>
+                                    <artifactId>javaee-endorsed-api</artifactId>
+                                    <version>7.0</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -1,9 +1,12 @@
-package ir.co.sadad.eb.resource.dto;
+package ir.co.sadad.eb.service.dto;
+
+import lombok.Data;
 
 import javax.validation.constraints.NotNull;
 
 
-public class StatusDto {
+@Data
+public class StatusDTO {
 
     @NotNull
     private Short statusCode;

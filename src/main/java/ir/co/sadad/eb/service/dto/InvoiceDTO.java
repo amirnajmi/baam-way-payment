@@ -1,11 +1,11 @@
-package ir.co.sadad.eb.resource.dto;
+package ir.co.sadad.eb.service.dto;
 
 import lombok.Data;
 
 import java.time.LocalDate;
 
 @Data
-public class BillMasterDto {
+public class InvoiceDTO {
 
     private String Date ;
     private LocalDate billDate ;

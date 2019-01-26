@@ -11,6 +11,8 @@
         <feature>adminCenter-1.0</feature>
         <feature>websocket-1.1</feature>
         <feature>ejbLite-3.2</feature>
+        <feature>webProfile-7.0</feature>
+        <feature>restConnector-2.0</feature>
     </featureManager>
     <applicationManager autoExpand="true" />
     <quickStartSecurity userName="admin" userPassword="adminpwd" />
@@ -42,5 +44,10 @@
         <user>admin</user>
     </administrator-role>
     <opentracingZipkin host="localhost" port="9411" />
+    <!-- This section is needed to allow upload of files to the dropins directory, the remote container adapter relies on this configuration -->
+    <remoteFileAccess>
+        <writeDir>${server.config.dir}/dropins</writeDir>
+    </remoteFileAccess>
+
 
 </server>
