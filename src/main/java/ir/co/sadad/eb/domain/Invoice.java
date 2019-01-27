@@ -1,18 +1,22 @@
-package ir.co.sadad.eb.service.dto;
+package ir.co.sadad.eb.domain;
 
-import lombok.Data;
-
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDate;
+@Entity
+public class Invoice {
 
-@Data
-public class InvoiceDTO {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     //    تاریخ صورتحساب
     private LocalDate invoiceDate;
     //    تاریخ
     private LocalDate date;
     //    شرکت حمل
-    private String shippingCompanyCode;
+    private ShippingCompany shippingCompany;
     //    کد نوع فرآیند
     private String processKindCode;
     //    شماره قرارداد

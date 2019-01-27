@@ -8,7 +8,6 @@
         <feature>appSecurity-3.0</feature>
         <feature>jpa-2.2</feature>
         <feature>localConnector-1.0</feature>
-        <feature>adminCenter-1.0</feature>
         <feature>websocket-1.1</feature>
         <feature>ejbLite-3.2</feature>
         <feature>restConnector-2.0</feature>
@@ -17,7 +16,7 @@
     <quickStartSecurity userName="admin" userPassword="adminpwd" />
     <!-- <httpEndpoint httpPort="8083" httpsPort="8444" id="defaultHttpEndpoint" host="*" /> -->
     <!-- artifact properties -->
-    <webApplication  location="${app.war.address}" contextRoot="baam-way-payment" />
+    <webApplication  location="${app.war.address}" contextRoot="" />
     <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
     <httpEndpoint id="defaultHttpEndpoint" host="*" httpPort="9030" httpsPort="9443" />
     <jpa defaultPersistenceProvider="org.eclipse.persistence.jpa.PersistenceProvider" />

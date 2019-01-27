@@ -9,35 +9,36 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import javax.inject.Inject;
 import javax.validation.Valid;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("bill")
+@Path("/invoice")
 public class InvoiceResource {
 
     @Inject
     private InvoiceService invoiceService;
 
     @Timed
-    @Operation(summary = "authenticate the credential")
+    @Operation(summary = "create invoice")
     @APIResponse(responseCode = "200", description = "OK")
     @APIResponse(responseCode = "401", description = "Unauthorized")
-    @Path("/authenticate")
+    @Path("/create")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
-    public Response createBill(@Valid InvoiceDTO invoiceDTO) {
-        return null;
+    public Response createInvoice(@Valid InvoiceDTO invoiceDTO) {
+        return Response.ok(invoiceService.createInvoice(invoiceDTO)).build();
     }
     @Timed
-    @Operation(summary = "authenticate the credential")
+    @Operation(summary = "get invoice by its code")
     @APIResponse(responseCode = "200", description = "OK")
     @APIResponse(responseCode = "401", description = "Unauthorized")
-    @Path("/authenticate")
-    @POST
+    @Path("/getInvoiceByCode")
+    @GET
     @Consumes({MediaType.APPLICATION_JSON})
-    public Response getBill(@Valid InvoiceDTO invoiceDTO) {
+    public Response getInvoice(@Valid String invoiceCode) {
         return null;
     }
 

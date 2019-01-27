@@ -1,22 +1,17 @@
 package ir.co.sadad.eb.resource;
 
-import ir.co.sadad.eb.domain.Status;
 import ir.co.sadad.eb.restclient.restclientapi.HotelRestClient;
 import ir.co.sadad.eb.restclient.restclientapi.TestRestClient;
 import ir.co.sadad.eb.service.StatusService;
-import ir.co.sadad.eb.util.qualifier.TransactionDebugger;
 import org.eclipse.microprofile.opentracing.Traced;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.slf4j.Logger;
 
 import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.Optional;
 
 @Path("/test")
 @Traced
@@ -49,9 +44,10 @@ public class TestResource {
     @Path("getStatusByCode/{statusCode}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getStatus(@PathParam("statusCode") Short statusCode) {
-        Status statusByTitle = statusService.getStatusByCode(statusCode);
-        log.info("*********************************");
-        return Response.ok().entity(statusByTitle).build();
+//        Status statusByTitle = statusService.getStatusByCode(statusCode);
+//        log.info("*********************************");
+//        return Response.ok().entity(statusByTitle).build();
+        return null;
     }
 
     @Traced
@@ -59,9 +55,10 @@ public class TestResource {
     @Path("getStatus1/{title}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getStatus1(@PathParam("title") String title) {
-        Optional<Status> statusByTitle1 = statusService.getStatusByTitle1(title);
-        log.info("*********************************");
-        return Response.ok().entity(statusByTitle1).build();
+//        Optional statusByTitle1 = statusService.getStatusByTitle1(title);
+//        log.info("*********************************");
+//        return Response.ok().entity(statusByTitle1).build();
+        return null ;
     }
 
     @GET
@@ -83,23 +80,26 @@ public class TestResource {
     @Path("findAll")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findAll() {
-        return Response.ok(statusService.findAll()).build();
+//        return Response.ok(statusService.findAll()).build();
+        return null;
     }
 
     @POST
-    @Path("create")
+    @Path("createInvoice")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response create(Status status){
-        return Response.ok(statusService.createStatus(status)).build();
+    public Response create(){
+//        return Response.ok(statusService.createStatus(status)).build();
+        return null;
     }
 
     @DELETE
     @Path("deleteStatus")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public void deleteStatus(Status status){
-        statusService.deleteStatus(status);
+    public void deleteStatus(){
+//        statusService.deleteStatus(status);
+
     }
 
 }

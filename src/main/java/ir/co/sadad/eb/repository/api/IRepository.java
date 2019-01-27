@@ -4,6 +4,8 @@ import org.apache.deltaspike.data.api.FullEntityRepository;
 import org.apache.deltaspike.data.api.criteria.CriteriaSupport;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Optional;
 
-public interface IRepository<T,Id extends Serializable> extends FullEntityRepository<T,Id>  {
+public interface IRepository<E,Id extends Serializable> extends FullEntityRepository<E,Id>  {
 }
