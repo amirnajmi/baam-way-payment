@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 @Mapper
 public interface InvoiceMapper {
 
-    Invoice asInvoice(InvoiceDTO invoiceDTO);
-    InvoiceDTO asDto(Invoice invoice);
+    Invoice invoiceDtoToInvoice(InvoiceDTO invoiceDTO);
+    InvoiceDTO invoiceToInvoiceDto(Invoice invoice);
 
 }

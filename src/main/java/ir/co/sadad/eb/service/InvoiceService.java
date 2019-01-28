@@ -29,7 +29,7 @@ public class InvoiceService extends AbstractGenericService<Invoice,Long> {
     }
 
     public InvoiceDTO createInvoice(InvoiceDTO invoiceDTO){
-        Invoice invoice = invoiceMapper.asInvoice(invoiceDTO);
+        Invoice invoice = invoiceMapper.invoiceDtoToInvoice(invoiceDTO);
         System.out.println("test");
         return null;
     }

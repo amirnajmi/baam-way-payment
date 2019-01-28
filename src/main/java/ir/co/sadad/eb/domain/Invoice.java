@@ -1,12 +1,15 @@
 package ir.co.sadad.eb.domain;
 
+import org.joda.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.time.LocalDate;
+import java.io.Serializable;
+
 @Entity
-public class Invoice {
+public class Invoice implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

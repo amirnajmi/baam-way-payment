@@ -1,17 +1,16 @@
 package ir.co.sadad.eb.resource.v1;
 
+import ir.co.sadad.eb.domain.Invoice;
 import ir.co.sadad.eb.service.InvoiceService;
 import ir.co.sadad.eb.service.dto.InvoiceDTO;
 import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
+import org.joda.time.LocalDate;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -28,7 +27,8 @@ public class InvoiceResource {
     @Path("/create")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
-    public Response createInvoice(@Valid InvoiceDTO invoiceDTO) {
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response createInvoice(InvoiceDTO invoiceDTO) {
         return Response.ok(invoiceService.createInvoice(invoiceDTO)).build();
     }
     @Timed
@@ -38,8 +38,9 @@ public class InvoiceResource {
     @Path("/getInvoiceByCode")
     @GET
     @Consumes({MediaType.APPLICATION_JSON})
-    public Response getInvoice(@Valid String invoiceCode) {
-        return null;
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response getInvoice(@Valid @QueryParam("invoiceCode") String invoiceCode) {
+        return Response.ok(LocalDate.now()).build();
     }
 
 }
