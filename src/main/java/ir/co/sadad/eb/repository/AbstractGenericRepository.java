@@ -9,11 +9,10 @@ import java.io.Serializable;
 
 public abstract class AbstractGenericRepository<E, ID extends Serializable> implements IRepository<E,ID>{
 
-    private final Class<E> entityClass;
+    private final Class<E> entityClass ;
 
     public AbstractGenericRepository(Class<E> entityClass) {
         this.entityClass = entityClass;
     }
-
 
 }

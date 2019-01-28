@@ -20,7 +20,6 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <!-- tag::appdetails[] -->
         <app.name>baam-way-payment</app.name>
-        <app.name>baam-way-payment</app.name>
         <testServerHttpPort>9080</testServerHttpPort>
         <testServerHttpsPort>9443</testServerHttpsPort>
         <!-- end::appdetails[] -->
@@ -47,6 +46,9 @@
         <!-- Arquillian -->
         <version.arquillian>1.1.13.Final</version.arquillian>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <!-- MapStruct -->
+        <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
+
 
     </properties>
 
@@ -273,23 +275,12 @@
             <version>${version.dropwizard}</version>
         </dependency>
         <!-- end::dropwizard[] -->
-        <!-- tag::Selma[]-->
-        <dependency>
-            <groupId>fr.xebia.extras</groupId>
-            <artifactId>selma-processor</artifactId>
-            <version>1.0</version>
-            <scope>provided</scope>
-        </dependency>
 
-        <!-- This is the only real dependency you will have in your binaries -->
         <dependency>
-            <groupId>fr.xebia.extras</groupId>
-            <artifactId>selma</artifactId>
-            <version>1.0</version>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId> <!-- use mapstruct-jdk8 for Java 8 or higher -->
+            <version>${org.mapstruct.version}</version>
         </dependency>
-        <!-- end::Selma[]-->
-        <!-- https://mvnrepository.com/artifact/javax.jnlp/jnlp -->
-
 
         <!--******************************  BMI REQUIREMENT  ********************************** -->
         <!-- bmi audit -->
@@ -363,6 +354,24 @@
 
     <build>
         <plugins>
+            <!-- tag::compilerPlugin[]-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>1.8</source> <!-- or higher, depending on your project -->
+                    <target>1.8</target> <!-- or higher, depending on your project -->
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${org.mapstruct.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+            <!-- end::compilerPlugin[]-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -559,36 +568,6 @@
                 </configuration>
             </plugin>
             <!-- end::arquillian plugin -->
-            <!--<plugin>-->
-                <!--<groupId>org.bsc.maven</groupId>-->
-                <!--<artifactId>maven-processor-plugin</artifactId>-->
-                <!--<version>3.3.3</version>-->
-                <!--<configuration>-->
-                    <!--<defaultOutputDirectory>-->
-                        <!--${project.build.directory}/generated-sources/selma-->
-                    <!--</defaultOutputDirectory>-->
-                    <!--<processors>-->
-                        <!--<processor>lombok.launch.AnnotationProcessorHider$AnnotationProcessor</processor>-->
-                        <!--<processor>fr.xebia.extras.selma.codegen.MapperProcessor</processor>-->
-                    <!--</processors>-->
-                <!--</configuration>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>process</id>-->
-                        <!--<phase>generate-sources</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>process</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-                <!--<dependencies>-->
-                    <!--<dependency>-->
-                        <!--<groupId>fr.xebia.extras</groupId>-->
-                        <!--<artifactId>selma-processor</artifactId>-->
-                        <!--<version>1.0</version>-->
-                    <!--</dependency>-->
-                <!--</dependencies>-->
-            <!--</plugin>-->
         </plugins>
     </build>
 
