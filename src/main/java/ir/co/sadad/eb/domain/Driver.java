@@ -1,6 +1,7 @@
 package ir.co.sadad.eb.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Driver" ,schema = "TEST")
@@ -39,6 +40,11 @@ public class Driver {
     @OneToOne(targetEntity = Account.class)
     private Account account;
 
+    @OneToOne(targetEntity = Vehicle.class, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "VEHICLE_ID")
     private Vehicle vehicle;
+
+    @ManyToMany(mappedBy = "drivers")
+    private List<LadingOfBill> ladingOfBills;
 
 }
