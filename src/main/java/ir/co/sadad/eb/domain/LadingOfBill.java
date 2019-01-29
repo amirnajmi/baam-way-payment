@@ -3,6 +3,10 @@ package ir.co.sadad.eb.domain;
 import lombok.Data;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
