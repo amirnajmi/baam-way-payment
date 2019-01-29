@@ -281,6 +281,13 @@
             <artifactId>mapstruct</artifactId> <!-- use mapstruct-jdk8 for Java 8 or higher -->
             <version>${org.mapstruct.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>${org.mapstruct.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
 
         <!--******************************  BMI REQUIREMENT  ********************************** -->
         <!-- bmi audit -->
@@ -568,6 +575,7 @@
                 </configuration>
             </plugin>
             <!-- end::arquillian plugin -->
+
         </plugins>
     </build>
 

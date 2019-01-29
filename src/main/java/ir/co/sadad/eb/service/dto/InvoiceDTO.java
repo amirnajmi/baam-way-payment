@@ -2,6 +2,7 @@ package ir.co.sadad.eb.service.dto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 //todo don't use lombok in dtos
 
@@ -11,11 +12,10 @@ public class InvoiceDTO implements Serializable {
     public InvoiceDTO() {
     }
 
+    private Long id;
     //    تاریخ صورتحساب
-
     private LocalDate invoiceDate;
     //    تاریخ
-
     private LocalDate date;
     //    شرکت حمل
     private String shippingCompanyCode;
@@ -25,6 +25,15 @@ public class InvoiceDTO implements Serializable {
     private String contractNumber;
     //    شماره صورتحساب
     private String invoiceNumber;
+    private List<InvoiceDetailDTO> invoiceDetailDTOList;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public LocalDate getInvoiceDate() {
         return invoiceDate;
@@ -72,5 +81,13 @@ public class InvoiceDTO implements Serializable {
 
     public void setInvoiceNumber(String invoiceNumber) {
         this.invoiceNumber = invoiceNumber;
+    }
+
+    public List<InvoiceDetailDTO> getInvoiceDetailDTOList() {
+        return invoiceDetailDTOList;
+    }
+
+    public void setInvoiceDetailDTOList(List<InvoiceDetailDTO> invoiceDetailDTOList) {
+        this.invoiceDetailDTOList = invoiceDetailDTOList;
     }
 }
