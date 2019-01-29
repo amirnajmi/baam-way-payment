@@ -2,14 +2,19 @@ package ir.co.sadad.eb.domain;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
 @Data
-public class LadingOfBill {
+@Table(name = "LADING_OF_BILL")
+public class LadingOfBill implements Serializable {
 
-    private int ladingBillId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long ladingBillId;
+
     //تاریخ بارنامه
     private LocalDate ladingBillDate;
     //شماره بارنامه
