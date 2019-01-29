@@ -288,7 +288,11 @@
             <scope>provided</scope>
         </dependency>
 
-
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>swagger-ui</artifactId>
+            <version>3.17.4</version>
+        </dependency>
         <!--******************************  BMI REQUIREMENT  ********************************** -->
         <!-- bmi audit -->
         <dependency>

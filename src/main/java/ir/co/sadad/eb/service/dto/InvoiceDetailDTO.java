@@ -7,29 +7,30 @@ public class InvoiceDetailDTO {
 
     private Integer id;
     //     شماره ورود
-    private String loadCode;
+//    private String loadCode;
     //     شماره خروح
-    private String departureCode;
+//    private String departureCode;
     //    نام وسیله حمل کننده اولیه بار(کشتی)
-    private String sourceVehicleName;
+//    private String sourceVehicleName;
     //    انبار مبدا
-    private String sourceStoreHouse;
+//    private String sourceStoreHouse;
     //    انبار مقصد
-    private String destinationStoreHouse;
+//    private String destinationStoreHouse;
     //    کد استان مبدا
-    private String sourceProvinceCode;
+//    private String sourceProvinceCode;
     //    کد استان مقصد
-    private String destinationProvinceCode;
+//    private String destinationProvinceCode;
     //    عوارض
-    private Double receipt;
+//    private Double receipt;
     //    پلاک یا شماره وسیله نقلیه حامل
-    private String vehicleTag;
+//    private String vehicleTag;
     //    شماره بارنامه
     private String ladingOfBillCode;
+    private String ladingOfBillSeries;
     //  وزن خروج از مبدا
-    private Double departureWeight;
+//    private Double departureWeight;
     //  وزن ورود به مقصد
-    private Double loadWeight;
+//    private Double loadWeight;
     //  کسری مجاز
     private Double allowedDeficit;
     // کسری غیرمجاز
@@ -51,7 +52,7 @@ public class InvoiceDetailDTO {
     // مبلغ غرامت نرسیده :|
     private Double feeOfNotArrivedIndemnity;
     // مسافت
-    private Double distance ;
+//    private Double distance ;
 
     public Integer getId() {
         return id;
@@ -61,77 +62,77 @@ public class InvoiceDetailDTO {
         this.id = id;
     }
 
-    public String getLoadCode() {
-        return loadCode;
-    }
+//    public String getLoadCode() {
+//        return loadCode;
+//    }
+//
+//    public void setLoadCode(String loadCode) {
+//        this.loadCode = loadCode;
+//    }
+//
+//    public String getDepartureCode() {
+//        return departureCode;
+//    }
+//
+//    public void setDepartureCode(String departureCode) {
+//        this.departureCode = departureCode;
+//    }
 
-    public void setLoadCode(String loadCode) {
-        this.loadCode = loadCode;
-    }
+//    public String getSourceVehicleName() {
+//        return sourceVehicleName;
+//    }
+//
+//    public void setSourceVehicleName(String sourceVehicleName) {
+//        this.sourceVehicleName = sourceVehicleName;
+//    }
 
-    public String getDepartureCode() {
-        return departureCode;
-    }
+//    public String getSourceStoreHouse() {
+//        return sourceStoreHouse;
+//    }
 
-    public void setDepartureCode(String departureCode) {
-        this.departureCode = departureCode;
-    }
+//    public void setSourceStoreHouse(String sourceStoreHouse) {
+//        this.sourceStoreHouse = sourceStoreHouse;
+//    }
 
-    public String getSourceVehicleName() {
-        return sourceVehicleName;
-    }
+//    public String getDestinationStoreHouse() {
+//        return destinationStoreHouse;
+//    }
 
-    public void setSourceVehicleName(String sourceVehicleName) {
-        this.sourceVehicleName = sourceVehicleName;
-    }
+//    public void setDestinationStoreHouse(String destinationStoreHouse) {
+//        this.destinationStoreHouse = destinationStoreHouse;
+//    }
 
-    public String getSourceStoreHouse() {
-        return sourceStoreHouse;
-    }
+//    public String getSourceProvinceCode() {
+//        return sourceProvinceCode;
+//    }
 
-    public void setSourceStoreHouse(String sourceStoreHouse) {
-        this.sourceStoreHouse = sourceStoreHouse;
-    }
+//    public void setSourceProvinceCode(String sourceProvinceCode) {
+//        this.sourceProvinceCode = sourceProvinceCode;
+//    }
 
-    public String getDestinationStoreHouse() {
-        return destinationStoreHouse;
-    }
+//    public String getDestinationProvinceCode() {
+//        return destinationProvinceCode;
+//    }
 
-    public void setDestinationStoreHouse(String destinationStoreHouse) {
-        this.destinationStoreHouse = destinationStoreHouse;
-    }
+//    public void setDestinationProvinceCode(String destinationProvinceCode) {
+//        this.destinationProvinceCode = destinationProvinceCode;
+//    }
 
-    public String getSourceProvinceCode() {
-        return sourceProvinceCode;
-    }
+//    public Double getReceipt() {
+//        return receipt;
+//    }
 
-    public void setSourceProvinceCode(String sourceProvinceCode) {
-        this.sourceProvinceCode = sourceProvinceCode;
-    }
+//    public void setReceipt(Double receipt) {
+//        this.receipt = receipt;
+//    }
 
-    public String getDestinationProvinceCode() {
-        return destinationProvinceCode;
-    }
+//    public String getVehicleTag() {
+//        return vehicleTag;
+//    }
 
-    public void setDestinationProvinceCode(String destinationProvinceCode) {
-        this.destinationProvinceCode = destinationProvinceCode;
-    }
-
-    public Double getReceipt() {
-        return receipt;
-    }
-
-    public void setReceipt(Double receipt) {
-        this.receipt = receipt;
-    }
-
-    public String getVehicleTag() {
-        return vehicleTag;
-    }
-
-    public void setVehicleTag(String vehicleTag) {
-        this.vehicleTag = vehicleTag;
-    }
+//    public void setVehicleTag(String vehicleTag) {
+//        this.vehicleTag = vehicleTag;
+//    }
 
     public String getLadingOfBillCode() {
         return ladingOfBillCode;
@@ -141,21 +142,21 @@ public class InvoiceDetailDTO {
         this.ladingOfBillCode = ladingOfBillCode;
     }
 
-    public Double getDepartureWeight() {
-        return departureWeight;
-    }
+//    public Double getDepartureWeight() {
+//        return departureWeight;
+//    }
+//
+//    public void setDepartureWeight(Double departureWeight) {
+//        this.departureWeight = departureWeight;
+//    }
 
-    public void setDepartureWeight(Double departureWeight) {
-        this.departureWeight = departureWeight;
-    }
+//    public Double getLoadWeight() {
+//        return loadWeight;
+//    }
 
-    public Double getLoadWeight() {
-        return loadWeight;
-    }
-
-    public void setLoadWeight(Double loadWeight) {
-        this.loadWeight = loadWeight;
-    }
+//    public void setLoadWeight(Double loadWeight) {
+//        this.loadWeight = loadWeight;
+//    }
 
     public Double getAllowedDeficit() {
         return allowedDeficit;
@@ -237,11 +238,11 @@ public class InvoiceDetailDTO {
         this.feeOfNotArrivedIndemnity = feeOfNotArrivedIndemnity;
     }
 
-    public Double getDistance() {
-        return distance;
-    }
+//    public Double getDistance() {
+//        return distance;
+//    }
 
-    public void setDistance(Double distance) {
-        this.distance = distance;
-    }
+//    public void setDistance(Double distance) {
+//        this.distance = distance;
+//    }
 }

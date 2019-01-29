@@ -15,8 +15,6 @@ public class InvoiceDTO implements Serializable {
     private Long id;
     //    تاریخ صورتحساب
     private LocalDate invoiceDate;
-    //    تاریخ
-    private LocalDate date;
     //    شرکت حمل
     private String shippingCompanyCode;
     //    کد نوع فرآیند
@@ -41,14 +39,6 @@ public class InvoiceDTO implements Serializable {
 
     public void setInvoiceDate(LocalDate invoiceDate) {
         this.invoiceDate = invoiceDate;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
     }
 
     public String getShippingCompanyCode() {

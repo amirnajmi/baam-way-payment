@@ -1,0 +1,17 @@
+paths:
+  /resources/invoice/create
+    post:
+      summary: ایجاد صورتحساب
+      parameters:
+        in: body
+        name: InvoiceDto
+        description: صورتحسابی که قرار است ایجاد شود
+        schema:
+          type: object
+          properties:
+            invoiceDate:
+              type: string
+              description: تاریخ صورتحساب
+      responses:
+        200: ok
+        201: created
