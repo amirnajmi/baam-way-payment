@@ -3,12 +3,12 @@ package ir.co.sadad.eb.domain;
 import lombok.Data;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
@@ -22,6 +22,7 @@ public class LadingOfBill implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long ladingBillId;
+
 
     //تاریخ بارنامه
     @Column(name = "LADING_BILL_DATE")
@@ -70,7 +71,6 @@ public class LadingOfBill implements Serializable {
     @Column(name = "SHIPPING_COMPANY_CONTRIBUTION")
     //سهم شرکت حمل
     private Double shippingCompanyContribution;
-
    @ManyToMany(cascade = {
            CascadeType.PERSIST,
            CascadeType.MERGE

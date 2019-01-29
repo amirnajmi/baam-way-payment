@@ -3,7 +3,9 @@ package ir.co.sadad.eb.service.dto;
 //todo don't use lombok in dtos
 
 
-public class InvoiceDetailDTO {
+import java.io.Serializable;
+
+public class InvoiceDetailDTO implements Serializable {
 
     private Integer id;
     //     شماره ورود

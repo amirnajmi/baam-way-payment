@@ -1,6 +1,8 @@
 package ir.co.sadad.eb.service.dto;
 
-public class LadingBillStatusDto {
+import java.io.Serializable;
+
+public class LadingBillStatusDto implements Serializable {
 
     private Integer code;
     private String Title;

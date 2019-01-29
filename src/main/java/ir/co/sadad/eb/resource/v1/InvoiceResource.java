@@ -45,4 +45,6 @@ public class InvoiceResource {
         return Response.ok(LocalDate.now()).build();
     }
 
+
+
 }

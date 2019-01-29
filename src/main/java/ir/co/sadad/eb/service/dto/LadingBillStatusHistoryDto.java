@@ -2,7 +2,9 @@ package ir.co.sadad.eb.service.dto;
 
 import org.joda.time.LocalDate;
 
-public class LadingBillStatusHistoryDto {
+import java.io.Serializable;
+
+public class LadingBillStatusHistoryDto implements Serializable {
 
     private Long id;
     private String description;
