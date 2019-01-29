@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "LADING_BILL_STATUS_HISTORY", schema = "TEST")
-@Data
+//@Data
 public class LadingBillStatusHistory {
 
     @Id
@@ -30,4 +30,44 @@ public class LadingBillStatusHistory {
     @Basic
     @Column(name = "DATE")
     private LocalDate date;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LadingOfBill getLadingOfBill() {
+        return ladingOfBill;
+    }
+
+    public void setLadingOfBill(LadingOfBill ladingOfBill) {
+        this.ladingOfBill = ladingOfBill;
+    }
+
+    public LadingBillStatus getLadingBillStatus() {
+        return ladingBillStatus;
+    }
+
+    public void setLadingBillStatus(LadingBillStatus ladingBillStatus) {
+        this.ladingBillStatus = ladingBillStatus;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 }

@@ -45,19 +45,6 @@ public class InvoiceResource {
         return Response.ok(LocalDate.now()).build();
     }
 
-   /* @Timed
-    @Operation(summary = "تغییر وضعیت صورتحساب")
-    @APIResponse(responseCode = "200", description = "OK")
-    @APIResponse(responseCode = "201", description = "update")
-    @APIResponse(responseCode = "401", description = "Unauthorized")
-    @APIResponse(responseCode = "500", description = "InternalError")
-    @APIResponse(responseCode = "")
-    @Path("/update")
-    @PUT
-    @Consumes({MediaType.APPLICATION_JSON})
-    @Produces({MediaType.APPLICATION_JSON})
-    public Response updateStatusInvoice(InvoiceDTO invoiceDTO) {
-        return Response.ok(invoiceService.updateStatusInvoice(invoiceDTO)).build();
-    }*/
+
 
 }

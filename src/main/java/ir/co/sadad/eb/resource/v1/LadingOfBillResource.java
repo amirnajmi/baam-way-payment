@@ -1,6 +1,7 @@
 package ir.co.sadad.eb.resource.v1;
 
 import ir.co.sadad.eb.service.api.ILadingOfBillService;
+import ir.co.sadad.eb.service.dto.LadingBillStatusHistoryDto;
 import ir.co.sadad.eb.service.dto.LadingOfBillDto;
 import ir.co.sadad.eb.service.dto.LadingOfBillUpdateDto;
 import org.eclipse.microprofile.metrics.annotation.Timed;
@@ -39,7 +40,7 @@ public class LadingOfBillResource {
     @PUT
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response update(LadingOfBillUpdateDto ladingOfBillUpdateDto) {
-        return Response.ok().entity(iLadingOfBillService.updateLadingOfBill(ladingOfBillUpdateDto)).build();
+    public Response update(LadingBillStatusHistoryDto ladingBillStatusHistoryDto) {
+        return Response.ok().entity(iLadingOfBillService.updateLadingOfBill(ladingBillStatusHistoryDto)).build();
     }
 }
