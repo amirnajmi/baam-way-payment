@@ -36,7 +36,9 @@ public class Driver {
     @Column(name = "TELL" , length=11, nullable=false)
     private String tell;
 
+    @OneToOne(targetEntity = Account.class)
     private Account account;
+
     private Vehicle vehicle;
 
 }

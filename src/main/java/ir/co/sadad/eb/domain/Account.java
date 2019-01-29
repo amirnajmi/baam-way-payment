@@ -2,12 +2,14 @@ package ir.co.sadad.eb.domain;
 
 import lombok.Data;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 //اطلاعات حساب
 @Data
+@Entity
 public class Account {
 
     @Id
