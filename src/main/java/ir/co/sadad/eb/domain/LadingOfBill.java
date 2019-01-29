@@ -38,7 +38,7 @@ public class LadingOfBill implements Serializable {
     //سهم راننده
     private Double driverContribution ;
     //سهم شرکت حمل
-    private Double shippingComponyContribution ;
+    private Double shippingCompanyContribution ;
     //راننده اول
     private Driver firstDriver;
     // راننده دوم
