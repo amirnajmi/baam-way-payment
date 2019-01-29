@@ -1,5 +1,6 @@
 package ir.co.sadad.eb.domain;
 
+import lombok.Data;
 import org.joda.time.LocalDate;
 
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 @Entity
+@Data
 public class Invoice implements Serializable {
 
     @Id

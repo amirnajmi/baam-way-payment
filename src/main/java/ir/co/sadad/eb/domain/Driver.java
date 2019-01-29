@@ -36,21 +36,7 @@ public class Driver {
     @Column(name = "TELL" , length=11, nullable=false)
     private String tell;
 
-    public String getDriverName() {
-        return driverName;
-    }
-
-    public void setDriverName(String driverName) {
-        this.driverName = driverName;
-    }
-
-    public int getDriverID() {
-        return driverID;
-    }
-
-    public void setDriverID(int driverID) {
-        driverID = driverID;
-    }
-
+    private Account account;
+    private Vehicle vehicle;
 
 }

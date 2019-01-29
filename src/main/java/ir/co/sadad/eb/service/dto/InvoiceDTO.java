@@ -1,12 +1,9 @@
 package ir.co.sadad.eb.service.dto;
 
-import org.codehaus.jackson.map.ext.JodaDeserializers;
-
-import javax.json.bind.annotation.JsonbCreator;
-import javax.json.bind.annotation.JsonbTypeDeserializer;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+//todo don't use lombok in dtos
 
 public class InvoiceDTO implements Serializable {
 
