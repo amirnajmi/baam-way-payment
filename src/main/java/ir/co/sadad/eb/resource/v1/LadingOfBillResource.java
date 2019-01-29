@@ -1,6 +1,5 @@
 package ir.co.sadad.eb.resource.v1;
 
-import ir.co.sadad.eb.service.LadingOfBillService;
 import ir.co.sadad.eb.service.api.ILadingOfBillService;
 import ir.co.sadad.eb.service.dto.LadingOfBillDto;
 import ir.co.sadad.eb.service.dto.LadingOfBillUpdateDto;
