@@ -1,4 +1,4 @@
-package ir.co.sadad.eb.service;
+package ir.co.sadad.eb.service.impl;
 
 import ir.co.sadad.eb.domain.Invoice;
 import ir.co.sadad.eb.domain.LadingOfBill;

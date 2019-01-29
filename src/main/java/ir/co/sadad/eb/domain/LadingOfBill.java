@@ -1,6 +1,7 @@
 package ir.co.sadad.eb.domain;
 
 import lombok.Data;
+import org.eclipse.microprofile.metrics.annotation.Counted;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,6 +14,7 @@ public class LadingOfBill implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID")
     private Long ladingBillId;
 
     //تاریخ بارنامه
