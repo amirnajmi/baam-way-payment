@@ -1,7 +1,6 @@
 package ir.co.sadad.eb.resource.v1;
 
-import ir.co.sadad.eb.domain.Invoice;
-import ir.co.sadad.eb.service.InvoiceService;
+import ir.co.sadad.eb.service.api.IInvoiceService;
 import ir.co.sadad.eb.service.dto.InvoiceDTO;
 import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.Operation;
@@ -18,12 +17,15 @@ import javax.ws.rs.core.Response;
 public class InvoiceResource {
 
     @Inject
-    private InvoiceService invoiceService;
+    private IInvoiceService invoiceService;
 
     @Timed
-    @Operation(summary = "create invoice")
+    @Operation(summary = "ایجاد صورتحساب به همراه جزئیات صورتحساب")
     @APIResponse(responseCode = "200", description = "OK")
+    @APIResponse(responseCode = "201", description = "Created")
     @APIResponse(responseCode = "401", description = "Unauthorized")
+    @APIResponse(responseCode = "500", description = "InternalError")
+    @APIResponse(responseCode = "")
     @Path("/create")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})

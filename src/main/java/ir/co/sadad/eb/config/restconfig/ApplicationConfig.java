@@ -3,6 +3,7 @@ package ir.co.sadad.eb.config.restconfig;
 import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.enums.SecuritySchemeIn;
 import org.eclipse.microprofile.openapi.annotations.enums.SecuritySchemeType;
+import org.eclipse.microprofile.openapi.annotations.info.Contact;
 import org.eclipse.microprofile.openapi.annotations.info.Info;
 import org.eclipse.microprofile.openapi.annotations.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.annotations.security.SecurityScheme;
@@ -18,8 +19,9 @@ import javax.ws.rs.core.Application;
 @ApplicationPath("resources")
 @OpenAPIDefinition(
         info = @Info(
-                title="USER SERVICE API",
-                version = "1.0"
+                title="baam-way-payment service",
+                version = "1.0",
+                contact = @Contact(name = "baamsan-group")
         ),
         security = @SecurityRequirement(name = "bearerAuth")
 )

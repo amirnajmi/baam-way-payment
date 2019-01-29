@@ -25,7 +25,7 @@ public class InvoiceDetailDTO {
     //    پلاک یا شماره وسیله نقلیه حامل
     private String vehicleTag;
     //    شماره بارنامه
-    private String wayBillCode;
+    private String ladingOfBillCode;
     //  وزن خروج از مبدا
     private Double departureWeight;
     //  وزن ورود به مقصد
@@ -133,12 +133,12 @@ public class InvoiceDetailDTO {
         this.vehicleTag = vehicleTag;
     }
 
-    public String getWayBillCode() {
-        return wayBillCode;
+    public String getLadingOfBillCode() {
+        return ladingOfBillCode;
     }
 
-    public void setWayBillCode(String wayBillCode) {
-        this.wayBillCode = wayBillCode;
+    public void setLadingOfBillCode(String ladingOfBillCode) {
+        this.ladingOfBillCode = ladingOfBillCode;
     }
 
     public Double getDepartureWeight() {
