@@ -33,10 +33,10 @@ public class LadingOfBillResource {
 
 
     @Timed
-    @Operation(summary = "create lading of bill")
+    @Operation(summary = "update lading of bill")
     @APIResponse(responseCode = "200", description = "OK")
     @APIResponse(responseCode = "401", description = "Unauthorized")
-    @Path("/create")
+    @Path("/update")
     @PUT
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
