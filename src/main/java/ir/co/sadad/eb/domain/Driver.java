@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Driver" ,schema = "TEST")
+@Table(name = "DRIVER" ,schema = "PUSH")
 public class Driver {
 
     @Id
@@ -17,9 +17,6 @@ public class Driver {
 
     @Column(name = "NATIONAL_CODE" , length=10, nullable=false)
     private String nationalCode;
-
-    @Column(name = "ACCOUNT_NO" , length=13, nullable=false)
-    private String accountNo;
 
     @Column(name = "SMART_CARD_NO" , length=30, nullable=false)
     private String smartCardNo;
@@ -71,13 +68,6 @@ public class Driver {
         this.nationalCode = nationalCode;
     }
 
-    public String getAccountNo() {
-        return accountNo;
-    }
-
-    public void setAccountNo(String accountNo) {
-        this.accountNo = accountNo;
-    }
 
     public String getSmartCardNo() {
         return smartCardNo;

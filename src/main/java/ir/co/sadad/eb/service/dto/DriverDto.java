@@ -16,8 +16,10 @@ public class DriverDto implements Serializable {
     // todo change to enum
     private String driverKind;
     private String tell;
-    private AccountDto accountDto;
+    private AccountDto account;
     private Vehicle vehicle;
+    private String licenceNo;
+    private String address ;
 
     public int getDriverID() {
         return driverID;
@@ -75,11 +77,27 @@ public class DriverDto implements Serializable {
         this.vehicle = vehicle;
     }
 
-    public AccountDto getAccountDto() {
-        return accountDto;
+    public AccountDto getAccount() {
+        return account;
     }
 
-    public void setAccountDto(AccountDto accountDto) {
-        this.accountDto = accountDto;
+    public void setAccount(AccountDto account) {
+        this.account = account;
+    }
+
+    public String getLicenceNo() {
+        return licenceNo;
+    }
+
+    public void setLicenceNo(String licenceNo) {
+        this.licenceNo = licenceNo;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
