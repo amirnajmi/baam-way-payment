@@ -1,7 +1,5 @@
 package ir.co.sadad.eb.service.dto;
 
-import ir.co.sadad.eb.domain.LadingOfBill;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;

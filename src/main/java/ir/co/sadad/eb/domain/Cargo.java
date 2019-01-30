@@ -1,7 +1,5 @@
 package ir.co.sadad.eb.domain;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.io.Serializable;
 

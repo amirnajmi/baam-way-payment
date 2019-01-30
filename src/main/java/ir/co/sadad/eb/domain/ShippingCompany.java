@@ -1,8 +1,5 @@
 package ir.co.sadad.eb.domain;
 
-import lombok.Data;
-import org.apache.deltaspike.data.api.audit.CreatedOn;
-
 import javax.persistence.*;
 
 @Entity
@@ -15,7 +12,6 @@ public class ShippingCompany {
     private Integer id;
     @Column(name = "NAME")
     private String name;
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "100")
     @Column(name = "COMPANY_CODE")
     private String companyCode;
 

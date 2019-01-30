@@ -8,9 +8,9 @@ import java.util.List;
 public class Driver {
 
     @Id
-    @Column(name = "DRIVER_ID")
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int driverID;
+    private Long id;
 
     @Column(name = "DRIVER_NAME" , length=50, nullable=false)
     private String driverName;
@@ -37,19 +37,19 @@ public class Driver {
     @OneToOne(targetEntity = Account.class)
     private Account account;
 
-    @OneToOne(targetEntity = Vehicle.class, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "VEHICLE_ID")
-    private Vehicle vehicle;
+//    @OneToOne(targetEntity = Vehicle.class, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+//    @JoinColumn(name = "VEHICLE_ID")
+//    private Vehicle vehicle;
 
     @ManyToMany(mappedBy = "drivers")
     private List<LadingOfBill> ladingOfBills;
 
-    public int getDriverID() {
-        return driverID;
+    public Long getId() {
+        return id;
     }
 
-    public void setDriverID(int driverID) {
-        this.driverID = driverID;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getDriverName() {
@@ -109,13 +109,6 @@ public class Driver {
         this.account = account;
     }
 
-    public Vehicle getVehicle() {
-        return vehicle;
-    }
-
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
-    }
 
     public List<LadingOfBill> getLadingOfBills() {
         return ladingOfBills;
