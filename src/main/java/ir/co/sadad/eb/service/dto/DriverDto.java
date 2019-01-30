@@ -3,13 +3,8 @@ package ir.co.sadad.eb.service.dto;
 
 //todo don't use lombok in dtos
 
-import ir.co.sadad.eb.domain.Account;
 import ir.co.sadad.eb.domain.Vehicle;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.io.Serializable;
 
 public class DriverDto implements Serializable {
@@ -17,12 +12,11 @@ public class DriverDto implements Serializable {
     private int driverID;
     private String driverName;
     private String nationalCode;
-    private String accountNo;
     private String smartCardNo;
     // todo change to enum
     private String driverKind;
     private String tell;
-    private Account account;
+    private AccountDto accountDto;
     private Vehicle vehicle;
 
     public int getDriverID() {
@@ -49,14 +43,6 @@ public class DriverDto implements Serializable {
         this.nationalCode = nationalCode;
     }
 
-    public String getAccountNo() {
-        return accountNo;
-    }
-
-    public void setAccountNo(String accountNo) {
-        this.accountNo = accountNo;
-    }
-
     public String getSmartCardNo() {
         return smartCardNo;
     }
@@ -79,14 +65,6 @@ public class DriverDto implements Serializable {
 
     public void setTell(String tell) {
         this.tell = tell;
-    }
-
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
     }
 
     public Vehicle getVehicle() {

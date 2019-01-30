@@ -11,14 +11,11 @@ import java.util.List;
 
 //todo don't use lombok in dtos
 
-@Schema(name = "InvoiceDetailDto",
-        type = SchemaType.OBJECT)
 public class InvoiceDTO implements Serializable {
 
 
     public InvoiceDTO() {
     }
-    @Parameter(name ="id" , description = "شناسه")
     private Long id;
     //    تاریخ صورتحساب
     private LocalDate invoiceDate;

@@ -4,6 +4,7 @@ import ir.co.sadad.eb.domain.LadingOfBill;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 //todo don't use lombok in dtos
 
@@ -37,13 +38,34 @@ public class LadingOfBillDto implements Serializable {
     private Double driverContribution;
     //سهم شرکت حمل
     private Double shippingComponyContribution;
-    //راننده اول
-    private DriverDto firstDriver;
-    // راننده دوم
-    private DriverDto secondDriver;
+    //راننده ها
+    private List<DriverDto> drivers;
     // محموله
     private CargoDto cargo;
-
+    //عوارض
+    private Double receipt;
+    //کسری مجاز
+    private Double allowedDeficit;
+    //کسری غیرمجاز
+    private Double illegalDeficit;
+    //نرخ کرایه حمل
+    private Double carriageRate;
+    //کرایه حمل
+    private Double carriageFare;
+    //حق مدیریت
+    private Double managerSalary ;
+    //حق بیمه
+    private Double premium;
+    // مقدار غرامت دستی :|
+    private Double amountOfHandyIndemnity;
+    // مبلغ غرامت دستی :|
+    private Double feeOfHandyIndemnity;
+    // مقدار غرامت نرسیده :|
+    private Double amountOfNotArrivedIndemnity;
+    // مبلغ غرامت نرسیده :|
+    private Double feeOfNotArrivedIndemnity;
+    // مسافت
+    private Double distance ;
 
     public int getLadingBillId() {
         return ladingBillId;
@@ -149,20 +171,13 @@ public class LadingOfBillDto implements Serializable {
         this.shippingComponyContribution = shippingComponyContribution;
     }
 
-    public DriverDto getFirstDriver() {
-        return firstDriver;
+
+    public List<DriverDto> getDrivers() {
+        return drivers;
     }
 
-    public void setFirstDriver(DriverDto firstDriver) {
-        this.firstDriver = firstDriver;
-    }
-
-    public DriverDto getSecondDriver() {
-        return secondDriver;
-    }
-
-    public void setSecondDriver(DriverDto secondDriver) {
-        this.secondDriver = secondDriver;
+    public void setDrivers(List<DriverDto> drivers) {
+        this.drivers = drivers;
     }
 
     public CargoDto getCargo() {
@@ -171,5 +186,101 @@ public class LadingOfBillDto implements Serializable {
 
     public void setCargo(CargoDto cargo) {
         this.cargo = cargo;
+    }
+
+    public Double getReceipt() {
+        return receipt;
+    }
+
+    public void setReceipt(Double receipt) {
+        this.receipt = receipt;
+    }
+
+    public Double getAllowedDeficit() {
+        return allowedDeficit;
+    }
+
+    public void setAllowedDeficit(Double allowedDeficit) {
+        this.allowedDeficit = allowedDeficit;
+    }
+
+    public Double getIllegalDeficit() {
+        return illegalDeficit;
+    }
+
+    public void setIllegalDeficit(Double illegalDeficit) {
+        this.illegalDeficit = illegalDeficit;
+    }
+
+    public Double getCarriageRate() {
+        return carriageRate;
+    }
+
+    public void setCarriageRate(Double carriageRate) {
+        this.carriageRate = carriageRate;
+    }
+
+    public Double getCarriageFare() {
+        return carriageFare;
+    }
+
+    public void setCarriageFare(Double carriageFare) {
+        this.carriageFare = carriageFare;
+    }
+
+    public Double getManagerSalary() {
+        return managerSalary;
+    }
+
+    public void setManagerSalary(Double managerSalary) {
+        this.managerSalary = managerSalary;
+    }
+
+    public Double getPremium() {
+        return premium;
+    }
+
+    public void setPremium(Double premium) {
+        this.premium = premium;
+    }
+
+    public Double getAmountOfHandyIndemnity() {
+        return amountOfHandyIndemnity;
+    }
+
+    public void setAmountOfHandyIndemnity(Double amountOfHandyIndemnity) {
+        this.amountOfHandyIndemnity = amountOfHandyIndemnity;
+    }
+
+    public Double getFeeOfHandyIndemnity() {
+        return feeOfHandyIndemnity;
+    }
+
+    public void setFeeOfHandyIndemnity(Double feeOfHandyIndemnity) {
+        this.feeOfHandyIndemnity = feeOfHandyIndemnity;
+    }
+
+    public Double getAmountOfNotArrivedIndemnity() {
+        return amountOfNotArrivedIndemnity;
+    }
+
+    public void setAmountOfNotArrivedIndemnity(Double amountOfNotArrivedIndemnity) {
+        this.amountOfNotArrivedIndemnity = amountOfNotArrivedIndemnity;
+    }
+
+    public Double getFeeOfNotArrivedIndemnity() {
+        return feeOfNotArrivedIndemnity;
+    }
+
+    public void setFeeOfNotArrivedIndemnity(Double feeOfNotArrivedIndemnity) {
+        this.feeOfNotArrivedIndemnity = feeOfNotArrivedIndemnity;
+    }
+
+    public Double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Double distance) {
+        this.distance = distance;
     }
 }
