@@ -2,9 +2,14 @@ package ir.co.sadad.eb.service.dto;
 
 //todo don't use lombok in dtos
 
+import ir.co.sadad.eb.domain.LadingOfBill;
+
 public class InvoiceDetailDTO {
 
     private Integer id;
+    //بارنامه
+    private LadingOfBillDto ladingOfBillDto;
+
     //     شماره ورود
 //    private String loadCode;
     //     شماره خروح
@@ -23,37 +28,6 @@ public class InvoiceDetailDTO {
 //    private Double receipt;
     //    پلاک یا شماره وسیله نقلیه حامل
 //    private String vehicleTag;
-    //    شماره بارنامه
-    private String ladingOfBillCode;
-    //    سری بارنامه
-    private String ladingOfBillSeries;
-    //  وزن خروج از مبدا
-    private Double departureWeight;
-    //  وزن ورود به مقصد
-    private Double loadWeight;
-    //  کسری مجاز
-    private Double allowedDeficit;
-    // کسری غیرمجاز
-    private Double illegalDeficit;
-    //  نرخ کرایه حمل
-    private Double carriageRate;
-    //  کرایه حمل
-    private Double carriageFare;
-    //  حق مدیریت
-    private Double managerSalary;
-    // حق بیمه
-    private Double premium;
-    // مقدار غرامت دستی :|
-    private Double amountOfHandyIndemnity;
-    // مبلغ غرامت دستی :|
-    private Double feeOfHandyIndemnity;
-    // مقدار غرامت نرسیده :|
-    private Double amountOfNotArrivedIndemnity;
-    // مبلغ غرامت نرسیده :|
-    private Double feeOfNotArrivedIndemnity;
-    // مسافت
-    private Double distance;
-
     public Integer getId() {
         return id;
     }
@@ -62,195 +36,12 @@ public class InvoiceDetailDTO {
         this.id = id;
     }
 
-//    public String getLoadCode() {
-//        return loadCode;
-//    }
-//
-//    public void setLoadCode(String loadCode) {
-//        this.loadCode = loadCode;
-//    }
-//
-//    public String getDepartureCode() {
-//        return departureCode;
-//    }
-//
-//    public void setDepartureCode(String departureCode) {
-//        this.departureCode = departureCode;
-//    }
 
-//    public String getSourceVehicleName() {
-//        return sourceVehicleName;
-//    }
-//
-//    public void setSourceVehicleName(String sourceVehicleName) {
-//        this.sourceVehicleName = sourceVehicleName;
-//    }
-
-//    public String getSourceStoreHouse() {
-//        return sourceStoreHouse;
-//    }
-
-//    public void setSourceStoreHouse(String sourceStoreHouse) {
-//        this.sourceStoreHouse = sourceStoreHouse;
-//    }
-
-//    public String getDestinationStoreHouse() {
-//        return destinationStoreHouse;
-//    }
-
-//    public void setDestinationStoreHouse(String destinationStoreHouse) {
-//        this.destinationStoreHouse = destinationStoreHouse;
-//    }
-
-//    public String getSourceProvinceCode() {
-//        return sourceProvinceCode;
-//    }
-
-//    public void setSourceProvinceCode(String sourceProvinceCode) {
-//        this.sourceProvinceCode = sourceProvinceCode;
-//    }
-
-//    public String getDestinationProvinceCode() {
-//        return destinationProvinceCode;
-//    }
-
-//    public void setDestinationProvinceCode(String destinationProvinceCode) {
-//        this.destinationProvinceCode = destinationProvinceCode;
-//    }
-
-//    public Double getReceipt() {
-//        return receipt;
-//    }
-
-//    public void setReceipt(Double receipt) {
-//        this.receipt = receipt;
-//    }
-
-//    public String getVehicleTag() {
-//        return vehicleTag;
-//    }
-
-//    public void setVehicleTag(String vehicleTag) {
-//        this.vehicleTag = vehicleTag;
-//    }
-
-    public String getLadingOfBillCode() {
-        return ladingOfBillCode;
+    public LadingOfBillDto getLadingOfBillDto() {
+        return ladingOfBillDto;
     }
 
-    public void setLadingOfBillCode(String ladingOfBillCode) {
-        this.ladingOfBillCode = ladingOfBillCode;
-    }
-
-    public Double getDepartureWeight() {
-        return departureWeight;
-    }
-
-    public void setDepartureWeight(Double departureWeight) {
-        this.departureWeight = departureWeight;
-    }
-
-    public Double getLoadWeight() {
-        return loadWeight;
-    }
-
-    public void setLoadWeight(Double loadWeight) {
-        this.loadWeight = loadWeight;
-    }
-
-    public Double getAllowedDeficit() {
-        return allowedDeficit;
-    }
-
-    public void setAllowedDeficit(Double allowedDeficit) {
-        this.allowedDeficit = allowedDeficit;
-    }
-
-    public Double getIllegalDeficit() {
-        return illegalDeficit;
-    }
-
-    public void setIllegalDeficit(Double illegalDeficit) {
-        this.illegalDeficit = illegalDeficit;
-    }
-
-    public Double getCarriageRate() {
-        return carriageRate;
-    }
-
-    public void setCarriageRate(Double carriageRate) {
-        this.carriageRate = carriageRate;
-    }
-
-    public Double getCarriageFare() {
-        return carriageFare;
-    }
-
-    public void setCarriageFare(Double carriageFare) {
-        this.carriageFare = carriageFare;
-    }
-
-    public Double getManagerSalary() {
-        return managerSalary;
-    }
-
-    public void setManagerSalary(Double managerSalary) {
-        this.managerSalary = managerSalary;
-    }
-
-    public Double getPremium() {
-        return premium;
-    }
-
-    public void setPremium(Double premium) {
-        this.premium = premium;
-    }
-
-    public Double getAmountOfHandyIndemnity() {
-        return amountOfHandyIndemnity;
-    }
-
-    public void setAmountOfHandyIndemnity(Double amountOfHandyIndemnity) {
-        this.amountOfHandyIndemnity = amountOfHandyIndemnity;
-    }
-
-    public Double getFeeOfHandyIndemnity() {
-        return feeOfHandyIndemnity;
-    }
-
-    public void setFeeOfHandyIndemnity(Double feeOfHandyIndemnity) {
-        this.feeOfHandyIndemnity = feeOfHandyIndemnity;
-    }
-
-    public Double getAmountOfNotArrivedIndemnity() {
-        return amountOfNotArrivedIndemnity;
-    }
-
-    public void setAmountOfNotArrivedIndemnity(Double amountOfNotArrivedIndemnity) {
-        this.amountOfNotArrivedIndemnity = amountOfNotArrivedIndemnity;
-    }
-
-    public Double getFeeOfNotArrivedIndemnity() {
-        return feeOfNotArrivedIndemnity;
-    }
-
-    public void setFeeOfNotArrivedIndemnity(Double feeOfNotArrivedIndemnity) {
-        this.feeOfNotArrivedIndemnity = feeOfNotArrivedIndemnity;
-    }
-
-    public String getLadingOfBillSeries() {
-        return ladingOfBillSeries;
-    }
-
-    public void setLadingOfBillSeries(String ladingOfBillSeries) {
-        this.ladingOfBillSeries = ladingOfBillSeries;
-    }
-
-    public Double getDistance() {
-        return distance;
-    }
-
-    public void setDistance(Double distance) {
-        this.distance = distance;
+    public void setLadingOfBillDto(LadingOfBillDto ladingOfBillDto) {
+        this.ladingOfBillDto = ladingOfBillDto;
     }
 }

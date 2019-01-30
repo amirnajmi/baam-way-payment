@@ -9,8 +9,8 @@ public enum InvoiceStatus {
     ;
 
 
-    Integer code;
-    String title;
+    private Integer code;
+    private String title;
 
     public Integer getValue() {
         return code;
