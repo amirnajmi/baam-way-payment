@@ -2,32 +2,31 @@ package ir.co.sadad.eb.service.dto;
 
 //todo don't use lombok in dtos
 
-
-import java.io.Serializable;
-
-public class InvoiceDetailDTO implements Serializable {
+public class InvoiceDetailDTO {
 
     private Integer id;
     //     شماره ورود
-    private String loadCode;
+//    private String loadCode;
     //     شماره خروح
-    private String departureCode;
-    //    نام وسیله حمل کننده اولیه بار(کشتی)
-    private String sourceVehicleName;
+//    private String departureCode;
+//        نام وسیله حمل کننده اولیه بار(کشتی)
+//    private String sourceVehicleName;
     //    انبار مبدا
-    private String sourceStoreHouse;
+//    private String sourceStoreHouse;
     //    انبار مقصد
-    private String destinationStoreHouse;
+//    private String destinationStoreHouse;
     //    کد استان مبدا
-    private String sourceProvinceCode;
+//    private String sourceProvinceCode;
     //    کد استان مقصد
-    private String destinationProvinceCode;
+//    private String destinationProvinceCode;
     //    عوارض
-    private Double receipt;
+//    private Double receipt;
     //    پلاک یا شماره وسیله نقلیه حامل
-    private String vehicleTag;
+//    private String vehicleTag;
     //    شماره بارنامه
     private String ladingOfBillCode;
+    //    سری بارنامه
+    private String ladingOfBillSeries;
     //  وزن خروج از مبدا
     private Double departureWeight;
     //  وزن ورود به مقصد
@@ -41,7 +40,7 @@ public class InvoiceDetailDTO implements Serializable {
     //  کرایه حمل
     private Double carriageFare;
     //  حق مدیریت
-    private Double managerSalary ;
+    private Double managerSalary;
     // حق بیمه
     private Double premium;
     // مقدار غرامت دستی :|
@@ -53,7 +52,7 @@ public class InvoiceDetailDTO implements Serializable {
     // مبلغ غرامت نرسیده :|
     private Double feeOfNotArrivedIndemnity;
     // مسافت
-    private Double distance ;
+    private Double distance;
 
     public Integer getId() {
         return id;
@@ -63,77 +62,77 @@ public class InvoiceDetailDTO implements Serializable {
         this.id = id;
     }
 
-    public String getLoadCode() {
-        return loadCode;
-    }
+//    public String getLoadCode() {
+//        return loadCode;
+//    }
+//
+//    public void setLoadCode(String loadCode) {
+//        this.loadCode = loadCode;
+//    }
+//
+//    public String getDepartureCode() {
+//        return departureCode;
+//    }
+//
+//    public void setDepartureCode(String departureCode) {
+//        this.departureCode = departureCode;
+//    }
 
-    public void setLoadCode(String loadCode) {
-        this.loadCode = loadCode;
-    }
+//    public String getSourceVehicleName() {
+//        return sourceVehicleName;
+//    }
+//
+//    public void setSourceVehicleName(String sourceVehicleName) {
+//        this.sourceVehicleName = sourceVehicleName;
+//    }
 
-    public String getDepartureCode() {
-        return departureCode;
-    }
+//    public String getSourceStoreHouse() {
+//        return sourceStoreHouse;
+//    }
 
-    public void setDepartureCode(String departureCode) {
-        this.departureCode = departureCode;
-    }
+//    public void setSourceStoreHouse(String sourceStoreHouse) {
+//        this.sourceStoreHouse = sourceStoreHouse;
+//    }
 
-    public String getSourceVehicleName() {
-        return sourceVehicleName;
-    }
+//    public String getDestinationStoreHouse() {
+//        return destinationStoreHouse;
+//    }
 
-    public void setSourceVehicleName(String sourceVehicleName) {
-        this.sourceVehicleName = sourceVehicleName;
-    }
+//    public void setDestinationStoreHouse(String destinationStoreHouse) {
+//        this.destinationStoreHouse = destinationStoreHouse;
+//    }
 
-    public String getSourceStoreHouse() {
-        return sourceStoreHouse;
-    }
+//    public String getSourceProvinceCode() {
+//        return sourceProvinceCode;
+//    }
 
-    public void setSourceStoreHouse(String sourceStoreHouse) {
-        this.sourceStoreHouse = sourceStoreHouse;
-    }
+//    public void setSourceProvinceCode(String sourceProvinceCode) {
+//        this.sourceProvinceCode = sourceProvinceCode;
+//    }
 
-    public String getDestinationStoreHouse() {
-        return destinationStoreHouse;
-    }
+//    public String getDestinationProvinceCode() {
+//        return destinationProvinceCode;
+//    }
 
-    public void setDestinationStoreHouse(String destinationStoreHouse) {
-        this.destinationStoreHouse = destinationStoreHouse;
-    }
+//    public void setDestinationProvinceCode(String destinationProvinceCode) {
+//        this.destinationProvinceCode = destinationProvinceCode;
+//    }
 
-    public String getSourceProvinceCode() {
-        return sourceProvinceCode;
-    }
+//    public Double getReceipt() {
+//        return receipt;
+//    }
 
-    public void setSourceProvinceCode(String sourceProvinceCode) {
-        this.sourceProvinceCode = sourceProvinceCode;
-    }
+//    public void setReceipt(Double receipt) {
+//        this.receipt = receipt;
+//    }
 
-    public String getDestinationProvinceCode() {
-        return destinationProvinceCode;
-    }
+//    public String getVehicleTag() {
+//        return vehicleTag;
+//    }
 
-    public void setDestinationProvinceCode(String destinationProvinceCode) {
-        this.destinationProvinceCode = destinationProvinceCode;
-    }
-
-    public Double getReceipt() {
-        return receipt;
-    }
-
-    public void setReceipt(Double receipt) {
-        this.receipt = receipt;
-    }
-
-    public String getVehicleTag() {
-        return vehicleTag;
-    }
-
-    public void setVehicleTag(String vehicleTag) {
-        this.vehicleTag = vehicleTag;
-    }
+//    public void setVehicleTag(String vehicleTag) {
+//        this.vehicleTag = vehicleTag;
+//    }
 
     public String getLadingOfBillCode() {
         return ladingOfBillCode;
@@ -237,6 +236,14 @@ public class InvoiceDetailDTO implements Serializable {
 
     public void setFeeOfNotArrivedIndemnity(Double feeOfNotArrivedIndemnity) {
         this.feeOfNotArrivedIndemnity = feeOfNotArrivedIndemnity;
+    }
+
+    public String getLadingOfBillSeries() {
+        return ladingOfBillSeries;
+    }
+
+    public void setLadingOfBillSeries(String ladingOfBillSeries) {
+        this.ladingOfBillSeries = ladingOfBillSeries;
     }
 
     public Double getDistance() {

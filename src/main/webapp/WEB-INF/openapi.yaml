@@ -1,0 +1,262 @@
+openapi: 3.0.0
+info:
+  title: baam-way-payment service
+  contact:
+    name: baamsan-group
+  version: '1.0'
+servers:
+  - url: http://localhost:9030/baam-way-payment
+  - url: https://localhost:9443/baam-way-payment
+paths:
+  /resources/pprof/profile:
+    get:
+      operationId: profile
+      parameters:
+        - name: duration
+          in: query
+          schema:
+            type: integer
+            default: "10"
+        - name: frequency
+          in: query
+          schema:
+            type: integer
+            default: "100"
+      responses:
+        default:
+          description: default response
+          content:
+            pprof/raw:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: base64
+  /resources/pprof/contention:
+    get:
+      operationId: contention
+      parameters:
+        - name: duration
+          in: query
+          schema:
+            type: integer
+            default: "10"
+        - name: frequency
+          in: query
+          schema:
+            type: integer
+            default: "100"
+      responses:
+        default:
+          description: default response
+          content:
+            pprof/raw:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: base64
+  /resources/clientSecuritySession/revoke:
+    get:
+      operationId: revokeToken
+      responses:
+        default:
+          description: default response
+    post:
+      operationId: revokeToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        default:
+          description: default response
+  /resources/restclientapi/info:
+    get:
+      operationId: getInfo
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  $ref: '#/components/schemas/JsonValue'
+  /resources/dtoMetaInfo/getMeta:
+    get:
+      summary: get meta of dtos
+      operationId: getMeta
+      responses:
+        200:
+          description: OK
+        201:
+          description: Created
+        401:
+          description: Unauthorized
+  /resources/invoice/getInvoiceByCode:
+    get:
+      summary: get invoice by its code
+      operationId: getInvoice
+      parameters:
+        - name: invoiceCode
+          in: query
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+        401:
+          description: Unauthorized
+  /resources/invoice/create:
+    post:
+      summary: ایجاد صورتحساب به همراه جزئیات صورتحساب
+      operationId: createInvoice
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceDTO'
+      responses:
+        200:
+          description: OK
+        201:
+          description: Created
+        401:
+          description: Unauthorized
+        500:
+          description: InternalError
+  /resources/v1/hotels:
+    get:
+      operationId: getHotels
+      responses:
+        default:
+          description: default response
+  /resources/test/hello:
+    get:
+      operationId: hello
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: string
+  /resources/restclientapi/current-user:
+    get:
+      operationId: getCurrentUserLogin
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*':
+              schema:
+                type: string
+components:
+  schemas:
+    InvoiceDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        invoiceDate:
+          type: string
+          format: date
+          description: 'تاریخ صورتحساب'
+        shippingCompanyCode:
+          type: string
+        processKindCode:
+          type: string
+        contractNumber:
+          type: string
+        invoiceNumber:
+          type: string
+        invoiceDetailDTOList:
+          type: array
+          items:
+            $ref: '#/components/schemas/InvoiceDetailDTO'
+    JsonValue:
+      type: object
+      properties:
+        valueType:
+          type: string
+          enum:
+            - ARRAY
+            - OBJECT
+            - STRING
+            - NUMBER
+            - TRUE
+            - FALSE
+            - NULL
+    InvoiceDetailDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+        sourceVehicleName:
+          type: string
+        sourceStoreHouse:
+          type: string
+        destinationStoreHouse:
+          type: string
+        sourceProvinceCode:
+          type: string
+        destinationProvinceCode:
+          type: string
+        receipt:
+          type: number
+          format: double
+        vehicleTag:
+          type: string
+        ladingOfBillCode:
+          type: string
+        departureWeight:
+          type: number
+          format: double
+        loadWeight:
+          type: number
+          format: double
+        allowedDeficit:
+          type: number
+          format: double
+        illegalDeficit:
+          type: number
+          format: double
+        carriageRate:
+          type: number
+          format: double
+        carriageFare:
+          type: number
+          format: double
+        managerSalary:
+          type: number
+          format: double
+        premium:
+          type: number
+          format: double
+        amountOfHandyIndemnity:
+          type: number
+          format: double
+        feeOfHandyIndemnity:
+          type: number
+          format: double
+        amountOfNotArrivedIndemnity:
+          type: number
+          format: double
+        feeOfNotArrivedIndemnity:
+          type: number
+          format: double
+        distance:
+          type: number
+          format: double
+  securitySchemes:
+    bearerAuth:
+      type: http
+      description: authentication needed to access User service app
+      in: header
+      scheme: bearer
+      bearerFormat: JWT

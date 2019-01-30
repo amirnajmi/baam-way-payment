@@ -1,22 +1,27 @@
 package ir.co.sadad.eb.service.dto;
 
+import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
+import org.eclipse.microprofile.openapi.annotations.parameters.Parameters;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 //todo don't use lombok in dtos
 
+@Schema(name = "InvoiceDetailDto",
+        type = SchemaType.OBJECT)
 public class InvoiceDTO implements Serializable {
 
 
     public InvoiceDTO() {
     }
-
+    @Parameter(name ="id" , description = "شناسه")
     private Long id;
     //    تاریخ صورتحساب
     private LocalDate invoiceDate;
-    //    تاریخ
-    private LocalDate date;
     //    شرکت حمل
     private String shippingCompanyCode;
     //    کد نوع فرآیند
@@ -41,14 +46,6 @@ public class InvoiceDTO implements Serializable {
 
     public void setInvoiceDate(LocalDate invoiceDate) {
         this.invoiceDate = invoiceDate;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
     }
 
     public String getShippingCompanyCode() {

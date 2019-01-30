@@ -4,6 +4,8 @@ import ir.co.sadad.eb.service.api.IInvoiceService;
 import ir.co.sadad.eb.service.dto.InvoiceDTO;
 import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
+import org.eclipse.microprofile.openapi.annotations.parameters.Parameters;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.joda.time.LocalDate;
 
@@ -26,6 +28,7 @@ public class InvoiceResource {
     @APIResponse(responseCode = "401", description = "Unauthorized")
     @APIResponse(responseCode = "500", description = "InternalError")
     @APIResponse(responseCode = "")
+    @Parameters()
     @Path("/create")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})

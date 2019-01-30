@@ -1,16 +1,10 @@
 package ir.co.sadad.eb.domain;
 
 import lombok.Data;
-import org.eclipse.microprofile.metrics.annotation.Counted;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.time.LocalDate;
-import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -27,50 +21,79 @@ public class LadingOfBill implements Serializable {
     //تاریخ بارنامه
     @Column(name = "LADING_BILL_DATE")
     private LocalDate ladingBillDate;
-
-    @Column(name = "LADING_BILL_NO")
     //شماره بارنامه
+    @Column(name = "LADING_BILL_NO")
     private String ladingBillNo;
-
-    @Column(name = "LADING_BILL_SERIAL")
     //سریال بارنامه
+    @Column(name = "LADING_BILL_SERIAL")
     private String ladingBillSerial;
-
-    @Column(name = "ORDER_NO")
     //شماره حواله
+    @Column(name = "ORDER_NO")
     private String orderNo;
-
-    @Column(name = "SOURCEP_ROVINCE")
     //استان مبدا
+    @Column(name = "SOURCEP_ROVINCE")
     private String sourceProvince;
-
-    @Column(name = "DESTINATION_PROVINCE")
     //استان مقصد
+    @Column(name = "DESTINATION_PROVINCE")
     private String destinationProvince;
-
-    @Column(name = "SOURCE_CITY")
     //شهر مبدا
+    @Column(name = "SOURCE_CITY")
     private String sourceCity;
-
-    @Column(name = "DESTINATION_CITY")
     //شهر مقصد
+    @Column(name = "DESTINATION_CITY")
     private String destinationCity;
-
-    @Column(name = "FREIGHT_AMOUNT")
+    //نام وسیله حمل کننده اولیه بار(کشتی)
+    @Column(name = "SOURCE_VEHICLE_NAME")
+    private String sourceVehicleName;
     //مبلغ کرایه
+    @Column(name = "FREIGHT_AMOUNT")
     private Double freightAmount;
-
-    @Column(name = "PAYABLE_AMOUNT")
     //مبلغ قابل پرداخت
+    @Column(name = "PAYABLE_AMOUNT")
     private Double payableAmount;
-
-    @Column(name = "DRIVER_CONTRIBUTION")
     //سهم راننده
+    @Column(name = "DRIVER_CONTRIBUTION")
     private Double driverContribution;
-
-    @Column(name = "SHIPPING_COMPANY_CONTRIBUTION")
     //سهم شرکت حمل
+    @Column(name = "SHIPPING_COMPANY_CONTRIBUTION")
     private Double shippingCompanyContribution;
+    //عوارض
+    @Column(name = "RECEIPT")
+    private Double receipt;
+    //کسری مجاز
+    @Column(name = "ALLOWED_DEFICIT")
+    private Double allowedDeficit;
+    //کسری غیرمجاز
+    @Column(name = "ILLEGAL_DEFICIT")
+    private Double illegalDeficit;
+    //نرخ کرایه حمل
+    @Column(name = "CARRIAGE_RATE")
+    private Double carriageRate;
+    //کرایه حمل
+    @Column(name = "CARRIAGE_FARE")
+    private Double carriageFare;
+    //حق مدیریت
+    @Column(name = "MANAGER_SALARY")
+    private Double managerSalary ;
+    //حق بیمه
+    @Column(name = "PREMIUM")
+    private Double premium;
+    // مقدار غرامت دستی :|
+    @Column(name = "AMOUNT_OF_HANDY_INDEMNITY")
+    private Double amountOfHandyIndemnity;
+    // مبلغ غرامت دستی :|
+    @Column(name = "FEE_OF_HANDY_INDEMNITY")
+    private Double feeOfHandyIndemnity;
+    // مقدار غرامت نرسیده :|
+    @Column(name = "AMOUNT_OF_NOT_ARRIVED_INDEMNITY")
+    private Double amountOfNotArrivedIndemnity;
+    // مبلغ غرامت نرسیده :|
+    @Column(name = "FEE_OF_NOT_ARRIVED_INDEMNITY")
+    private Double feeOfNotArrivedIndemnity;
+    // مسافت
+    @Column(name = "DISTANCE")
+    private Double distance ;
+
    @ManyToMany(cascade = {
            CascadeType.PERSIST,
            CascadeType.MERGE
