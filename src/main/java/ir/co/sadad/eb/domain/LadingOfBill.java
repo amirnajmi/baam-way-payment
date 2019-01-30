@@ -17,7 +17,6 @@ public class LadingOfBill implements Serializable {
     @Column(name = "ID")
     private Long ladingBillId;
 
-
     //تاریخ بارنامه
     @Column(name = "LADING_BILL_DATE")
     private LocalDate ladingBillDate;
@@ -74,7 +73,7 @@ public class LadingOfBill implements Serializable {
     private Double carriageFare;
     //حق مدیریت
     @Column(name = "MANAGER_SALARY")
-    private Double managerSalary ;
+    private Double managerSalary;
     //حق بیمه
     @Column(name = "PREMIUM")
     private Double premium;
@@ -92,20 +91,24 @@ public class LadingOfBill implements Serializable {
     private Double feeOfNotArrivedIndemnity;
     // مسافت
     @Column(name = "DISTANCE")
-    private Double distance ;
+    private Double distance;
 
-   @ManyToMany(cascade = {
-           CascadeType.PERSIST,
-           CascadeType.MERGE
-   })
-   @JoinTable(name = "LADING_OF_BILL_DRIVER",
-           joinColumns = @JoinColumn(name = "LADING_OF_BILL_ID", referencedColumnName="ID"),
-           inverseJoinColumns = @JoinColumn(name = "DRIVER_ID", referencedColumnName="ID")
-   )
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "LADING_OF_BILL_DRIVER",
+            joinColumns = @JoinColumn(name = "LADING_OF_BILL_ID", referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "DRIVER_ID", referencedColumnName = "ID")
+    )
     private List<Driver> drivers;
 
-   @OneToOne(targetEntity = Cargo.class, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-   @JoinColumn(name = "CARGO_ID")
+    @OneToOne(targetEntity = Cargo.class, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "CARGO_ID")
     // محموله
     private Cargo cargo;
+
+    @ManyToOne(targetEntity = Vehicle.class)
+    @JoinColumn(name = "VEHICLE_ID", referencedColumnName = "ID")
+    private Vehicle vehicle;
 }

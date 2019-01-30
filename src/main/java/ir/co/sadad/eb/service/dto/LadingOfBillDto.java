@@ -39,9 +39,11 @@ public class LadingOfBillDto implements Serializable {
     //سهم شرکت حمل
     private Double shippingComponyContribution;
     //راننده ها
-    private List<DriverDto> drivers;
+    private List<DriverDto> driverDtos;
     // محموله
-    private CargoDto cargo;
+    private CargoDto cargoDto;
+    //خودرو
+    private VehicleDto vehicleDto;
     //عوارض
     private Double receipt;
     //کسری مجاز
@@ -172,20 +174,12 @@ public class LadingOfBillDto implements Serializable {
     }
 
 
-    public List<DriverDto> getDrivers() {
-        return drivers;
+    public List<DriverDto> getDriverDtos() {
+        return driverDtos;
     }
 
-    public void setDrivers(List<DriverDto> drivers) {
-        this.drivers = drivers;
-    }
-
-    public CargoDto getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(CargoDto cargo) {
-        this.cargo = cargo;
+    public void setDriverDtos(List<DriverDto> driverDtos) {
+        this.driverDtos = driverDtos;
     }
 
     public Double getReceipt() {
@@ -282,5 +276,21 @@ public class LadingOfBillDto implements Serializable {
 
     public void setDistance(Double distance) {
         this.distance = distance;
+    }
+
+    public VehicleDto getVehicleDto() {
+        return vehicleDto;
+    }
+
+    public void setVehicleDto(VehicleDto vehicleDto) {
+        this.vehicleDto = vehicleDto;
+    }
+
+    public CargoDto getCargoDto() {
+        return cargoDto;
+    }
+
+    public void setCargoDto(CargoDto cargoDto) {
+        this.cargoDto = cargoDto;
     }
 }
