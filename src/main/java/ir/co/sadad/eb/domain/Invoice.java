@@ -34,6 +34,10 @@ public class Invoice implements Serializable {
     // شماره صورتحساب
     @Column(name = "INVOICE_NUMBER")
     private String invoiceNumber;
+
+    //شرکت بازرگانی
+    private OwnerCompany ownerCompany;
+
     // لاین های صورتحساب
     @OneToMany(targetEntity = InvoiceDetail.class , mappedBy = "invoice" , cascade = {CascadeType.REMOVE,CascadeType.PERSIST},fetch = FetchType.LAZY)
     private List<InvoiceDetail> invoiceDetails;

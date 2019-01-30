@@ -2,20 +2,14 @@ package ir.co.sadad.eb.service.dto;
 
 //todo don't use lombok in dtos
 
-import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
-
-@Schema(name = "InvoiceDetailDto",
-type = SchemaType.OBJECT)
 public class InvoiceDetailDTO {
-    @Parameter(name ="id" , description = "شناسه")
+
     private Integer id;
     //     شماره ورود
 //    private String loadCode;
     //     شماره خروح
 //    private String departureCode;
-    //    نام وسیله حمل کننده اولیه بار(کشتی)
+//        نام وسیله حمل کننده اولیه بار(کشتی)
 //    private String sourceVehicleName;
     //    انبار مبدا
 //    private String sourceStoreHouse;
@@ -31,33 +25,34 @@ public class InvoiceDetailDTO {
 //    private String vehicleTag;
     //    شماره بارنامه
     private String ladingOfBillCode;
+    //    سری بارنامه
     private String ladingOfBillSeries;
     //  وزن خروج از مبدا
-//    private Double departureWeight;
+    private Double departureWeight;
     //  وزن ورود به مقصد
-//    private Double loadWeight;
+    private Double loadWeight;
     //  کسری مجاز
-//    private Double allowedDeficit;
+    private Double allowedDeficit;
     // کسری غیرمجاز
-//    private Double illegalDeficit;
+    private Double illegalDeficit;
     //  نرخ کرایه حمل
-//    private Double carriageRate;
+    private Double carriageRate;
     //  کرایه حمل
-//    private Double carriageFare;
+    private Double carriageFare;
     //  حق مدیریت
-//    private Double managerSalary ;
+    private Double managerSalary;
     // حق بیمه
-//    private Double premium;
+    private Double premium;
     // مقدار غرامت دستی :|
-//    private Double amountOfHandyIndemnity;
+    private Double amountOfHandyIndemnity;
     // مبلغ غرامت دستی :|
-//    private Double feeOfHandyIndemnity;
+    private Double feeOfHandyIndemnity;
     // مقدار غرامت نرسیده :|
-//    private Double amountOfNotArrivedIndemnity;
+    private Double amountOfNotArrivedIndemnity;
     // مبلغ غرامت نرسیده :|
-//    private Double feeOfNotArrivedIndemnity;
+    private Double feeOfNotArrivedIndemnity;
     // مسافت
-//    private Double distance ;
+    private Double distance;
 
     public Integer getId() {
         return id;
@@ -147,114 +142,115 @@ public class InvoiceDetailDTO {
         this.ladingOfBillCode = ladingOfBillCode;
     }
 
-//    public Double getDepartureWeight() {
-//        return departureWeight;
-//    }
-//
-//    public void setDepartureWeight(Double departureWeight) {
-//        this.departureWeight = departureWeight;
-//    }
+    public Double getDepartureWeight() {
+        return departureWeight;
+    }
 
-//    public Double getLoadWeight() {
-//        return loadWeight;
-//    }
+    public void setDepartureWeight(Double departureWeight) {
+        this.departureWeight = departureWeight;
+    }
 
-//    public void setLoadWeight(Double loadWeight) {
-//        this.loadWeight = loadWeight;
-//    }
+    public Double getLoadWeight() {
+        return loadWeight;
+    }
 
-//    public Double getAllowedDeficit() {
-//        return allowedDeficit;
-//    }
-//
-//    public void setAllowedDeficit(Double allowedDeficit) {
-//        this.allowedDeficit = allowedDeficit;
-//    }
-//
-//    public Double getIllegalDeficit() {
-//        return illegalDeficit;
-//    }
-//
-//    public void setIllegalDeficit(Double illegalDeficit) {
-//        this.illegalDeficit = illegalDeficit;
-//    }
-//
-//    public Double getCarriageRate() {
-//        return carriageRate;
-//    }
-//
-//    public void setCarriageRate(Double carriageRate) {
-//        this.carriageRate = carriageRate;
-//    }
-//
-//    public Double getCarriageFare() {
-//        return carriageFare;
-//    }
-//
-//    public void setCarriageFare(Double carriageFare) {
-//        this.carriageFare = carriageFare;
-//    }
-//
-//    public Double getManagerSalary() {
-//        return managerSalary;
-//    }
-//
-//    public void setManagerSalary(Double managerSalary) {
-//        this.managerSalary = managerSalary;
-//    }
-//
-//    public Double getPremium() {
-//        return premium;
-//    }
-//
-//    public void setPremium(Double premium) {
-//        this.premium = premium;
-//    }
-//
-//    public Double getAmountOfHandyIndemnity() {
-//        return amountOfHandyIndemnity;
-//    }
-//
-//    public void setAmountOfHandyIndemnity(Double amountOfHandyIndemnity) {
-//        this.amountOfHandyIndemnity = amountOfHandyIndemnity;
-//    }
-//
-//    public Double getFeeOfHandyIndemnity() {
-//        return feeOfHandyIndemnity;
-//    }
-//
-//    public void setFeeOfHandyIndemnity(Double feeOfHandyIndemnity) {
-//        this.feeOfHandyIndemnity = feeOfHandyIndemnity;
-//    }
-//
-//    public Double getAmountOfNotArrivedIndemnity() {
-//        return amountOfNotArrivedIndemnity;
-//    }
-//
-//    public void setAmountOfNotArrivedIndemnity(Double amountOfNotArrivedIndemnity) {
-//        this.amountOfNotArrivedIndemnity = amountOfNotArrivedIndemnity;
-//    }
-//
-//    public Double getFeeOfNotArrivedIndemnity() {
-//        return feeOfNotArrivedIndemnity;
-//    }
-//
-//    public void setFeeOfNotArrivedIndemnity(Double feeOfNotArrivedIndemnity) {
-//        this.feeOfNotArrivedIndemnity = feeOfNotArrivedIndemnity;
-//    }
-//
-//    public String getLadingOfBillSeries() {
-//        return ladingOfBillSeries;
-//    }
-//
-//    public void setLadingOfBillSeries(String ladingOfBillSeries) {
-//        this.ladingOfBillSeries = ladingOfBillSeries;
-//    }
-    //    public Double getDistance() {
-//        return distance;
-//    }
+    public void setLoadWeight(Double loadWeight) {
+        this.loadWeight = loadWeight;
+    }
 
-//    public void setDistance(Double distance) {
-//        this.distance = distance;
-//    }
+    public Double getAllowedDeficit() {
+        return allowedDeficit;
+    }
+
+    public void setAllowedDeficit(Double allowedDeficit) {
+        this.allowedDeficit = allowedDeficit;
+    }
+
+    public Double getIllegalDeficit() {
+        return illegalDeficit;
+    }
+
+    public void setIllegalDeficit(Double illegalDeficit) {
+        this.illegalDeficit = illegalDeficit;
+    }
+
+    public Double getCarriageRate() {
+        return carriageRate;
+    }
+
+    public void setCarriageRate(Double carriageRate) {
+        this.carriageRate = carriageRate;
+    }
+
+    public Double getCarriageFare() {
+        return carriageFare;
+    }
+
+    public void setCarriageFare(Double carriageFare) {
+        this.carriageFare = carriageFare;
+    }
+
+    public Double getManagerSalary() {
+        return managerSalary;
+    }
+
+    public void setManagerSalary(Double managerSalary) {
+        this.managerSalary = managerSalary;
+    }
+
+    public Double getPremium() {
+        return premium;
+    }
+
+    public void setPremium(Double premium) {
+        this.premium = premium;
+    }
+
+    public Double getAmountOfHandyIndemnity() {
+        return amountOfHandyIndemnity;
+    }
+
+    public void setAmountOfHandyIndemnity(Double amountOfHandyIndemnity) {
+        this.amountOfHandyIndemnity = amountOfHandyIndemnity;
+    }
+
+    public Double getFeeOfHandyIndemnity() {
+        return feeOfHandyIndemnity;
+    }
+
+    public void setFeeOfHandyIndemnity(Double feeOfHandyIndemnity) {
+        this.feeOfHandyIndemnity = feeOfHandyIndemnity;
+    }
+
+    public Double getAmountOfNotArrivedIndemnity() {
+        return amountOfNotArrivedIndemnity;
+    }
+
+    public void setAmountOfNotArrivedIndemnity(Double amountOfNotArrivedIndemnity) {
+        this.amountOfNotArrivedIndemnity = amountOfNotArrivedIndemnity;
+    }
+
+    public Double getFeeOfNotArrivedIndemnity() {
+        return feeOfNotArrivedIndemnity;
+    }
+
+    public void setFeeOfNotArrivedIndemnity(Double feeOfNotArrivedIndemnity) {
+        this.feeOfNotArrivedIndemnity = feeOfNotArrivedIndemnity;
+    }
+
+    public String getLadingOfBillSeries() {
+        return ladingOfBillSeries;
+    }
+
+    public void setLadingOfBillSeries(String ladingOfBillSeries) {
+        this.ladingOfBillSeries = ladingOfBillSeries;
+    }
+
+    public Double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Double distance) {
+        this.distance = distance;
+    }
 }

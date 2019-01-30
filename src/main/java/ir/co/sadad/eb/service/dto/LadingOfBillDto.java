@@ -1,10 +1,16 @@
 package ir.co.sadad.eb.service.dto;
 
+import ir.co.sadad.eb.domain.LadingOfBill;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 
 //todo don't use lombok in dtos
 
-public class LadingOfBillDto {
+public class LadingOfBillDto implements Serializable {
+
+    public LadingOfBillDto() {
+    }
 
     private int ladingBillId;
     //تاریخ بارنامه
@@ -26,11 +32,11 @@ public class LadingOfBillDto {
     //مبلغ کرایه
     private Double freightAmount;
     //مبلغ قابل پرداخت
-    private Double payableAmount ;
+    private Double payableAmount;
     //سهم راننده
-    private Double driverContribution ;
+    private Double driverContribution;
     //سهم شرکت حمل
-    private Double shippingComponyContribution ;
+    private Double shippingComponyContribution;
     //راننده اول
     private DriverDto firstDriver;
     // راننده دوم

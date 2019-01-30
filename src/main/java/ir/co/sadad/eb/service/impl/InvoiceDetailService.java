@@ -12,9 +12,12 @@ import javax.inject.Inject;
 @Stateless
 public class InvoiceDetailService extends AbstractGenericService<InvoiceDetail,Long> implements IInvoiceDetailService {
 
+    private InvoiceDetailRepository invoiceDetailRepository;
+
     @Inject
     public InvoiceDetailService(InvoiceDetailRepository genericRepository) {
         super(genericRepository);
+        this.invoiceDetailRepository=genericRepository;
     }
 
     public InvoiceDetailService() {
@@ -22,6 +25,7 @@ public class InvoiceDetailService extends AbstractGenericService<InvoiceDetail,L
     }
 
     public void createInvoiceDetail(InvoiceDetailDTO invoiceDetailDTO){
+        save(new InvoiceDetail());
 
     }
 

@@ -19,7 +19,11 @@ public class Cargo implements Serializable {
     //نام محموله
     private String cargoName;
     //وزن محموله
-    private String cargoWeight;
+//    private String cargoWeight;
+    //  وزن خروج از مبدا
+    private Double weightOfDeparture;
+    //  وزن ورود به مقصد
+    private Double weightOfLoad;
     // todo should change to enum
     //واحد اندازه گیری
     private String cargoUnit;

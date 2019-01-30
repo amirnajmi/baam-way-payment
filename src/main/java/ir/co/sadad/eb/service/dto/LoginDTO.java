@@ -4,12 +4,14 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import java.io.Serializable;
+
 import static ir.co.sadad.eb.config.Constants.*;
 
 /**
  * A DTO representing a user's credentials
  */
-public class LoginDTO {
+public class LoginDTO implements Serializable {
 
     @Pattern(regexp = LOGIN_REGEX)
     @NotNull
