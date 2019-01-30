@@ -1,7 +1,5 @@
 package ir.co.sadad.eb.domain;
 
-import lombok.Data;
-
 import javax.persistence.*;
 
 //اطلاعات حساب
@@ -11,13 +9,18 @@ public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long id ;
+    @Column(name = "ACCOUNT_NO")
     //شماره حساب
-    private String AccountNo;
+    private String accountNo;
+    @Column(name = "ACCOUNT_OWNER")
     // نام صاحب حساب
     private String accountOwner;
+    @Column(name = "IBAN")
     //شماره شبا حساب
-    private String IBAN;
+    private String iban;
+    @Column(name = "STATE")
     //وضعیت حساب
     private Boolean state;
 
@@ -30,11 +33,11 @@ public class Account {
     }
 
     public String getAccountNo() {
-        return AccountNo;
+        return accountNo;
     }
 
     public void setAccountNo(String accountNo) {
-        AccountNo = accountNo;
+        this.accountNo = accountNo;
     }
 
     public String getAccountOwner() {
@@ -45,12 +48,12 @@ public class Account {
         this.accountOwner = accountOwner;
     }
 
-    public String getIBAN() {
-        return IBAN;
+    public String getIban() {
+        return iban;
     }
 
-    public void setIBAN(String IBAN) {
-        this.IBAN = IBAN;
+    public void setIban(String iban) {
+        this.iban = iban;
     }
 
     public Boolean getState() {

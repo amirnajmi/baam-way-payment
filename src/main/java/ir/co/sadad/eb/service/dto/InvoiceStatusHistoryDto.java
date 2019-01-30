@@ -7,7 +7,7 @@ import java.io.Serializable;
 public class InvoiceStatusHistoryDto implements Serializable {
     private Long id;
     private InvoiceDTO invoice;
-    private Integer invoiceStatus;
+    private InvoiceStatusDto invoiceStatus;
     private String description;
     private LocalDate date;
 
@@ -27,11 +27,11 @@ public class InvoiceStatusHistoryDto implements Serializable {
         this.invoice = invoice;
     }
 
-    public Integer getInvoiceStatus() {
+    public InvoiceStatusDto getInvoiceStatus() {
         return invoiceStatus;
     }
 
-    public void setInvoiceStatus(Integer invoiceStatus) {
+    public void setInvoiceStatus(InvoiceStatusDto invoiceStatus) {
         this.invoiceStatus = invoiceStatus;
     }
 

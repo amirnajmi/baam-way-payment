@@ -17,7 +17,6 @@ public class DriverDto implements Serializable {
     private String driverKind;
     private String tell;
     private AccountDto account;
-    private Vehicle vehicle;
     private String licenceNo;
     private String address ;
 
@@ -67,14 +66,6 @@ public class DriverDto implements Serializable {
 
     public void setTell(String tell) {
         this.tell = tell;
-    }
-
-    public Vehicle getVehicle() {
-        return vehicle;
-    }
-
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
     }
 
     public AccountDto getAccount() {

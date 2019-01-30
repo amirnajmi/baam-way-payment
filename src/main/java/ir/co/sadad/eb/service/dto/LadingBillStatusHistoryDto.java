@@ -1,8 +1,9 @@
 package ir.co.sadad.eb.service.dto;
 
-import org.joda.time.LocalDate;
+
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class LadingBillStatusHistoryDto implements Serializable {
 
@@ -10,7 +11,7 @@ public class LadingBillStatusHistoryDto implements Serializable {
     private String description;
     private LocalDate date;
     private LadingOfBillDto ladingOfBill;
-    private Integer ladingBillStatus;
+    private LadingBillStatusDto ladingBillStatus;
 
     public Long getId() {
         return id;
@@ -36,11 +37,11 @@ public class LadingBillStatusHistoryDto implements Serializable {
         this.ladingOfBill = ladingOfBill;
     }
 
-    public Integer getLadingBillStatus() {
+    public LadingBillStatusDto getLadingBillStatus() {
         return ladingBillStatus;
     }
 
-    public void setLadingBillStatus(Integer ladingBillStatus) {
+    public void setLadingBillStatus(LadingBillStatusDto ladingBillStatus) {
         this.ladingBillStatus = ladingBillStatus;
     }
 

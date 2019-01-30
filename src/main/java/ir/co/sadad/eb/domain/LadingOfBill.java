@@ -1,7 +1,5 @@
 package ir.co.sadad.eb.domain;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -14,7 +12,7 @@ public class LadingOfBill implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    private Long ladingBillId;
+    private Long id;
 
     //تاریخ بارنامه
     @Column(name = "LADING_BILL_DATE")
@@ -111,12 +109,12 @@ public class LadingOfBill implements Serializable {
     @JoinColumn(name = "VEHICLE_ID", referencedColumnName = "ID")
     private Vehicle vehicle;
 
-    public Long getLadingBillId() {
-        return ladingBillId;
+    public Long getId() {
+        return id;
     }
 
-    public void setLadingBillId(Long ladingBillId) {
-        this.ladingBillId = ladingBillId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public LocalDate getLadingBillDate() {
