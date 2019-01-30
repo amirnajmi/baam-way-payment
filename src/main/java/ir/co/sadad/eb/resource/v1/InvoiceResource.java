@@ -28,6 +28,7 @@ public class InvoiceResource {
     @APIResponse(responseCode = "401", description = "Unauthorized")
     @APIResponse(responseCode = "500", description = "InternalError")
     @APIResponse(responseCode = "")
+    @Parameters()
     @Path("/create")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
