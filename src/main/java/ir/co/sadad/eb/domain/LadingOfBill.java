@@ -8,8 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Data
-@Table(name = "LADING_OF_BILL")
+@Table(name = "LADING_OF_BILL" , schema = "PUSH")
 public class LadingOfBill implements Serializable {
 
     @Id
@@ -111,4 +110,236 @@ public class LadingOfBill implements Serializable {
     @ManyToOne(targetEntity = Vehicle.class)
     @JoinColumn(name = "VEHICLE_ID", referencedColumnName = "ID")
     private Vehicle vehicle;
+
+    public Long getLadingBillId() {
+        return ladingBillId;
+    }
+
+    public void setLadingBillId(Long ladingBillId) {
+        this.ladingBillId = ladingBillId;
+    }
+
+    public LocalDate getLadingBillDate() {
+        return ladingBillDate;
+    }
+
+    public void setLadingBillDate(LocalDate ladingBillDate) {
+        this.ladingBillDate = ladingBillDate;
+    }
+
+    public String getLadingBillNo() {
+        return ladingBillNo;
+    }
+
+    public void setLadingBillNo(String ladingBillNo) {
+        this.ladingBillNo = ladingBillNo;
+    }
+
+    public String getLadingBillSerial() {
+        return ladingBillSerial;
+    }
+
+    public void setLadingBillSerial(String ladingBillSerial) {
+        this.ladingBillSerial = ladingBillSerial;
+    }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    public String getSourceProvince() {
+        return sourceProvince;
+    }
+
+    public void setSourceProvince(String sourceProvince) {
+        this.sourceProvince = sourceProvince;
+    }
+
+    public String getDestinationProvince() {
+        return destinationProvince;
+    }
+
+    public void setDestinationProvince(String destinationProvince) {
+        this.destinationProvince = destinationProvince;
+    }
+
+    public String getSourceCity() {
+        return sourceCity;
+    }
+
+    public void setSourceCity(String sourceCity) {
+        this.sourceCity = sourceCity;
+    }
+
+    public String getDestinationCity() {
+        return destinationCity;
+    }
+
+    public void setDestinationCity(String destinationCity) {
+        this.destinationCity = destinationCity;
+    }
+
+    public String getSourceVehicleName() {
+        return sourceVehicleName;
+    }
+
+    public void setSourceVehicleName(String sourceVehicleName) {
+        this.sourceVehicleName = sourceVehicleName;
+    }
+
+    public Double getFreightAmount() {
+        return freightAmount;
+    }
+
+    public void setFreightAmount(Double freightAmount) {
+        this.freightAmount = freightAmount;
+    }
+
+    public Double getPayableAmount() {
+        return payableAmount;
+    }
+
+    public void setPayableAmount(Double payableAmount) {
+        this.payableAmount = payableAmount;
+    }
+
+    public Double getDriverContribution() {
+        return driverContribution;
+    }
+
+    public void setDriverContribution(Double driverContribution) {
+        this.driverContribution = driverContribution;
+    }
+
+    public Double getShippingCompanyContribution() {
+        return shippingCompanyContribution;
+    }
+
+    public void setShippingCompanyContribution(Double shippingCompanyContribution) {
+        this.shippingCompanyContribution = shippingCompanyContribution;
+    }
+
+    public Double getReceipt() {
+        return receipt;
+    }
+
+    public void setReceipt(Double receipt) {
+        this.receipt = receipt;
+    }
+
+    public Double getAllowedDeficit() {
+        return allowedDeficit;
+    }
+
+    public void setAllowedDeficit(Double allowedDeficit) {
+        this.allowedDeficit = allowedDeficit;
+    }
+
+    public Double getIllegalDeficit() {
+        return illegalDeficit;
+    }
+
+    public void setIllegalDeficit(Double illegalDeficit) {
+        this.illegalDeficit = illegalDeficit;
+    }
+
+    public Double getCarriageRate() {
+        return carriageRate;
+    }
+
+    public void setCarriageRate(Double carriageRate) {
+        this.carriageRate = carriageRate;
+    }
+
+    public Double getCarriageFare() {
+        return carriageFare;
+    }
+
+    public void setCarriageFare(Double carriageFare) {
+        this.carriageFare = carriageFare;
+    }
+
+    public Double getManagerSalary() {
+        return managerSalary;
+    }
+
+    public void setManagerSalary(Double managerSalary) {
+        this.managerSalary = managerSalary;
+    }
+
+    public Double getPremium() {
+        return premium;
+    }
+
+    public void setPremium(Double premium) {
+        this.premium = premium;
+    }
+
+    public Double getAmountOfHandyIndemnity() {
+        return amountOfHandyIndemnity;
+    }
+
+    public void setAmountOfHandyIndemnity(Double amountOfHandyIndemnity) {
+        this.amountOfHandyIndemnity = amountOfHandyIndemnity;
+    }
+
+    public Double getFeeOfHandyIndemnity() {
+        return feeOfHandyIndemnity;
+    }
+
+    public void setFeeOfHandyIndemnity(Double feeOfHandyIndemnity) {
+        this.feeOfHandyIndemnity = feeOfHandyIndemnity;
+    }
+
+    public Double getAmountOfNotArrivedIndemnity() {
+        return amountOfNotArrivedIndemnity;
+    }
+
+    public void setAmountOfNotArrivedIndemnity(Double amountOfNotArrivedIndemnity) {
+        this.amountOfNotArrivedIndemnity = amountOfNotArrivedIndemnity;
+    }
+
+    public Double getFeeOfNotArrivedIndemnity() {
+        return feeOfNotArrivedIndemnity;
+    }
+
+    public void setFeeOfNotArrivedIndemnity(Double feeOfNotArrivedIndemnity) {
+        this.feeOfNotArrivedIndemnity = feeOfNotArrivedIndemnity;
+    }
+
+    public Double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Double distance) {
+        this.distance = distance;
+    }
+
+    public List<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public void setDrivers(List<Driver> drivers) {
+        this.drivers = drivers;
+    }
+
+    public Cargo getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
 }

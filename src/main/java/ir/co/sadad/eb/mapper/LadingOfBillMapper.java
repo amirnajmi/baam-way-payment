@@ -11,7 +11,4 @@ public interface LadingOfBillMapper {
     LadingOfBill ladingOfBillDtoToLadingOfBill(LadingOfBillDto ladingOfBillDto);
     LadingOfBillDto ladingOfBillToLadingOfBillDto(LadingOfBill ladingOfBill);
 
-
-
-
 }

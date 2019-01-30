@@ -9,8 +9,8 @@ public class LadingBillStatusHistoryDto implements Serializable {
     private Long id;
     private String description;
     private LocalDate date;
-    private LadingOfBillDto ladingOfBillDto;
-    private LadingBillStatusDto ladingBillStatusDto;
+    private LadingOfBillDto ladingOfBill;
+    private Integer ladingBillStatus;
 
     public Long getId() {
         return id;
@@ -28,12 +28,20 @@ public class LadingBillStatusHistoryDto implements Serializable {
         this.description = description;
     }
 
-    public LadingBillStatusDto getLadingBillStatusDto() {
-        return ladingBillStatusDto;
+    public LadingOfBillDto getLadingOfBill() {
+        return ladingOfBill;
     }
 
-    public void setLadingBillStatusDto(LadingBillStatusDto ladingBillStatusDto) {
-        this.ladingBillStatusDto = ladingBillStatusDto;
+    public void setLadingOfBill(LadingOfBillDto ladingOfBill) {
+        this.ladingOfBill = ladingOfBill;
+    }
+
+    public Integer getLadingBillStatus() {
+        return ladingBillStatus;
+    }
+
+    public void setLadingBillStatus(Integer ladingBillStatus) {
+        this.ladingBillStatus = ladingBillStatus;
     }
 
     public LocalDate getDate() {
@@ -44,11 +52,4 @@ public class LadingBillStatusHistoryDto implements Serializable {
         this.date = date;
     }
 
-    public LadingOfBillDto getLadingOfBillDto() {
-        return ladingOfBillDto;
-    }
-
-    public void setLadingOfBillDto(LadingOfBillDto ladingOfBillDto) {
-        this.ladingOfBillDto = ladingOfBillDto;
-    }
 }
