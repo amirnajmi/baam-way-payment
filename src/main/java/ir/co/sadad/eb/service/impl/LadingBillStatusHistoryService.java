@@ -1,6 +1,5 @@
 package ir.co.sadad.eb.service.impl;
 
-import ir.co.sadad.eb.domain.LadingBillStatus;
 import ir.co.sadad.eb.domain.LadingBillStatusHistory;
 import ir.co.sadad.eb.exception.BusinessException;
 import ir.co.sadad.eb.mapper.LadingBillStatusHistoryMapper;
@@ -36,6 +35,4 @@ public class LadingBillStatusHistoryService extends AbstractGenericService<Ladin
         LadingBillStatusHistory ladingBillStatusHistory = ladingBillStatusHistoryMapper.ladingBillStatusHistoryDtoToLadingBillStatusHistory(ladingBillStatusHistoryDto);
         return ladingBillStatusHistoryMapper.ladingBillStatusHistoryToLadingBillStatusHistoryDto(save(ladingBillStatusHistory));
     }
-
-
 }
