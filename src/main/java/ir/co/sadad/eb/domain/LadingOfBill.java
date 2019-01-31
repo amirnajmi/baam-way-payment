@@ -14,7 +14,6 @@ public class LadingOfBill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
-
     //تاریخ بارنامه
     @Column(name = "DATE")
     private LocalDate date;
@@ -39,9 +38,6 @@ public class LadingOfBill {
     //شهر مقصد
     @Column(name = "DESTINATION_CITY")
     private String destinationCity;
-    //نام وسیله حمل کننده اولیه بار(کشتی)
-    @Column(name = "SOURCE_VEHICLE_NAME")
-    private String sourceVehicleName;
     //مبلغ کرایه
     @Column(name = "FREIGHT_AMOUNT")
     private Double freightAmount;
@@ -56,7 +52,7 @@ public class LadingOfBill {
     private Double shippingCompanyContribution;
     //عوارض
     @Column(name = "RECEIPT")
-    private Double receipt;
+    private Double toll;
     //کسری مجاز
     @Column(name = "ALLOWED_DEFICIT")
     private Double allowedDeficit;
@@ -166,14 +162,6 @@ public class LadingOfBill {
         this.destinationCity = destinationCity;
     }
 
-    public String getSourceVehicleName() {
-        return sourceVehicleName;
-    }
-
-    public void setSourceVehicleName(String sourceVehicleName) {
-        this.sourceVehicleName = sourceVehicleName;
-    }
-
     public Double getFreightAmount() {
         return freightAmount;
     }
@@ -204,14 +192,6 @@ public class LadingOfBill {
 
     public void setShippingCompanyContribution(Double shippingCompanyContribution) {
         this.shippingCompanyContribution = shippingCompanyContribution;
-    }
-
-    public Double getReceipt() {
-        return receipt;
-    }
-
-    public void setReceipt(Double receipt) {
-        this.receipt = receipt;
     }
 
     public Double getAllowedDeficit() {
@@ -364,5 +344,13 @@ public class LadingOfBill {
 
     public void setOwnerCompany(OwnerCompany ownerCompany) {
         this.ownerCompany = ownerCompany;
+    }
+
+    public Double getToll() {
+        return toll;
+    }
+
+    public void setToll(Double toll) {
+        this.toll = toll;
     }
 }

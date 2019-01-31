@@ -11,13 +11,13 @@ public class LadingOfBillDto implements Serializable {
     public LadingOfBillDto() {
     }
 
-    private int ladingBillId;
+    private Long id;
     //تاریخ بارنامه
-    private LocalDate ladingBillDate;
+    private LocalDate date;
     //شماره بارنامه
-    private String ladingBillNo;
+    private String no;
     //سریال بارنامه
-    private String ladingBillSerial;
+    private String serial;
     //شماره حواله
     private String orderNo;
     //استان مبدا
@@ -35,15 +35,9 @@ public class LadingOfBillDto implements Serializable {
     //سهم راننده
     private Double driverContribution;
     //سهم شرکت حمل
-    private Double shippingComponyContribution;
-    //راننده ها
-    private List<DriverDto> drivers;
-    // محموله
-    private CargoDto cargo;
-    //خودرو
-    private VehicleDto vehicle;
+    private Double shippingCompanyContribution;
     //عوارض
-    private Double receipt;
+    private Double toll;
     //کسری مجاز
     private Double allowedDeficit;
     //کسری غیرمجاز
@@ -66,38 +60,12 @@ public class LadingOfBillDto implements Serializable {
     private Double feeOfNotArrivedIndemnity;
     // مسافت
     private Double distance ;
-
-    public int getLadingBillId() {
-        return ladingBillId;
-    }
-
-    public void setLadingBillId(int ladingBillId) {
-        this.ladingBillId = ladingBillId;
-    }
-
-    public LocalDate getLadingBillDate() {
-        return ladingBillDate;
-    }
-
-    public void setLadingBillDate(LocalDate ladingBillDate) {
-        this.ladingBillDate = ladingBillDate;
-    }
-
-    public String getLadingBillNo() {
-        return ladingBillNo;
-    }
-
-    public void setLadingBillNo(String ladingBillNo) {
-        this.ladingBillNo = ladingBillNo;
-    }
-
-    public String getLadingBillSerial() {
-        return ladingBillSerial;
-    }
-
-    public void setLadingBillSerial(String ladingBillSerial) {
-        this.ladingBillSerial = ladingBillSerial;
-    }
+    //راننده ها
+    private List<DriverDto> drivers;
+    // محموله
+    private CargoDto cargo;
+    //خودرو
+    private VehicleDto vehicle;
 
     public String getOrderNo() {
         return orderNo;
@@ -161,25 +129,6 @@ public class LadingOfBillDto implements Serializable {
 
     public void setDriverContribution(Double driverContribution) {
         this.driverContribution = driverContribution;
-    }
-
-    public Double getShippingComponyContribution() {
-        return shippingComponyContribution;
-    }
-
-    public void setShippingComponyContribution(Double shippingComponyContribution) {
-        this.shippingComponyContribution = shippingComponyContribution;
-    }
-
-
-
-
-    public Double getReceipt() {
-        return receipt;
-    }
-
-    public void setReceipt(Double receipt) {
-        this.receipt = receipt;
     }
 
     public Double getAllowedDeficit() {
@@ -293,4 +242,54 @@ public class LadingOfBillDto implements Serializable {
     public void setVehicle(VehicleDto vehicle) {
         this.vehicle = vehicle;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public String getNo() {
+        return no;
+    }
+
+    public void setNo(String no) {
+        this.no = no;
+    }
+
+    public String getSerial() {
+        return serial;
+    }
+
+    public void setSerial(String serial) {
+        this.serial = serial;
+    }
+
+    public Double getShippingCompanyContribution() {
+        return shippingCompanyContribution;
+    }
+
+    public void setShippingCompanyContribution(Double shippingCompanyContribution) {
+        this.shippingCompanyContribution = shippingCompanyContribution;
+    }
+
+    public Double getToll() {
+        return toll;
+    }
+
+    public void setToll(Double toll) {
+        this.toll = toll;
+    }
+
+
 }

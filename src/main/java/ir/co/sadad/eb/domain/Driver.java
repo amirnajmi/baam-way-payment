@@ -29,7 +29,8 @@ public class Driver {
     @Column(name = "ADDRESS" , length=13, nullable=true)
     private String address ;
 
-    //driverKind
+    @Column(name = "KIND" , length=13, nullable=true)
+    private String kind;
 
     @Column(name = "TELL" , length=11, nullable=false)
     private String tell;
@@ -44,8 +45,6 @@ public class Driver {
     @ManyToMany(mappedBy = "drivers")
     private List<LadingOfBill> ladingOfBills;
 
-
-
     public String getNationalCode() {
         return nationalCode;
     }
@@ -53,7 +52,6 @@ public class Driver {
     public void setNationalCode(String nationalCode) {
         this.nationalCode = nationalCode;
     }
-
 
     public String getSmartCardNo() {
         return smartCardNo;
@@ -95,7 +93,6 @@ public class Driver {
         this.account = account;
     }
 
-
     public List<LadingOfBill> getLadingOfBills() {
         return ladingOfBills;
     }
@@ -118,5 +115,13 @@ public class Driver {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getKind() {
+        return kind;
+    }
+
+    public void setKind(String kind) {
+        this.kind = kind;
     }
 }

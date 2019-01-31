@@ -34,6 +34,9 @@ public class Account {
     @Column(name = "DESC3")
     private String desc3;
 
+    @Column(name = "DESC4")
+    private String desc4;
+
     public Long getId() {
         return id;
     }
@@ -88,5 +91,13 @@ public class Account {
 
     public void setDesc3(String desc3) {
         this.desc3 = desc3;
+    }
+
+    public String getDesc4() {
+        return desc4;
+    }
+
+    public void setDesc4(String desc4) {
+        this.desc4 = desc4;
     }
 }
