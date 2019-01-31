@@ -7,7 +7,7 @@
         <!--<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
         <jta-data-source>jdbc/bamwayDB</jta-data-source>
         <properties>
-            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.connection.url" value="jdbc:db2://192.168.52.129:50000/ebanking"/>
             <property name="hibernate.connection.driver_class" value="com.ibm.db2.jcc.DB2Driver"/>
@@ -16,7 +16,7 @@
             <property name="hibernate.cache.use_second_level_cache" value="true"/>
             <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>
              <!--use whenever want to execute some queries on startup -->
-            <property name="javax.persistence.sql-load-script-source" value="META-INF/sql/insert.sql"/>
+            <!--<property name="javax.persistence.sql-load-script-source" value="META-INF/sql/insert.sql"/>-->
         </properties>
     </persistence-unit>
 </persistence>

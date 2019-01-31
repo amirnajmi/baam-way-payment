@@ -28,6 +28,9 @@ public class Account {
     @Column(name = "STATE")
     private Integer state;
 
+    @Column(name = "DESC2")
+    private String desc2;
+
     public Long getId() {
         return id;
     }
@@ -66,5 +69,13 @@ public class Account {
 
     public void setIban(String iban) {
         this.iban = iban;
+    }
+
+    public String getDesc2() {
+        return desc2;
+    }
+
+    public void setDesc2(String desc2) {
+        this.desc2 = desc2;
     }
 }

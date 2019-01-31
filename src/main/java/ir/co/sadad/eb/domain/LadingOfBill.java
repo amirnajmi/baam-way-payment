@@ -108,6 +108,14 @@ public class LadingOfBill {
     @JoinColumn(name = "VEHICLE_ID", referencedColumnName = "ID")
     private Vehicle vehicle;
 
+    // شرکت حمل
+    @ManyToOne(targetEntity = ShippingCompany.class)
+    private ShippingCompany shippingCompany;
+
+    @ManyToOne(targetEntity = OwnerCompany.class)
+    //شرکت بازرگانی
+    private OwnerCompany ownerCompany;
+
     public Long getId() {
         return id;
     }
@@ -338,5 +346,21 @@ public class LadingOfBill {
 
     public void setSerial(String serial) {
         this.serial = serial;
+    }
+
+    public ShippingCompany getShippingCompany() {
+        return shippingCompany;
+    }
+
+    public void setShippingCompany(ShippingCompany shippingCompany) {
+        this.shippingCompany = shippingCompany;
+    }
+
+    public OwnerCompany getOwnerCompany() {
+        return ownerCompany;
+    }
+
+    public void setOwnerCompany(OwnerCompany ownerCompany) {
+        this.ownerCompany = ownerCompany;
     }
 }
