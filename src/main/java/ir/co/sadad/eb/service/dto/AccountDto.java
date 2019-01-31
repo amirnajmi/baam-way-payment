@@ -13,7 +13,7 @@ public class AccountDto implements Serializable {
     // نام صاحب حساب
     private String accountOwner;
     //شماره شبا حساب
-    private String IBAN;
+    private String iban;
     //وضعیت حساب
     private Integer state;
 
@@ -41,12 +41,12 @@ public class AccountDto implements Serializable {
         this.accountOwner = accountOwner;
     }
 
-    public String getIBAN() {
-        return IBAN;
+    public String getIban() {
+        return iban;
     }
 
-    public void setIBAN(String IBAN) {
-        this.IBAN = IBAN;
+    public void setIban(String iban) {
+        this.iban = iban;
     }
 
     public Integer getState() {

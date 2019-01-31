@@ -1,9 +1,8 @@
 package ir.co.sadad.eb.service.dto;
 
-
+import java.time.LocalDate;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 public class InvoiceStatusHistoryDto implements Serializable {
     private Long id;

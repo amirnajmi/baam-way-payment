@@ -10,8 +10,10 @@ public class OwnerCompany {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Integer id;
+
     @Column(name = "NAME")
     private String name;
+
     @Column(name = "LEGAL_NO")
     private String legalNo;
 

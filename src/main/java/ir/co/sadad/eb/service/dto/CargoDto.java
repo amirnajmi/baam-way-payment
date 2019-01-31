@@ -9,7 +9,7 @@ public class CargoDto implements Serializable {
 
     private Long id ;
     //نام محموله
-    private String Name;
+    private String name;
     //  وزن خروج از مبدا
     private Double weightOfDeparture;
     //  وزن ورود به مقصد
@@ -35,11 +35,11 @@ public class CargoDto implements Serializable {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getUnit() {

@@ -3,19 +3,17 @@ package ir.co.sadad.eb.domain;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "LADING_OF_BILL" , schema = "PUSH")
-public class LadingOfBill implements Serializable {
+@Table(name = "LADING_OF_BILL", schema = "PUSH")
+public class LadingOfBill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
-
     //تاریخ بارنامه
     @Column(name = "DATE")
     private LocalDate date;
@@ -23,8 +21,8 @@ public class LadingOfBill implements Serializable {
     @Column(name = "NO")
     private String no;
     //سریال بارنامه
-    @Column(name = "LADING_BILL_SERIAL")
-    private String ladingBillSerial;
+    @Column(name = "SERIAL")
+    private String serial;
     //شماره حواله
     @Column(name = "ORDER_NO")
     private String orderNo;
@@ -40,9 +38,6 @@ public class LadingOfBill implements Serializable {
     //شهر مقصد
     @Column(name = "DESTINATION_CITY")
     private String destinationCity;
-    //نام وسیله حمل کننده اولیه بار(کشتی)
-    @Column(name = "SOURCE_VEHICLE_NAME")
-    private String sourceVehicleName;
     //مبلغ کرایه
     @Column(name = "FREIGHT_AMOUNT")
     private Double freightAmount;
@@ -57,7 +52,7 @@ public class LadingOfBill implements Serializable {
     private Double shippingCompanyContribution;
     //عوارض
     @Column(name = "RECEIPT")
-    private Double receipt;
+    private Double toll;
     //کسری مجاز
     @Column(name = "ALLOWED_DEFICIT")
     private Double allowedDeficit;
@@ -92,13 +87,6 @@ public class LadingOfBill implements Serializable {
     @Column(name = "DISTANCE")
     private Double distance;
 
-    @ManyToOne(targetEntity=ShippingCompany.class)
-    private ShippingCompany shippingCompany;
-
-    //شرکت بازرگانی
-    @ManyToOne(targetEntity=OwnerCompany.class)
-    private OwnerCompany ownerCompany;
-
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
@@ -118,38 +106,20 @@ public class LadingOfBill implements Serializable {
     @JoinColumn(name = "VEHICLE_ID", referencedColumnName = "ID")
     private Vehicle vehicle;
 
+    // شرکت حمل
+    @ManyToOne(targetEntity = ShippingCompany.class)
+    private ShippingCompany shippingCompany;
+
+    @ManyToOne(targetEntity = OwnerCompany.class)
+    //شرکت بازرگانی
+    private OwnerCompany ownerCompany;
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public String getNo() {
-        return no;
-    }
-
-    public void setNo(String no) {
-        this.no = no;
-    }
-
-
-
-    public String getLadingBillSerial() {
-        return ladingBillSerial;
-    }
-
-    public void setLadingBillSerial(String ladingBillSerial) {
-        this.ladingBillSerial = ladingBillSerial;
     }
 
     public String getOrderNo() {
@@ -192,14 +162,6 @@ public class LadingOfBill implements Serializable {
         this.destinationCity = destinationCity;
     }
 
-    public String getSourceVehicleName() {
-        return sourceVehicleName;
-    }
-
-    public void setSourceVehicleName(String sourceVehicleName) {
-        this.sourceVehicleName = sourceVehicleName;
-    }
-
     public Double getFreightAmount() {
         return freightAmount;
     }
@@ -230,14 +192,6 @@ public class LadingOfBill implements Serializable {
 
     public void setShippingCompanyContribution(Double shippingCompanyContribution) {
         this.shippingCompanyContribution = shippingCompanyContribution;
-    }
-
-    public Double getReceipt() {
-        return receipt;
-    }
-
-    public void setReceipt(Double receipt) {
-        this.receipt = receipt;
     }
 
     public Double getAllowedDeficit() {
@@ -352,6 +306,30 @@ public class LadingOfBill implements Serializable {
         this.vehicle = vehicle;
     }
 
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public String getNo() {
+        return no;
+    }
+
+    public void setNo(String no) {
+        this.no = no;
+    }
+
+    public String getSerial() {
+        return serial;
+    }
+
+    public void setSerial(String serial) {
+        this.serial = serial;
+    }
+
     public ShippingCompany getShippingCompany() {
         return shippingCompany;
     }
@@ -366,5 +344,13 @@ public class LadingOfBill implements Serializable {
 
     public void setOwnerCompany(OwnerCompany ownerCompany) {
         this.ownerCompany = ownerCompany;
+    }
+
+    public Double getToll() {
+        return toll;
+    }
+
+    public void setToll(Double toll) {
+        this.toll = toll;
     }
 }

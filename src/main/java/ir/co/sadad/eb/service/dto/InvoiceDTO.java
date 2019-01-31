@@ -1,9 +1,6 @@
 package ir.co.sadad.eb.service.dto;
 
-import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
-import org.eclipse.microprofile.openapi.annotations.parameters.Parameters;
+import ir.co.sadad.eb.domain.OwnerCompany;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -19,19 +16,17 @@ public class InvoiceDTO implements Serializable {
     private Long id;
     //    تاریخ صورتحساب
     private LocalDate invoiceDate;
-    //    شرکت حمل
-    private String shippingCompanyCode;
-    //    کد نوع فرآیند
-    private String processKindCode;
+    // تاریخ
+    private LocalDate date;
+    //شرکت حمل
+    private ShippingCompanyDto shippingCompany;
+    // شرکت کارفرما
+    private OwnerCompanyDto ownerCompany;
     //    شماره قرارداد
     private String contractNumber;
     //    شماره صورتحساب
     private String invoiceNumber;
-    private List<InvoiceDetailDTO> invoiceDetailDTOList;
-    // کارفرما
-    private OwnerCompanyDto ownerCompany;
-    // شرکت حمل و نقل
-    private ShippingCompanyDto shippingCompany;
+    private List<InvoiceDetailDTO> invoiceDetails;
 
     public Long getId() {
         return id;
@@ -47,22 +42,6 @@ public class InvoiceDTO implements Serializable {
 
     public void setInvoiceDate(LocalDate invoiceDate) {
         this.invoiceDate = invoiceDate;
-    }
-
-    public String getShippingCompanyCode() {
-        return shippingCompanyCode;
-    }
-
-    public void setShippingCompanyCode(String shippingCompanyCode) {
-        this.shippingCompanyCode = shippingCompanyCode;
-    }
-
-    public String getProcessKindCode() {
-        return processKindCode;
-    }
-
-    public void setProcessKindCode(String processKindCode) {
-        this.processKindCode = processKindCode;
     }
 
     public String getContractNumber() {
@@ -81,20 +60,28 @@ public class InvoiceDTO implements Serializable {
         this.invoiceNumber = invoiceNumber;
     }
 
-    public List<InvoiceDetailDTO> getInvoiceDetailDTOList() {
-        return invoiceDetailDTOList;
-    }
-
-    public void setInvoiceDetailDTOList(List<InvoiceDetailDTO> invoiceDetailDTOList) {
-        this.invoiceDetailDTOList = invoiceDetailDTOList;
-    }
-
     public OwnerCompanyDto getOwnerCompany() {
         return ownerCompany;
     }
 
     public void setOwnerCompany(OwnerCompanyDto ownerCompany) {
         this.ownerCompany = ownerCompany;
+    }
+
+    public List<InvoiceDetailDTO> getInvoiceDetails() {
+        return invoiceDetails;
+    }
+
+    public void setInvoiceDetails(List<InvoiceDetailDTO> invoiceDetails) {
+        this.invoiceDetails = invoiceDetails;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public ShippingCompanyDto getShippingCompany() {
