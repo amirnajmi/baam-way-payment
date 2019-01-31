@@ -1,5 +1,7 @@
 package ir.co.sadad.eb.domain;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -69,7 +71,7 @@ public class LadingOfBill {
     private Double carriageFare;
     //حق مدیریت
     @Column(name = "MANAGER_SALARY")
-    private Double managerSalary;
+    private Double managerSalary ;
     //حق بیمه
     @Column(name = "PREMIUM")
     private Double premium;
