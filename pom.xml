@@ -59,7 +59,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <external-lib-directory>E:/externallib/</external-lib-directory>
+                <external-lib-directory>D:/externallib/</external-lib-directory>
             </properties>
         </profile>
         <profile>

@@ -5,7 +5,7 @@ import org.joda.time.LocalDate;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "INVOICE_STATUS_HISTORY" , schema = "PUSH")
+@Table(name = "INVOICE_STATUS_HISTORY", schema = "PUSH")
 public class InvoiceStatusHistory {
 
     @Id

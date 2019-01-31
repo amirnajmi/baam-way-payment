@@ -12,8 +12,8 @@ public class Driver {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "DRIVER_NAME" , length=50, nullable=false)
-    private String driverName;
+    @Column(name = "NAME" , length=50, nullable=false)
+    private String name;
 
     @Column(name = "NATIONAL_CODE" , length=10, nullable=false)
     private String nationalCode;
@@ -44,21 +44,7 @@ public class Driver {
     @ManyToMany(mappedBy = "drivers")
     private List<LadingOfBill> ladingOfBills;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDriverName() {
-        return driverName;
-    }
-
-    public void setDriverName(String driverName) {
-        this.driverName = driverName;
-    }
 
     public String getNationalCode() {
         return nationalCode;
@@ -116,5 +102,21 @@ public class Driver {
 
     public void setLadingOfBills(List<LadingOfBill> ladingOfBills) {
         this.ladingOfBills = ladingOfBills;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

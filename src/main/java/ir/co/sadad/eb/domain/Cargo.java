@@ -1,34 +1,48 @@
 package ir.co.sadad.eb.domain;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 //محموله
 @Entity
-@Table(name = "CARGO" , schema = "PUSH")
-public class Cargo implements Serializable {
+@Table(name = "CARGO" ,schema = "PUSH")
+public class Cargo {
 
     @Id
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
+
     //نام محموله
-    private String cargoName;
+    @Column(name = "NAME")
+    private String name;
+
     //وزن محموله
 //    private String cargoWeight;
+
     //  وزن خروج از مبدا
+    @Column(name = "WEIGHT_OF_DEPARTURE")
     private Double weightOfDeparture;
+
     //  وزن ورود به مقصد
+    @Column(name = "WEIGHT_OF_LOAD")
     private Double weightOfLoad;
+
     // todo should change to enum
     //واحد اندازه گیری
-    private String cargoUnit;
-    //نوع بسته بندی
-    private String packageType;
-    //تعداد بسته
-    private Integer packageCount;
-    //ارزش محموله
-    private Double valueOfCargo;
+    @Column(name = "UNIT")
+    private String unit;
 
+    //نوع بسته بندی
+    @Column(name = "PACKAGE_TYPE")
+    private String packageType;
+
+    //تعداد بسته
+    @Column(name = "PACKAGE_COUNT")
+    private Integer packageCount;
+
+    //ارزش محموله
+    @Column(name = "VALUE_OF_CARGO")
+    private Double valueOfCargo;
 
     public Long getId() {
         return id;
@@ -38,12 +52,12 @@ public class Cargo implements Serializable {
         this.id = id;
     }
 
-    public String getCargoName() {
-        return cargoName;
+    public String getName() {
+        return name;
     }
 
-    public void setCargoName(String cargoName) {
-        this.cargoName = cargoName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Double getWeightOfDeparture() {
@@ -62,12 +76,12 @@ public class Cargo implements Serializable {
         this.weightOfLoad = weightOfLoad;
     }
 
-    public String getCargoUnit() {
-        return cargoUnit;
+    public String getUnit() {
+        return unit;
     }
 
-    public void setCargoUnit(String cargoUnit) {
-        this.cargoUnit = cargoUnit;
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
     public String getPackageType() {

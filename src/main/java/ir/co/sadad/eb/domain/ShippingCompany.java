@@ -1,5 +1,4 @@
 package ir.co.sadad.eb.domain;
-
 import javax.persistence.*;
 
 import javax.persistence.Entity;
@@ -14,8 +13,10 @@ public class ShippingCompany {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Integer id;
+
     @Column(name = "NAME")
     private String name;
+
     @Column(name = "COMPANY_CODE")
     private String companyCode;
 

@@ -15,7 +15,7 @@ public class AccountDto implements Serializable {
     //شماره شبا حساب
     private String IBAN;
     //وضعیت حساب
-    private Boolean state;
+    private Integer state;
 
     public Long getId() {
         return id;
@@ -49,11 +49,11 @@ public class AccountDto implements Serializable {
         this.IBAN = IBAN;
     }
 
-    public Boolean getState() {
+    public Integer getState() {
         return state;
     }
 
-    public void setState(Boolean state) {
+    public void setState(Integer state) {
         this.state = state;
     }
 }

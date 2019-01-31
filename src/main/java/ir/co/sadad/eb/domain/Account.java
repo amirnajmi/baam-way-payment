@@ -4,25 +4,35 @@ import javax.persistence.*;
 
 //اطلاعات حساب
 @Entity
-@Table(name = "ACCOUNT" , schema = "PUSH")
+@Table(name = "ACCOUNT", schema = "PUSH")
 public class Account {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    private Long id ;
-    @Column(name = "ACCOUNT_NO")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     //شماره حساب
+    @Column(name = "ACCOUNT_NO")
     private String accountNo;
-    @Column(name = "ACCOUNT_OWNER")
+
     // نام صاحب حساب
+    @Column(name = "ACCOUNT_OWNER")
     private String accountOwner;
-    @Column(name = "IBAN")
+
     //شماره شبا حساب
+    @Column(name = "IBAN")
     private String iban;
-    @Column(name = "STATE")
+
     //وضعیت حساب
-    private Boolean state;
+    @Column(name = "STATE")
+    private Integer state;
+
+    @Column(name = "DESC2")
+    private String desc2;
+
+    @Column(name = "DESC3")
+    private String desc3;
 
     public Long getId() {
         return id;
@@ -30,14 +40,6 @@ public class Account {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getAccountNo() {
-        return accountNo;
-    }
-
-    public void setAccountNo(String accountNo) {
-        this.accountNo = accountNo;
     }
 
     public String getAccountOwner() {
@@ -48,6 +50,22 @@ public class Account {
         this.accountOwner = accountOwner;
     }
 
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
+    public String getAccountNo() {
+        return accountNo;
+    }
+
+    public void setAccountNo(String accountNo) {
+        this.accountNo = accountNo;
+    }
+
     public String getIban() {
         return iban;
     }
@@ -56,11 +74,19 @@ public class Account {
         this.iban = iban;
     }
 
-    public Boolean getState() {
-        return state;
+    public String getDesc2() {
+        return desc2;
     }
 
-    public void setState(Boolean state) {
-        this.state = state;
+    public void setDesc2(String desc2) {
+        this.desc2 = desc2;
+    }
+
+    public String getDesc3() {
+        return desc3;
+    }
+
+    public void setDesc3(String desc3) {
+        this.desc3 = desc3;
     }
 }

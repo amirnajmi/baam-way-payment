@@ -3,13 +3,12 @@ package ir.co.sadad.eb.domain;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "LADING_OF_BILL" , schema = "PUSH")
-public class LadingOfBill implements Serializable {
+@Table(name = "LADING_OF_BILL", schema = "PUSH")
+public class LadingOfBill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,14 +16,14 @@ public class LadingOfBill implements Serializable {
     private Long id;
 
     //تاریخ بارنامه
-    @Column(name = "LADING_BILL_DATE")
-    private LocalDate ladingBillDate;
+    @Column(name = "DATE")
+    private LocalDate date;
     //شماره بارنامه
-    @Column(name = "LADING_BILL_NO")
-    private String ladingBillNo;
+    @Column(name = "NO")
+    private String no;
     //سریال بارنامه
-    @Column(name = "LADING_BILL_SERIAL")
-    private String ladingBillSerial;
+    @Column(name = "SERIAL")
+    private String serial;
     //شماره حواله
     @Column(name = "ORDER_NO")
     private String orderNo;
@@ -111,36 +110,20 @@ public class LadingOfBill implements Serializable {
     @JoinColumn(name = "VEHICLE_ID", referencedColumnName = "ID")
     private Vehicle vehicle;
 
+    // شرکت حمل
+    @ManyToOne(targetEntity = ShippingCompany.class)
+    private ShippingCompany shippingCompany;
+
+    @ManyToOne(targetEntity = OwnerCompany.class)
+    //شرکت بازرگانی
+    private OwnerCompany ownerCompany;
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public LocalDate getLadingBillDate() {
-        return ladingBillDate;
-    }
-
-    public void setLadingBillDate(LocalDate ladingBillDate) {
-        this.ladingBillDate = ladingBillDate;
-    }
-
-    public String getLadingBillNo() {
-        return ladingBillNo;
-    }
-
-    public void setLadingBillNo(String ladingBillNo) {
-        this.ladingBillNo = ladingBillNo;
-    }
-
-    public String getLadingBillSerial() {
-        return ladingBillSerial;
-    }
-
-    public void setLadingBillSerial(String ladingBillSerial) {
-        this.ladingBillSerial = ladingBillSerial;
     }
 
     public String getOrderNo() {
@@ -341,5 +324,45 @@ public class LadingOfBill implements Serializable {
 
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public String getNo() {
+        return no;
+    }
+
+    public void setNo(String no) {
+        this.no = no;
+    }
+
+    public String getSerial() {
+        return serial;
+    }
+
+    public void setSerial(String serial) {
+        this.serial = serial;
+    }
+
+    public ShippingCompany getShippingCompany() {
+        return shippingCompany;
+    }
+
+    public void setShippingCompany(ShippingCompany shippingCompany) {
+        this.shippingCompany = shippingCompany;
+    }
+
+    public OwnerCompany getOwnerCompany() {
+        return ownerCompany;
+    }
+
+    public void setOwnerCompany(OwnerCompany ownerCompany) {
+        this.ownerCompany = ownerCompany;
     }
 }
