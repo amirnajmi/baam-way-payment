@@ -16,7 +16,6 @@ public class CargoDto implements Serializable {
     private Double weightOfLoad;
     //وزن محموله
 //    private String cargoWeight;
-//    private String cargoWeight;
     // todo should change to enum
     //واحد اندازه گیری
     private String unit;
