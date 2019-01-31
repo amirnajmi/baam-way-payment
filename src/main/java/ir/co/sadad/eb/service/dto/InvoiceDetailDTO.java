@@ -2,13 +2,12 @@ package ir.co.sadad.eb.service.dto;
 
 //todo don't use lombok in dtos
 
-import ir.co.sadad.eb.domain.LadingOfBill;
-
 public class InvoiceDetailDTO {
 
-    private Integer id;
-    //بارنامه
-    private LadingOfBillDto ladingOfBillDto;
+    private Long id;
+    private String ladingOfBillSeries;
+    private String ladingOfBillCode;
+    private InvoiceDTO invoiceDTO;
 
     //     شماره ورود
 //    private String loadCode;
@@ -28,20 +27,37 @@ public class InvoiceDetailDTO {
 //    private Double receipt;
     //    پلاک یا شماره وسیله نقلیه حامل
 //    private String vehicleTag;
-    public Integer getId() {
+
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-
-    public LadingOfBillDto getLadingOfBillDto() {
-        return ladingOfBillDto;
+    public String getLadingOfBillSeries() {
+        return ladingOfBillSeries;
     }
 
-    public void setLadingOfBillDto(LadingOfBillDto ladingOfBillDto) {
-        this.ladingOfBillDto = ladingOfBillDto;
+    public void setLadingOfBillSeries(String ladingOfBillSeries) {
+        this.ladingOfBillSeries = ladingOfBillSeries;
+    }
+
+    public String getLadingOfBillCode() {
+        return ladingOfBillCode;
+    }
+
+    public void setLadingOfBillCode(String ladingOfBillCode) {
+        this.ladingOfBillCode = ladingOfBillCode;
+    }
+
+    public InvoiceDTO getInvoiceDTO() {
+        return invoiceDTO;
+    }
+
+    public void setInvoiceDTO(InvoiceDTO invoiceDTO) {
+        this.invoiceDTO = invoiceDTO;
     }
 }

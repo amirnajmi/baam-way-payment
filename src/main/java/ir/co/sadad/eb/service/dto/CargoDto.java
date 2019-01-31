@@ -9,16 +9,17 @@ public class CargoDto implements Serializable {
 
     private Long id ;
     //نام محموله
-    private String cargoName;
+    private String name;
     //  وزن خروج از مبدا
     private Double weightOfDeparture;
     //  وزن ورود به مقصد
     private Double weightOfLoad;
     //وزن محموله
 //    private String cargoWeight;
+//    private String cargoWeight;
     // todo should change to enum
     //واحد اندازه گیری
-    private String cargoUnit;
+    private String unit;
     //نوع بسته بندی
     private String packageType;
     //تعداد بسته
@@ -34,20 +35,20 @@ public class CargoDto implements Serializable {
         this.id = id;
     }
 
-    public String getCargoName() {
-        return cargoName;
+    public String getName() {
+        return name;
     }
 
-    public void setCargoName(String cargoName) {
-        this.cargoName = cargoName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCargoUnit() {
-        return cargoUnit;
+    public String getUnit() {
+        return unit;
     }
 
-    public void setCargoUnit(String cargoUnit) {
-        this.cargoUnit = cargoUnit;
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
     public String getPackageType() {

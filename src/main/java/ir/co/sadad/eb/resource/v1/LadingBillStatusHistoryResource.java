@@ -1,5 +1,6 @@
 package ir.co.sadad.eb.resource.v1;
 
+import ir.co.sadad.eb.exception.BusinessException;
 import ir.co.sadad.eb.service.api.ILadingBillStatusHistoryService;
 import ir.co.sadad.eb.service.dto.LadingBillStatusHistoryDto;
 import org.eclipse.microprofile.metrics.annotation.Timed;
@@ -28,7 +29,7 @@ public class LadingBillStatusHistoryResource {
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response create(LadingBillStatusHistoryDto ladingBillStatusHistoryDto) {
+    public Response create(LadingBillStatusHistoryDto ladingBillStatusHistoryDto) throws BusinessException {
         return Response.ok().entity(iLadingBillStatusHistoryService.createLadingBillStatusHistory(ladingBillStatusHistoryDto)).build();
     }
 }

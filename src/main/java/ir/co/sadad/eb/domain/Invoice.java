@@ -30,10 +30,6 @@ public class Invoice {
     //شرکت بازرگانی
     private OwnerCompany ownerCompany;
 
-    // کد نوع فرآیند
-    @Column(name = "PROCESS_KIND_CODE")
-    private String processKindCode;
-
     // شماره قرارداد
     @Column(name = "CONTRACT_NUMBER")
     private String contractNumber;
@@ -75,14 +71,6 @@ public class Invoice {
 
     public void setShippingCompany(ShippingCompany shippingCompany) {
         this.shippingCompany = shippingCompany;
-    }
-
-    public String getProcessKindCode() {
-        return processKindCode;
-    }
-
-    public void setProcessKindCode(String processKindCode) {
-        this.processKindCode = processKindCode;
     }
 
     public String getContractNumber() {
