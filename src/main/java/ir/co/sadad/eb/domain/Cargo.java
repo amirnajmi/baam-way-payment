@@ -10,7 +10,6 @@ import java.io.Serializable;
 
 //محموله
 @Entity
-@Data
 public class Cargo implements Serializable {
 
     @Id

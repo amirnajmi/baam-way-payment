@@ -8,7 +8,6 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Data
 @Table(name = "INVOICE")
 public class Invoice implements Serializable {
 

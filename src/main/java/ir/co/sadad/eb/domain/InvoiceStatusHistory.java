@@ -6,7 +6,6 @@ import org.joda.time.LocalDate;
 import javax.persistence.*;
 
 @Entity
-@Data
 public class InvoiceStatusHistory {
 
     @Id

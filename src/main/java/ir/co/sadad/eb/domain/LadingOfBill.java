@@ -8,7 +8,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Data
 @Table(name = "LADING_OF_BILL")
 public class LadingOfBill implements Serializable {
 
