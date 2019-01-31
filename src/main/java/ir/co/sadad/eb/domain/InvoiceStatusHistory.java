@@ -1,11 +1,11 @@
 package ir.co.sadad.eb.domain;
 
-import lombok.Data;
 import org.joda.time.LocalDate;
 
 import javax.persistence.*;
 
 @Entity
+@Table(name = "INVOICE_STATUS_HISTORY" , schema = "PUSH")
 public class InvoiceStatusHistory {
 
     @Id
@@ -29,4 +29,43 @@ public class InvoiceStatusHistory {
     @Column(name = "DATE")
     private LocalDate date;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Invoice getInvoice() {
+        return invoice;
+    }
+
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
+
+    public InvoiceStatus getInvoiceStatus() {
+        return invoiceStatus;
+    }
+
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus) {
+        this.invoiceStatus = invoiceStatus;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 }

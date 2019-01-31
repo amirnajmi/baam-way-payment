@@ -1,30 +1,16 @@
-package ir.co.sadad.eb.domain;
+package ir.co.sadad.eb.service.dto;
 
-import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity
-@Table(name = "VEHICLE" ,schema = "TEST")
-public class Vehicle {
-
-    @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class VehicleDto implements Serializable {
     private Long id;
-
-    @Column(name = "NAME" , length=50, nullable=false)
     private String name;
-
-    //پلاک ماشین
-    @Column(name = "TAG" , length=20, nullable=false)
     private String tag;
-
-    //سری ماشین
-    @Column(name = "TAG_SERIES" , length=20, nullable=false)
     private String tagSeries;
-
-    //نوع ماشین
-    @Column(name = "TYPE" , length=50, nullable=false)
     private String type;
+
+    public VehicleDto() {
+    }
 
     public Long getId() {
         return id;
@@ -66,4 +52,3 @@ public class Vehicle {
         this.type = type;
     }
 }
-

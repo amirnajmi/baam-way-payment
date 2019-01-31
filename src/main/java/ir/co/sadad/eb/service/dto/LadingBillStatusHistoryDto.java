@@ -1,16 +1,17 @@
 package ir.co.sadad.eb.service.dto;
 
-import org.joda.time.LocalDate;
+
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class LadingBillStatusHistoryDto implements Serializable {
 
     private Long id;
     private String description;
     private LocalDate date;
-    private LadingOfBillDto ladingOfBillDto;
-    private LadingBillStatusDto ladingBillStatusDto;
+    private LadingOfBillDto ladingOfBill;
+    private LadingBillStatusDto ladingBillStatus;
 
     public Long getId() {
         return id;
@@ -28,12 +29,20 @@ public class LadingBillStatusHistoryDto implements Serializable {
         this.description = description;
     }
 
-    public LadingBillStatusDto getLadingBillStatusDto() {
-        return ladingBillStatusDto;
+    public LadingOfBillDto getLadingOfBill() {
+        return ladingOfBill;
     }
 
-    public void setLadingBillStatusDto(LadingBillStatusDto ladingBillStatusDto) {
-        this.ladingBillStatusDto = ladingBillStatusDto;
+    public void setLadingOfBill(LadingOfBillDto ladingOfBill) {
+        this.ladingOfBill = ladingOfBill;
+    }
+
+    public LadingBillStatusDto getLadingBillStatus() {
+        return ladingBillStatus;
+    }
+
+    public void setLadingBillStatus(LadingBillStatusDto ladingBillStatus) {
+        this.ladingBillStatus = ladingBillStatus;
     }
 
     public LocalDate getDate() {
@@ -44,11 +53,4 @@ public class LadingBillStatusHistoryDto implements Serializable {
         this.date = date;
     }
 
-    public LadingOfBillDto getLadingOfBillDto() {
-        return ladingOfBillDto;
-    }
-
-    public void setLadingOfBillDto(LadingOfBillDto ladingOfBillDto) {
-        this.ladingOfBillDto = ladingOfBillDto;
-    }
 }

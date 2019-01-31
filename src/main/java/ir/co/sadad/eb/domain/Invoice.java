@@ -1,6 +1,5 @@
 package ir.co.sadad.eb.domain;
 
-import lombok.Data;
 import org.joda.time.LocalDate;
 
 import javax.persistence.*;
@@ -41,4 +40,75 @@ public class Invoice implements Serializable {
     @OneToMany(targetEntity = InvoiceDetail.class , mappedBy = "invoice" , cascade = {CascadeType.REMOVE,CascadeType.PERSIST},fetch = FetchType.LAZY)
     private List<InvoiceDetail> invoiceDetails;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDate getInvoiceDate() {
+        return invoiceDate;
+    }
+
+    public void setInvoiceDate(LocalDate invoiceDate) {
+        this.invoiceDate = invoiceDate;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public ShippingCompany getShippingCompany() {
+        return shippingCompany;
+    }
+
+    public void setShippingCompany(ShippingCompany shippingCompany) {
+        this.shippingCompany = shippingCompany;
+    }
+
+    public String getProcessKindCode() {
+        return processKindCode;
+    }
+
+    public void setProcessKindCode(String processKindCode) {
+        this.processKindCode = processKindCode;
+    }
+
+    public String getContractNumber() {
+        return contractNumber;
+    }
+
+    public void setContractNumber(String contractNumber) {
+        this.contractNumber = contractNumber;
+    }
+
+    public String getInvoiceNumber() {
+        return invoiceNumber;
+    }
+
+    public void setInvoiceNumber(String invoiceNumber) {
+        this.invoiceNumber = invoiceNumber;
+    }
+
+    public OwnerCompany getOwnerCompany() {
+        return ownerCompany;
+    }
+
+    public void setOwnerCompany(OwnerCompany ownerCompany) {
+        this.ownerCompany = ownerCompany;
+    }
+
+    public List<InvoiceDetail> getInvoiceDetails() {
+        return invoiceDetails;
+    }
+
+    public void setInvoiceDetails(List<InvoiceDetail> invoiceDetails) {
+        this.invoiceDetails = invoiceDetails;
+    }
 }

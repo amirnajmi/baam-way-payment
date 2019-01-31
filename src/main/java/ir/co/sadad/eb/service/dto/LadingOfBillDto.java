@@ -1,7 +1,5 @@
 package ir.co.sadad.eb.service.dto;
 
-import ir.co.sadad.eb.domain.LadingOfBill;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
@@ -42,6 +40,8 @@ public class LadingOfBillDto implements Serializable {
     private List<DriverDto> drivers;
     // محموله
     private CargoDto cargo;
+    //خودرو
+    private VehicleDto vehicle;
     //عوارض
     private Double receipt;
     //کسری مجاز
@@ -172,21 +172,7 @@ public class LadingOfBillDto implements Serializable {
     }
 
 
-    public List<DriverDto> getDrivers() {
-        return drivers;
-    }
 
-    public void setDrivers(List<DriverDto> drivers) {
-        this.drivers = drivers;
-    }
-
-    public CargoDto getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(CargoDto cargo) {
-        this.cargo = cargo;
-    }
 
     public Double getReceipt() {
         return receipt;
@@ -282,5 +268,29 @@ public class LadingOfBillDto implements Serializable {
 
     public void setDistance(Double distance) {
         this.distance = distance;
+    }
+
+    public List<DriverDto> getDrivers() {
+        return drivers;
+    }
+
+    public void setDrivers(List<DriverDto> drivers) {
+        this.drivers = drivers;
+    }
+
+    public CargoDto getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(CargoDto cargo) {
+        this.cargo = cargo;
+    }
+
+    public VehicleDto getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(VehicleDto vehicle) {
+        this.vehicle = vehicle;
     }
 }

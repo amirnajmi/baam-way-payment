@@ -1,12 +1,11 @@
 package ir.co.sadad.eb.domain;
 
-import lombok.Data;
 import org.joda.time.LocalDate;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "LADING_BILL_STATUS_HISTORY", schema = "TEST")
+@Table(name = "LADING_BILL_STATUS_HISTORY", schema = "PUSH")
 //@Data
 public class LadingBillStatusHistory {
 

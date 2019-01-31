@@ -1,23 +1,26 @@
 package ir.co.sadad.eb.service.dto;
 
-public class InvoiceStatusDto {
+public enum InvoiceStatusDto {
 
-   private Integer code;
-   private String title;
+    REGISTERED(1, "ثبت شده"),
+    PAYING(2, "در حال پرداخت"),
+    CLEARED(3, "تسویه شده"),
+    NONE(4, "");
 
-    public Integer getCode() {
+
+    private Integer code;
+    private String title;
+
+    public Integer getValue() {
         return code;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    InvoiceStatusDto(Integer code, String title) {
+        this.code = code;
         this.title = title;
     }
 }
