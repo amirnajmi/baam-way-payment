@@ -8,24 +8,23 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Data
-@Table(name = "LADING_OF_BILL")
-public class LadingOfBill implements Serializable {
+@Table(name = "LADING_OF_BILL", schema = "PUSH")
+public class LadingOfBill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    private Long ladingBillId;
+    private Long id;
 
     //تاریخ بارنامه
     @Column(name = "LADING_BILL_DATE")
-    private LocalDate ladingBillDate;
+    private LocalDate date;
     //شماره بارنامه
     @Column(name = "LADING_BILL_NO")
-    private String ladingBillNo;
+    private String no;
     //سریال بارنامه
     @Column(name = "LADING_BILL_SERIAL")
-    private String ladingBillSerial;
+    private String serial;
     //شماره حواله
     @Column(name = "ORDER_NO")
     private String orderNo;

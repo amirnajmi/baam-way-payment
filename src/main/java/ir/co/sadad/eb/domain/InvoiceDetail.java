@@ -4,18 +4,21 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "INVOICE_DETAIL")
-public class InvoiceDetail implements Serializable {
+@Table(name = "INVOICE_DETAIL", schema = "PUSH")
+public class InvoiceDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
+
     @Column(name = "LADING_OF_BILL_SERIES")
     private String ladingOfBillSeries;
+
     //  شماره بارنامه
     @Column(name = "LADING_OF_BILL_CODE")
     private String ladingOfBillCode;
+
     @ManyToOne(targetEntity = Invoice.class)
     private Invoice invoice;
 
@@ -82,4 +85,6 @@ public class InvoiceDetail implements Serializable {
     public void setLadingOfBillCode(String ladingOfBillCode) {
         this.ladingOfBillCode = ladingOfBillCode;
     }
+
+
 }
