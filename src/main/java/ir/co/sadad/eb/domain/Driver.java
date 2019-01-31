@@ -12,14 +12,11 @@ public class Driver {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "DRIVER_NAME" , length=50, nullable=false)
-    private String driverName;
+    @Column(name = "NAME" , length=50, nullable=false)
+    private String name;
 
     @Column(name = "NATIONAL_CODE" , length=10, nullable=false)
     private String nationalCode;
-
-    @Column(name = "ACCOUNT_NO" , length=13, nullable=false)
-    private String accountNo;
 
     @Column(name = "SMART_CARD_NO" , length=30, nullable=false)
     private String smartCardNo;
@@ -47,13 +44,7 @@ public class Driver {
     @ManyToMany(mappedBy = "drivers")
     private List<LadingOfBill> ladingOfBills;
 
-    public String getDriverName() {
-        return driverName;
-    }
 
-    public void setDriverName(String driverName) {
-        this.driverName = driverName;
-    }
 
     public String getNationalCode() {
         return nationalCode;
@@ -63,13 +54,6 @@ public class Driver {
         this.nationalCode = nationalCode;
     }
 
-    public String getAccountNo() {
-        return accountNo;
-    }
-
-    public void setAccountNo(String accountNo) {
-        this.accountNo = accountNo;
-    }
 
     public String getSmartCardNo() {
         return smartCardNo;
@@ -111,6 +95,7 @@ public class Driver {
         this.account = account;
     }
 
+
     public List<LadingOfBill> getLadingOfBills() {
         return ladingOfBills;
     }
@@ -125,5 +110,13 @@ public class Driver {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

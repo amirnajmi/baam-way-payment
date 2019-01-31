@@ -1,7 +1,5 @@
 package ir.co.sadad.eb.service.dto;
 
-import ir.co.sadad.eb.domain.LadingOfBill;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
@@ -39,11 +37,11 @@ public class LadingOfBillDto implements Serializable {
     //سهم شرکت حمل
     private Double shippingComponyContribution;
     //راننده ها
-    private List<DriverDto> driverDtos;
+    private List<DriverDto> drivers;
     // محموله
-    private CargoDto cargoDto;
+    private CargoDto cargo;
     //خودرو
-    private VehicleDto vehicleDto;
+    private VehicleDto vehicle;
     //عوارض
     private Double receipt;
     //کسری مجاز
@@ -174,13 +172,7 @@ public class LadingOfBillDto implements Serializable {
     }
 
 
-    public List<DriverDto> getDriverDtos() {
-        return driverDtos;
-    }
 
-    public void setDriverDtos(List<DriverDto> driverDtos) {
-        this.driverDtos = driverDtos;
-    }
 
     public Double getReceipt() {
         return receipt;
@@ -278,19 +270,27 @@ public class LadingOfBillDto implements Serializable {
         this.distance = distance;
     }
 
-    public VehicleDto getVehicleDto() {
-        return vehicleDto;
+    public List<DriverDto> getDrivers() {
+        return drivers;
     }
 
-    public void setVehicleDto(VehicleDto vehicleDto) {
-        this.vehicleDto = vehicleDto;
+    public void setDrivers(List<DriverDto> drivers) {
+        this.drivers = drivers;
     }
 
-    public CargoDto getCargoDto() {
-        return cargoDto;
+    public CargoDto getCargo() {
+        return cargo;
     }
 
-    public void setCargoDto(CargoDto cargoDto) {
-        this.cargoDto = cargoDto;
+    public void setCargo(CargoDto cargo) {
+        this.cargo = cargo;
+    }
+
+    public VehicleDto getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(VehicleDto vehicle) {
+        this.vehicle = vehicle;
     }
 }

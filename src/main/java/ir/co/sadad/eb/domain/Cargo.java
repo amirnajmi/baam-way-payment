@@ -1,9 +1,6 @@
 package ir.co.sadad.eb.domain;
 
-import lombok.Data;
-
 import javax.persistence.*;
-import java.io.Serializable;
 
 //محموله
 @Entity
@@ -32,8 +29,8 @@ public class Cargo {
 
     // todo should change to enum
     //واحد اندازه گیری
-    @Column(name = "CARGO_UNIT")
-    private String cargoUnit;
+    @Column(name = "UNIT")
+    private String unit;
 
     //نوع بسته بندی
     @Column(name = "PACKAGE_TYPE")
@@ -79,12 +76,12 @@ public class Cargo {
         this.weightOfLoad = weightOfLoad;
     }
 
-    public String getCargoUnit() {
-        return cargoUnit;
+    public String getUnit() {
+        return unit;
     }
 
-    public void setCargoUnit(String cargoUnit) {
-        this.cargoUnit = cargoUnit;
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
     public String getPackageType() {

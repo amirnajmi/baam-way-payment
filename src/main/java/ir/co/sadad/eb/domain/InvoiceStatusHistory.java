@@ -1,6 +1,5 @@
 package ir.co.sadad.eb.domain;
 
-import lombok.Data;
 import org.joda.time.LocalDate;
 
 import javax.persistence.*;

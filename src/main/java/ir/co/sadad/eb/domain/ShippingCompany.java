@@ -2,12 +2,12 @@ package ir.co.sadad.eb.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "OWNER_COMPANY", schema = "PUSH")
+@Table(name = "SHIPPING_COMPANY", schema = "PUSH")
 public class ShippingCompany {
 
     @Id
-    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Integer id;
 
     @Column(name = "NAME")

@@ -1,6 +1,5 @@
 package ir.co.sadad.eb.domain;
 
-
 import javax.persistence.*;
 
 //اطلاعات حساب
