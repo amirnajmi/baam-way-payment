@@ -13,7 +13,7 @@ public class LadingOfBillDto implements Serializable {
 
     private int ladingBillId;
     //تاریخ بارنامه
-    private LocalDate ladingBillDate;
+    private LocalDate date;
     //شماره بارنامه
     private String ladingBillNo;
     //سریال بارنامه
@@ -66,6 +66,11 @@ public class LadingOfBillDto implements Serializable {
     private Double feeOfNotArrivedIndemnity;
     // مسافت
     private Double distance ;
+    // کارفرما
+    private OwnerCompanyDto ownerCompany;
+    // شرکت حمل و نقل
+    private ShippingCompanyDto shippingCompany;
+
 
     public int getLadingBillId() {
         return ladingBillId;
@@ -75,12 +80,12 @@ public class LadingOfBillDto implements Serializable {
         this.ladingBillId = ladingBillId;
     }
 
-    public LocalDate getLadingBillDate() {
-        return ladingBillDate;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setLadingBillDate(LocalDate ladingBillDate) {
-        this.ladingBillDate = ladingBillDate;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public String getLadingBillNo() {
@@ -292,5 +297,21 @@ public class LadingOfBillDto implements Serializable {
 
     public void setVehicle(VehicleDto vehicle) {
         this.vehicle = vehicle;
+    }
+
+    public OwnerCompanyDto getOwnerCompany() {
+        return ownerCompany;
+    }
+
+    public void setOwnerCompany(OwnerCompanyDto ownerCompany) {
+        this.ownerCompany = ownerCompany;
+    }
+
+    public ShippingCompanyDto getShippingCompany() {
+        return shippingCompany;
+    }
+
+    public void setShippingCompany(ShippingCompanyDto shippingCompany) {
+        this.shippingCompany = shippingCompany;
     }
 }

@@ -9,31 +9,31 @@ import java.io.Serializable;
 
 public class DriverDto implements Serializable {
 
-    private int driverID;
-    private String driverName;
+    private Long id;
+    private String name;
     private String nationalCode;
     private String smartCardNo;
     // todo change to enum
-    private String driverKind;
+    private String kind;
     private String tell;
     private AccountDto account;
     private String licenceNo;
     private String address ;
 
-    public int getDriverID() {
-        return driverID;
+    public Long getId() {
+        return id;
     }
 
-    public void setDriverID(int driverID) {
-        this.driverID = driverID;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getDriverName() {
-        return driverName;
+    public String getName() {
+        return name;
     }
 
-    public void setDriverName(String driverName) {
-        this.driverName = driverName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getNationalCode() {
@@ -52,12 +52,12 @@ public class DriverDto implements Serializable {
         this.smartCardNo = smartCardNo;
     }
 
-    public String getDriverKind() {
-        return driverKind;
+    public String getKind() {
+        return kind;
     }
 
-    public void setDriverKind(String driverKind) {
-        this.driverKind = driverKind;
+    public void setKind(String kind) {
+        this.kind = kind;
     }
 
     public String getTell() {

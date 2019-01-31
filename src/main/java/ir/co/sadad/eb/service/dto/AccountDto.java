@@ -9,13 +9,13 @@ public class AccountDto implements Serializable {
 
     private Long id ;
     //شماره حساب
-    private String AccountNo;
+    private String accountNo;
     // نام صاحب حساب
     private String accountOwner;
     //شماره شبا حساب
     private String IBAN;
     //وضعیت حساب
-    private Boolean state;
+    private Integer state;
 
     public Long getId() {
         return id;
@@ -26,11 +26,11 @@ public class AccountDto implements Serializable {
     }
 
     public String getAccountNo() {
-        return AccountNo;
+        return accountNo;
     }
 
     public void setAccountNo(String accountNo) {
-        AccountNo = accountNo;
+        this.accountNo = accountNo;
     }
 
     public String getAccountOwner() {
@@ -49,11 +49,11 @@ public class AccountDto implements Serializable {
         this.IBAN = IBAN;
     }
 
-    public Boolean getState() {
+    public Integer getState() {
         return state;
     }
 
-    public void setState(Boolean state) {
+    public void setState(Integer state) {
         this.state = state;
     }
 }

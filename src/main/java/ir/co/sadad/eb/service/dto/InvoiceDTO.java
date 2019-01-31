@@ -28,6 +28,10 @@ public class InvoiceDTO implements Serializable {
     //    شماره صورتحساب
     private String invoiceNumber;
     private List<InvoiceDetailDTO> invoiceDetailDTOList;
+    // کارفرما
+    private OwnerCompanyDto ownerCompany;
+    // شرکت حمل و نقل
+    private ShippingCompanyDto shippingCompany;
 
     public Long getId() {
         return id;
@@ -83,5 +87,21 @@ public class InvoiceDTO implements Serializable {
 
     public void setInvoiceDetailDTOList(List<InvoiceDetailDTO> invoiceDetailDTOList) {
         this.invoiceDetailDTOList = invoiceDetailDTOList;
+    }
+
+    public OwnerCompanyDto getOwnerCompany() {
+        return ownerCompany;
+    }
+
+    public void setOwnerCompany(OwnerCompanyDto ownerCompany) {
+        this.ownerCompany = ownerCompany;
+    }
+
+    public ShippingCompanyDto getShippingCompany() {
+        return shippingCompany;
+    }
+
+    public void setShippingCompany(ShippingCompanyDto shippingCompany) {
+        this.shippingCompany = shippingCompany;
     }
 }

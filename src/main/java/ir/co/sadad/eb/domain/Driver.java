@@ -29,6 +29,8 @@ public class Driver {
     @Column(name = "ADDRESS" , length=13, nullable=true)
     private String address ;
 
+    @Column(name = "KIND" , nullable=true)
+    private String kind ;
     //driverKind
 
     @Column(name = "TELL" , length=11, nullable=false)
@@ -67,7 +69,6 @@ public class Driver {
     public void setNationalCode(String nationalCode) {
         this.nationalCode = nationalCode;
     }
-
 
     public String getSmartCardNo() {
         return smartCardNo;
@@ -109,12 +110,19 @@ public class Driver {
         this.account = account;
     }
 
-
     public List<LadingOfBill> getLadingOfBills() {
         return ladingOfBills;
     }
 
     public void setLadingOfBills(List<LadingOfBill> ladingOfBills) {
         this.ladingOfBills = ladingOfBills;
+    }
+
+    public String getKind() {
+        return kind;
+    }
+
+    public void setKind(String kind) {
+        this.kind = kind;
     }
 }

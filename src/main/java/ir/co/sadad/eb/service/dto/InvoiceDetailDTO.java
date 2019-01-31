@@ -6,7 +6,7 @@ import ir.co.sadad.eb.domain.LadingOfBill;
 
 public class InvoiceDetailDTO {
 
-    private Integer id;
+    private Long id;
     //بارنامه
     private LadingOfBillDto ladingOfBillDto;
 
@@ -28,14 +28,15 @@ public class InvoiceDetailDTO {
 //    private Double receipt;
     //    پلاک یا شماره وسیله نقلیه حامل
 //    private String vehicleTag;
-    public Integer getId() {
+
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
-
 
     public LadingOfBillDto getLadingOfBillDto() {
         return ladingOfBillDto;

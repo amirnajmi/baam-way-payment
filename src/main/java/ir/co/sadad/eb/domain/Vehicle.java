@@ -3,7 +3,7 @@ package ir.co.sadad.eb.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "VEHICLE" ,schema = "TEST")
+@Table(name = "VEHICLE" ,schema = "PUSH")
 public class Vehicle {
 
     @Id

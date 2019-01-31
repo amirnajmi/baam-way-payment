@@ -17,11 +17,11 @@ public class LadingOfBill implements Serializable {
     private Long id;
 
     //تاریخ بارنامه
-    @Column(name = "LADING_BILL_DATE")
-    private LocalDate ladingBillDate;
+    @Column(name = "DATE")
+    private LocalDate date;
     //شماره بارنامه
-    @Column(name = "LADING_BILL_NO")
-    private String ladingBillNo;
+    @Column(name = "NO")
+    private String no;
     //سریال بارنامه
     @Column(name = "LADING_BILL_SERIAL")
     private String ladingBillSerial;
@@ -92,6 +92,13 @@ public class LadingOfBill implements Serializable {
     @Column(name = "DISTANCE")
     private Double distance;
 
+    @ManyToOne(targetEntity=ShippingCompany.class)
+    private ShippingCompany shippingCompany;
+
+    //شرکت بازرگانی
+    @ManyToOne(targetEntity=OwnerCompany.class)
+    private OwnerCompany ownerCompany;
+
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
@@ -119,21 +126,23 @@ public class LadingOfBill implements Serializable {
         this.id = id;
     }
 
-    public LocalDate getLadingBillDate() {
-        return ladingBillDate;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setLadingBillDate(LocalDate ladingBillDate) {
-        this.ladingBillDate = ladingBillDate;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
-    public String getLadingBillNo() {
-        return ladingBillNo;
+    public String getNo() {
+        return no;
     }
 
-    public void setLadingBillNo(String ladingBillNo) {
-        this.ladingBillNo = ladingBillNo;
+    public void setNo(String no) {
+        this.no = no;
     }
+
+
 
     public String getLadingBillSerial() {
         return ladingBillSerial;
@@ -341,5 +350,21 @@ public class LadingOfBill implements Serializable {
 
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
+    }
+
+    public ShippingCompany getShippingCompany() {
+        return shippingCompany;
+    }
+
+    public void setShippingCompany(ShippingCompany shippingCompany) {
+        this.shippingCompany = shippingCompany;
+    }
+
+    public OwnerCompany getOwnerCompany() {
+        return ownerCompany;
+    }
+
+    public void setOwnerCompany(OwnerCompany ownerCompany) {
+        this.ownerCompany = ownerCompany;
     }
 }

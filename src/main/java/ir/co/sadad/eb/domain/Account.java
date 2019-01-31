@@ -22,7 +22,14 @@ public class Account {
     private String iban;
     @Column(name = "STATE")
     //وضعیت حساب
-    private Boolean state;
+    private Integer state;
+
+    @Column(name = "DESC")
+    //وضعیت حساب
+    private String desc;
+    @Column(name = "DESC2")
+    //وضعیت حساب
+    private String desc2;
 
     public Long getId() {
         return id;
@@ -56,11 +63,27 @@ public class Account {
         this.iban = iban;
     }
 
-    public Boolean getState() {
+    public Integer getState() {
         return state;
     }
 
-    public void setState(Boolean state) {
+    public void setState(Integer state) {
         this.state = state;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getDesc2() {
+        return desc2;
+    }
+
+    public void setDesc2(String desc2) {
+        this.desc2 = desc2;
     }
 }

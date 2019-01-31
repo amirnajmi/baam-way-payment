@@ -21,7 +21,7 @@ public class Invoice implements Serializable {
     @Column(name = "DATE")
     private LocalDate date;
     // شرکت حمل
-    @Column(name = "SHIPPING_COMPANY")
+    @ManyToOne(targetEntity=ShippingCompany.class)
     private ShippingCompany shippingCompany;
     // کد نوع فرآیند
     @Column(name = "PROCESS_KIND_CODE")
@@ -34,6 +34,7 @@ public class Invoice implements Serializable {
     private String invoiceNumber;
 
     //شرکت بازرگانی
+    @ManyToOne(targetEntity=OwnerCompany.class)
     private OwnerCompany ownerCompany;
 
     // لاین های صورتحساب
@@ -111,4 +112,5 @@ public class Invoice implements Serializable {
     public void setInvoiceDetails(List<InvoiceDetail> invoiceDetails) {
         this.invoiceDetails = invoiceDetails;
     }
+
 }
