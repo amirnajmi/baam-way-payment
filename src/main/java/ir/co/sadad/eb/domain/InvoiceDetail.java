@@ -1,7 +1,7 @@
 package ir.co.sadad.eb.domain;
 
 import javax.persistence.*;
-import java.io.Serializable;
+
 
 @Entity
 @Table(name = "INVOICE_DETAIL", schema = "PUSH")
