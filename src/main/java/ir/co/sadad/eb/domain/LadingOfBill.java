@@ -102,7 +102,7 @@ public class LadingOfBill {
     // محموله
     private Cargo cargo;
 
-    @ManyToOne(targetEntity = Vehicle.class)
+    @ManyToOne(targetEntity = Vehicle.class, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "VEHICLE_ID", referencedColumnName = "ID")
     private Vehicle vehicle;
 

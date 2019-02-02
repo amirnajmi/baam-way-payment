@@ -42,7 +42,8 @@ public class LadingOfBillService extends AbstractGenericService<LadingOfBill, Lo
     //TODO: Transactional??
     public LadingOfBillDto createLadingOfBill(LadingOfBillDto ladingOfBillDto){
         LadingOfBill ladingOfBill = ladingOfBillMapper.ladingOfBillDtoToLadingOfBill(ladingOfBillDto);
-        return ladingOfBillMapper.ladingOfBillToLadingOfBillDto(save(ladingOfBill));
+        LadingOfBill createdLadingOfBill =save(ladingOfBill);
+        return ladingOfBillMapper.ladingOfBillToLadingOfBillDto(createdLadingOfBill);
     }
 
     @Override

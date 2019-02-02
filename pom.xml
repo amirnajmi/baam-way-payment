@@ -48,7 +48,7 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <!-- MapStruct -->
         <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
-
+        <log4j.version>2.11.1</log4j.version>
 
     </properties>
 
@@ -59,7 +59,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <external-lib-directory>D:/externallib/</external-lib-directory>
+                <external-lib-directory>E:/externallib/</external-lib-directory>
             </properties>
         </profile>
         <profile>
@@ -115,7 +115,23 @@
             <version>${version.microprofile}</version>
         </dependency>
 
-
+        <!-- tag::log4j[]-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-to-slf4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <!-- end::log4j[]-->
         <!-- tag::hazelcast[] -->
         <dependency>
             <groupId>com.hazelcast</groupId>
@@ -130,12 +146,6 @@
             <scope>compile</scope>
         </dependency>
         <!-- end::hazelcast[] -->
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${version.slf4j}</version>
-        </dependency>
 
         <dependency>
             <groupId>ch.qos.logback</groupId>

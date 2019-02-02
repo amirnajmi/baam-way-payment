@@ -1,32 +1,31 @@
 package ir.co.sadad.eb.service.dto;
 
-import ir.co.sadad.eb.domain.OwnerCompany;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-//todo don't use lombok in dtos
+@Schema(name = "InvoiceDto", description = "جزئیات صورتحساب")
+public class InvoiceDto implements Serializable {
 
-public class InvoiceDTO implements Serializable {
 
-
-    public InvoiceDTO() {
+    public InvoiceDto() {
     }
+    @Schema(example = "0", description = "شناسه" )
     private Long id;
-    //    تاریخ صورتحساب
+    @Schema(required = true ,example = "2019-02-15", description = "تاریخ صورتحساب" )
     private LocalDate invoiceDate;
-    // تاریخ
-    private LocalDate date;
-    //شرکت حمل
+    @Schema(required = true , description = "شرکت حمل" )
     private ShippingCompanyDto shippingCompany;
-    // شرکت کارفرما
+    @Schema(required = true , description = "شرکت کارفرما" )
     private OwnerCompanyDto ownerCompany;
-    //    شماره قرارداد
+    @Schema(required = true ,example = "1111", description = "شماره قرارداد" )
     private String contractNumber;
-    //    شماره صورتحساب
+    @Schema(required = true ,example = "0", description = "شماره صورتحساب" )
     private String invoiceNumber;
-    private List<InvoiceDetailDTO> invoiceDetails;
+    @Schema(required = true ,example = "0", description = "جزئیات صورتجساب" )
+    private List<InvoiceDetailDto> invoiceDetails;
 
     public Long getId() {
         return id;
@@ -68,20 +67,12 @@ public class InvoiceDTO implements Serializable {
         this.ownerCompany = ownerCompany;
     }
 
-    public List<InvoiceDetailDTO> getInvoiceDetails() {
+    public List<InvoiceDetailDto> getInvoiceDetails() {
         return invoiceDetails;
     }
 
-    public void setInvoiceDetails(List<InvoiceDetailDTO> invoiceDetails) {
+    public void setInvoiceDetails(List<InvoiceDetailDto> invoiceDetails) {
         this.invoiceDetails = invoiceDetails;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
     }
 
     public ShippingCompanyDto getShippingCompany() {

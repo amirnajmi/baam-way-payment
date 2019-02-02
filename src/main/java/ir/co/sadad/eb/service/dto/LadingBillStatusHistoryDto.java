@@ -1,16 +1,23 @@
 package ir.co.sadad.eb.service.dto;
 
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
+@Schema(name = "LadingBillStatusHistoryDto", description = "تاریخچه وضعیت بارنامه")
 public class LadingBillStatusHistoryDto implements Serializable {
 
+    @Schema(example = "0", description = "شناسه")
     private Long id;
+    @Schema(required = true, example = "10", description = "توضیحات")
     private String description;
+    @Schema(required = true, example = "10", description = "تاریخ")
     private LocalDate date;
+    @Schema(required = true, description = "بارنامه")
     private LadingOfBillDto ladingOfBill;
+    @Schema(required = true, description = "وضعیت بارنامه")
     private LadingBillStatusDto ladingBillStatus;
 
     public Long getId() {

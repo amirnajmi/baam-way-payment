@@ -1,13 +1,19 @@
 package ir.co.sadad.eb.service.dto;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
 //todo don't use lombok in dtos
-
-public class InvoiceDetailDTO {
-
+@Schema(name = "InvoiceDetailDto", description = "جزئیات صورتحساب")
+public class InvoiceDetailDto {
+    @Schema(example = "0", description = "شناسه" )
     private Long id;
+    @Schema(required = true ,example = "45487/411", description = "سری بارنامه" )
     private String ladingOfBillSeries;
+    @Schema(required = true ,example = "65897", description = "شماره بارنامه" )
     private String ladingOfBillCode;
-    private InvoiceDTO invoiceDTO;
+    @Schema(required = true ,example = "156322.5", description = "مبلغ نهایی بارنامه پس از کسورات" )
+    private Double finalAmount;
+
 
     //     شماره ورود
 //    private String loadCode;
@@ -53,11 +59,11 @@ public class InvoiceDetailDTO {
         this.ladingOfBillCode = ladingOfBillCode;
     }
 
-    public InvoiceDTO getInvoiceDTO() {
-        return invoiceDTO;
+    public Double getFinalAmount() {
+        return finalAmount;
     }
 
-    public void setInvoiceDTO(InvoiceDTO invoiceDTO) {
-        this.invoiceDTO = invoiceDTO;
+    public void setFinalAmount(Double finalAmount) {
+        this.finalAmount = finalAmount;
     }
 }

@@ -1,30 +1,32 @@
 package ir.co.sadad.eb.service.dto;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
 import java.io.Serializable;
 
-//todo don't use lombok in dtos
 
+@Schema(name = "CargoDto", description = "محموله")
 public class CargoDto implements Serializable {
 
-
+    @Schema(example = "0", description = "شناسه" )
     private Long id ;
-    //نام محموله
+    @Schema(required = true ,example = "1", description = "نام محموله" )
     private String name;
-    //  وزن خروج از مبدا
+    @Schema(required = true ,example = "1", description = "وزن خروج از مبدا" )
     private Double weightOfDeparture;
-    //  وزن ورود به مقصد
+    @Schema(required = true ,example = "1", description = "وزن ورود به مقصد" )
     private Double weightOfLoad;
     //وزن محموله
 //    private String cargoWeight;
-//    private String cargoWeight;
     // todo should change to enum
-    //واحد اندازه گیری
+    //
+    @Schema(example = "1", description = "واحد اندازه گیری" )
     private String unit;
-    //نوع بسته بندی
+    @Schema(example = "1", description = "نوع بسته بندی" )
     private String packageType;
-    //تعداد بسته
+    @Schema(required = true ,example = "1", description = "تعداد بسته" )
     private Integer packageCount;
-    //ارزش محموله
+    @Schema(required = true ,example = "1", description = "ارزش محموله" )
     private Double valueOfCargo;
 
     public Long getId() {
