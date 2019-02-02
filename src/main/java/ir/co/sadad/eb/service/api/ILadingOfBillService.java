@@ -8,7 +8,7 @@ import ir.co.sadad.eb.service.dto.LadingOfBillUpdateDto;
 
 public interface ILadingOfBillService extends IService<LadingOfBill, Long>{
 
-    LadingOfBillDto createLadingOfBill(LadingOfBillDto ladingOfBillDto);
+    LadingBillStatusHistoryDto createLadingOfBill(LadingOfBillDto ladingOfBillDto) throws BusinessException;
 
     LadingBillStatusHistoryDto updateLadingOfBill(LadingOfBillDto ladingOfBillDto) throws BusinessException;
 

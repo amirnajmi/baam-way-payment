@@ -3,7 +3,7 @@ package ir.co.sadad.eb.domain;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.*;
 import java.util.List;
 
 @Entity

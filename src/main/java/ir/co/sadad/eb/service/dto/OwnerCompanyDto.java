@@ -5,7 +5,9 @@ import java.io.Serializable;
 public class OwnerCompanyDto implements Serializable {
 
     private Integer id;
+
     private String name;
+
     private String legalNo;
 
     public Integer getId() {

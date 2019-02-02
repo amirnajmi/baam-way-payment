@@ -1,15 +1,13 @@
 package ir.co.sadad.eb.service.dto;
 
-
-
-import javax.persistence.GenerationType;
 import java.io.Serializable;
-
 
 public class ShippingCompanyDto implements Serializable {
 
     private Integer id;
+
     private String name;
+
     private String companyCode;
 
     public Integer getId() {

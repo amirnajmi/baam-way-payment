@@ -13,12 +13,11 @@ import ir.co.sadad.eb.service.api.ILadingBillStatusHistoryService;
 import ir.co.sadad.eb.service.api.ILadingOfBillService;
 import ir.co.sadad.eb.service.dto.LadingBillStatusHistoryDto;
 import ir.co.sadad.eb.service.dto.LadingOfBillDto;
-import ir.co.sadad.eb.service.dto.LadingOfBillUpdateDto;
-import ir.co.sadad.eb.service.impl.AbstractGenericService;
 import ir.co.sadad.eb.util.HttpStatusCode;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Stateless
@@ -48,17 +47,33 @@ public class LadingOfBillService extends AbstractGenericService<LadingOfBill, Lo
     }
 
     //TODO: Transactional??
-    public LadingOfBillDto createLadingOfBill(LadingOfBillDto ladingOfBillDto){
+    public LadingBillStatusHistoryDto createLadingOfBill(LadingOfBillDto ladingOfBillDto) throws BusinessException {
+
+        LadingBillStatusHistory ladingBillStatusHistory = new LadingBillStatusHistory();
+        Optional<LadingOfBill> foundLadingOfBill=  ladingOfBillRepository.findByNoLikeAndSerialLike(ladingOfBillDto.getNo(), ladingOfBillDto.getSerial());
+        if(foundLadingOfBill.isPresent()){
+            throw new BusinessException(HttpStatusCode.BAD_REQUEST, "LADING_OF_BILL_IS_DUPLICATE");
+        }
         LadingOfBill ladingOfBill = ladingOfBillMapper.ladingOfBillDtoToLadingOfBill(ladingOfBillDto);
         LadingOfBill createdLadingOfBill =save(ladingOfBill);
-        return ladingOfBillMapper.ladingOfBillToLadingOfBillDto(createdLadingOfBill);
+
+        //TODO: external method:
+        ladingBillStatusHistory.setLadingOfBill(createdLadingOfBill);
+        LadingBillStatus ladingBillStatus= LadingBillStatus.getEnum(LadingBillStatus.INITIAL_REGISTRATION.getCode());
+        ladingBillStatusHistory.setLadingBillStatus(ladingBillStatus);
+        ladingBillStatusHistory.setDescription(LadingBillStatus.INITIAL_REGISTRATION.getTitle());
+        ladingBillStatusHistory.setDate(LocalDate.now());
+        iLadingBillStatusHistoryService.save(ladingBillStatusHistory);
+        //
+
+        return ladingBillStatusHistoryMapper.ladingBillStatusHistoryToLadingBillStatusHistoryDto( ladingBillStatusHistory );
     }
 
     @Override
     //TODO: Transactional??
     public LadingBillStatusHistoryDto updateLadingOfBill(LadingOfBillDto ladingOfBillDto) throws BusinessException {
         LadingBillStatusHistory ladingBillStatusHistory = new LadingBillStatusHistory();
-        LadingBillStatusHistoryDto ladingBillStatusHistoryDto = new LadingBillStatusHistoryDto();
+
         if(ladingOfBillDto.getSerial() == null ){
             throw new BusinessException(HttpStatusCode.BAD_REQUEST, "SERIAL_IS_EMPTY");
         }
@@ -78,12 +93,15 @@ public class LadingOfBillService extends AbstractGenericService<LadingOfBill, Lo
             ladingOfBill.get().setShippingCompanyContribution(ladingOfBillDto.getShippingCompanyContribution());
         }
         LadingOfBill updatedLadingOfBill= update(ladingOfBill.get());
+
+        //TODO: external method:
         ladingBillStatusHistory.setLadingOfBill(updatedLadingOfBill);
         LadingBillStatus ladingBillStatus= LadingBillStatus.getEnum(LadingBillStatus.CONTRIBUTIONS_DETERMINED.getCode());
         ladingBillStatusHistory.setLadingBillStatus(ladingBillStatus);
         ladingBillStatusHistory.setDescription(LadingBillStatus.CONTRIBUTIONS_DETERMINED.getTitle());
-        //ladingBillStatusHistory.
+        ladingBillStatusHistory.setDate(LocalDate.now());
         iLadingBillStatusHistoryService.save(ladingBillStatusHistory);
+        //
 
         return ladingBillStatusHistoryMapper.ladingBillStatusHistoryToLadingBillStatusHistoryDto( ladingBillStatusHistory );
     }

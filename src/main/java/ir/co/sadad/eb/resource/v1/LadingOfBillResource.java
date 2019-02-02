@@ -24,11 +24,12 @@ public class LadingOfBillResource {
     @Operation(summary = "create lading of bill")
     @APIResponse(responseCode = "200", description = "OK")
     @APIResponse(responseCode = "401", description = "Unauthorized")
+    @APIResponse(responseCode = "404", description = "NotFound")
     @Path("/create")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response create(LadingOfBillDto ladingOfBillDto) {
+    public Response create(LadingOfBillDto ladingOfBillDto) throws BusinessException {
         return Response.ok().entity(iLadingOfBillService.createLadingOfBill(ladingOfBillDto)).build();
     }
 
@@ -37,6 +38,7 @@ public class LadingOfBillResource {
     @Operation(summary = "update lading of bill")
     @APIResponse(responseCode = "200", description = "OK")
     @APIResponse(responseCode = "401", description = "Unauthorized")
+    @APIResponse(responseCode = "404", description = "NotFound")
     @Path("/update")
     @PUT
     @Consumes({MediaType.APPLICATION_JSON})
