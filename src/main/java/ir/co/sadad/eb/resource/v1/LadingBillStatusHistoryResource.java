@@ -28,6 +28,7 @@ public class LadingBillStatusHistoryResource {
     @Operation(summary = "create lading of bill status history")
     @APIResponse(responseCode = "200", description = "OK")
     @APIResponse(responseCode = "401", description = "Unauthorized")
+    @APIResponse(responseCode = "404", description = "NotFound")
     @Path("/create")
     @POST
     @Consumes({MediaType.APPLICATION_JSON})

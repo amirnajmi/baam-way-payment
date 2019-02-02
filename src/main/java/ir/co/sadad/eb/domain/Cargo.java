@@ -4,13 +4,13 @@ import javax.persistence.*;
 
 //محموله
 @Entity
-@Table(name = "CARGO" ,schema = "PUSH")
+@Table(name = "CARGO", schema = "PUSH")
 public class Cargo {
 
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id ;
+    private Long id;
 
     //نام محموله
     @Column(name = "NAME")

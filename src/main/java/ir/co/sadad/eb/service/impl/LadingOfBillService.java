@@ -1,6 +1,5 @@
 package ir.co.sadad.eb.service.impl;
 
-import ir.co.sadad.eb.domain.Invoice;
 import ir.co.sadad.eb.domain.LadingBillStatusHistory;
 import ir.co.sadad.eb.domain.LadingOfBill;
 import ir.co.sadad.eb.exception.BusinessException;
@@ -11,8 +10,6 @@ import ir.co.sadad.eb.repository.api.LadingOfBillRepository;
 import ir.co.sadad.eb.service.api.ILadingOfBillService;
 import ir.co.sadad.eb.service.dto.LadingBillStatusHistoryDto;
 import ir.co.sadad.eb.service.dto.LadingOfBillDto;
-import ir.co.sadad.eb.service.dto.LadingOfBillUpdateDto;
-import ir.co.sadad.eb.service.impl.AbstractGenericService;
 import ir.co.sadad.eb.util.HttpStatusCode;
 
 import javax.ejb.Stateless;
