@@ -48,7 +48,7 @@ public class LadingOfBillResource {
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Response update(@RequestBody(description = "update lading of bill history"
-            ,content = @Content(mediaType = "application/json",schema = @Schema(implementation = LadingBillStatusHistoryDto.class))) LadingBillStatusHistoryDto ladingBillStatusHistoryDto) throws BusinessException{
-        return Response.ok().entity(iLadingOfBillService.updateLadingOfBill(ladingBillStatusHistoryDto)).build();
+            ,content = @Content(mediaType = "application/json",schema = @Schema(implementation = LadingOfBillDto.class))) LadingOfBillDto ladingOfBillDto) throws BusinessException{
+        return Response.ok().entity(iLadingOfBillService.updateLadingOfBill(ladingOfBillDto)).build();
     }
 }
