@@ -1,5 +1,6 @@
 package ir.co.sadad.eb.resource.v1;
 
+import ir.co.sadad.eb.exception.BusinessException;
 import ir.co.sadad.eb.service.api.ILadingOfBillService;
 import ir.co.sadad.eb.service.dto.LadingBillStatusHistoryDto;
 import ir.co.sadad.eb.service.dto.LadingOfBillDto;
@@ -40,7 +41,7 @@ public class LadingOfBillResource {
     @PUT
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response update(LadingBillStatusHistoryDto ladingBillStatusHistoryDto) {
-        return Response.ok().entity(iLadingOfBillService.updateLadingOfBill(ladingBillStatusHistoryDto)).build();
+    public Response update(LadingOfBillDto ladingOfBillDto) throws BusinessException {
+        return Response.ok().entity(iLadingOfBillService.updateLadingOfBill(ladingOfBillDto)).build();
     }
 }
