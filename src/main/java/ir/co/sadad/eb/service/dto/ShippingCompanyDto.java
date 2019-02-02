@@ -12,9 +12,8 @@ public class ShippingCompanyDto implements Serializable {
     private Integer id;
     @Schema(required = true ,example = "شرکت حمل و نقل آبادان", description = "نام شرکت حمل" )
     private String name;
-    @Schema(required = true ,example = "1", description = "شناسه" )
-
-    private String companyCode;
+    @Schema(required = true ,example = "12345678911", description = "شناسه حقوقی شرکت صاحب بار" )
+    private String legalNo;
 
     public Integer getId() {
         return id;
@@ -32,11 +31,11 @@ public class ShippingCompanyDto implements Serializable {
         this.name = name;
     }
 
-    public String getCompanyCode() {
-        return companyCode;
+    public String getLegalNo() {
+        return legalNo;
     }
 
-    public void setCompanyCode(String companyCode) {
-        this.companyCode = companyCode;
+    public void setLegalNo(String legalNo) {
+        this.legalNo = legalNo;
     }
 }

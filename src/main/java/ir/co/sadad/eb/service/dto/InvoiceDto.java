@@ -24,7 +24,7 @@ public class InvoiceDto implements Serializable {
     private String contractNumber;
     @Schema(required = true ,example = "0", description = "شماره صورتحساب" )
     private String invoiceNumber;
-    @Schema(required = true ,example = "0", description = "جزئیات صورتجساب" )
+    @Schema(required = true , description = "جزئیات صورتجساب" )
     private List<InvoiceDetailDto> invoiceDetails;
 
     public Long getId() {
