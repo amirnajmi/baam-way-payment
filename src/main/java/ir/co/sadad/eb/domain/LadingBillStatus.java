@@ -7,7 +7,8 @@ public enum LadingBillStatus {
     CONTRIBUTIONS_DETERMINED(3, "سهم ها مشخص شد"),
     TO_BE_PAID(4, "در حال پرداخت"),
     PAID(5, "پرداخت شده"),
-    UNSUCCESSFUL_PAYMENT(6, "پرداخت ناموفق");
+    UNSUCCESSFUL_PAYMENT(6, "پرداخت ناموفق"),
+    NONE(7, "نامشخص");
 
     private Integer code;
     private String title;
@@ -32,7 +33,26 @@ public enum LadingBillStatus {
             case 6:
                 return UNSUCCESSFUL_PAYMENT;
             default:
-                    throw new IllegalArgumentException(String.valueOf(code));
+                return NONE;
+        }
+    }
+
+    public static LadingBillStatus getEnum(String title) {
+        switch (title) {
+            case "INITIAL_REGISTRATION":
+                return INITIAL_REGISTRATION;
+            case "CARGO_DELIVERED":
+                return CARGO_DELIVERED;
+            case "CONTRIBUTIONS_DETERMINED":
+                return CONTRIBUTIONS_DETERMINED;
+            case "TO_BE_PAID":
+                return TO_BE_PAID;
+            case "PAID":
+                return PAID;
+            case "UNSUCCESSFUL_PAYMENT":
+                return UNSUCCESSFUL_PAYMENT;
+            default:
+                return NONE;
         }
     }
 
