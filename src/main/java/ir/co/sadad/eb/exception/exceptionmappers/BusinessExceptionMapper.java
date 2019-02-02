@@ -2,6 +2,7 @@ package ir.co.sadad.eb.exception.exceptionmappers;
 
 import ir.co.sadad.eb.exception.BusinessException;
 
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
@@ -15,6 +16,15 @@ public class BusinessExceptionMapper implements ExceptionMapper<BusinessExceptio
 
     @Override
     public Response toResponse(BusinessException e) {
-        return Response.status(e.getStatusCode().getStatusCode()).entity(e).type("application/json; charset=UTF-8").build();
+        HashMap hashMap = new HashMap<String, String>() {
+            {
+                put("error", e.getMessage());
+                put("error_cause", String.valueOf(e.getCause()));
+                put("statusCode", String.valueOf(e.getStatusCode()));
+            }
+        };
+
+        return Response.status(e.getStatusCode().getStatusCode())
+                .entity(hashMap).type(MediaType.APPLICATION_JSON).build();
     }
 }
