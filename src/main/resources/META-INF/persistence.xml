@@ -6,9 +6,9 @@
     <persistence-unit name="BAAMWAY_PU" transaction-type="JTA">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>jdbc/bamwayDB</jta-data-source>
-        <class>ir.co.sadad.eb.domain.Vehicle</class>
+        <!--<class>ir.co.sadad.eb.domain.Vehicle</class>-->
         <properties>
-            <property name="hibernate.hbm2ddl.auto" value="none" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.connection.url" value="jdbc:db2://192.168.52.129:50000/ebanking"/>
             <property name="hibernate.connection.driver_class" value="com.ibm.db2.jcc.DB2Driver"/>
