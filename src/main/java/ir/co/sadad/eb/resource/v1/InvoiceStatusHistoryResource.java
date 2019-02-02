@@ -1,5 +1,6 @@
 package ir.co.sadad.eb.resource.v1;
 
+import ir.co.sadad.eb.exception.BusinessException;
 import ir.co.sadad.eb.service.api.IInvoiceStatusHistoryService;
 import ir.co.sadad.eb.service.dto.InvoiceStatusHistoryDto;
 import org.eclipse.microprofile.metrics.annotation.Timed;
@@ -32,7 +33,7 @@ public class InvoiceStatusHistoryResource {
     @Produces({MediaType.APPLICATION_JSON})
     public Response create(@RequestBody(description = "تاریخچه وضعیت صورتحساب"
             ,content = @Content(mediaType = "application/json"
-            ,schema = @Schema(implementation = InvoiceStatusHistoryDto.class)))InvoiceStatusHistoryDto invoiceStatusHistoryDto) {
+            ,schema = @Schema(implementation = InvoiceStatusHistoryDto.class)))InvoiceStatusHistoryDto invoiceStatusHistoryDto) throws BusinessException {
         return Response.ok().entity(iInvoiceStatusHistoryService.createInvoiceStatusHistory(invoiceStatusHistoryDto)).build();
     }
 

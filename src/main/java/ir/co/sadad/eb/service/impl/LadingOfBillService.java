@@ -73,13 +73,13 @@ public class LadingOfBillService extends AbstractGenericService<LadingOfBill, Lo
     public LadingBillStatusHistoryDto updateLadingOfBill(LadingOfBillDto ladingOfBillDto) throws BusinessException {
         LadingBillStatusHistory ladingBillStatusHistory = new LadingBillStatusHistory();
 
-        if(ladingOfBillDto.getSerial() == null ){
+        if(ladingOfBillDto.getSerial() == null  || ladingOfBillDto.getSerial().isEmpty()){
             throw new BusinessException(HttpStatusCode.BAD_REQUEST, "SERIAL_IS_EMPTY");
         }
-        if(ladingOfBillDto.getNo() == null ){
+        if(ladingOfBillDto.getNo() == null || ladingOfBillDto.getNo().isEmpty() ){
             throw new BusinessException(HttpStatusCode.BAD_REQUEST, "NO_IS_EMPTY");
         }
-        if(ladingOfBillDto.getDriverContribution() == null ){
+        if(ladingOfBillDto.getDriverContribution() == null  ){
             throw new BusinessException(HttpStatusCode.BAD_REQUEST, "DRIVER_CONTRIBUTION_IS_EMPTY");
         }
         if(ladingOfBillDto.getShippingCompanyContribution() == null ){

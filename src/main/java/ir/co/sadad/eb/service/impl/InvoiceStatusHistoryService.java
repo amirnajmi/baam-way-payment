@@ -31,10 +31,10 @@ public class InvoiceStatusHistoryService extends AbstractGenericService<InvoiceS
     }
 
     public InvoiceStatusHistoryDto createInvoiceStatusHistory(InvoiceStatusHistoryDto invoiceStatusHistoryDto ) throws BusinessException {
-        if(invoiceStatusHistoryDto.getInvoice().getInvoiceNumber() == null){
+        if(invoiceStatusHistoryDto.getInvoice().getInvoiceNumber() == null || invoiceStatusHistoryDto.getInvoice().getInvoiceNumber().isEmpty()){
             throw new BusinessException(HttpStatusCode.BAD_REQUEST, "INVOICE_NUMBER_IS_EMPTY");
         }
-        if(invoiceStatusHistoryDto.getInvoiceStatus() == null){
+        if(invoiceStatusHistoryDto.getInvoiceStatus() == null ){
             throw new BusinessException(HttpStatusCode.BAD_REQUEST, "INVOICE_STATUS_IS_EMPTY");
         }
         InvoiceDto invoiceDto = iInvoiceService.findByInvoiceNumber(invoiceStatusHistoryDto.getInvoice().getInvoiceNumber());
