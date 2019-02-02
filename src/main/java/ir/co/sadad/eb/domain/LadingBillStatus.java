@@ -9,8 +9,8 @@ public enum LadingBillStatus {
     PAID(5, "پرداخت شده"),
     UNSUCCESSFUL_PAYMENT(6, "پرداخت ناموفق");
 
-    Integer code;
-    String title;
+    private Integer code;
+    private String title;
 
     LadingBillStatus(Integer code, String title) {
         this.code = code;

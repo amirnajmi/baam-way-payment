@@ -56,7 +56,6 @@ public class LadingOfBillService extends AbstractGenericService<LadingOfBill, Lo
         }
         LadingOfBill ladingOfBill = ladingOfBillMapper.ladingOfBillDtoToLadingOfBill(ladingOfBillDto);
         LadingOfBill createdLadingOfBill =save(ladingOfBill);
-
         //TODO: external method:
         ladingBillStatusHistory.setLadingOfBill(createdLadingOfBill);
         LadingBillStatus ladingBillStatus= LadingBillStatus.getEnum(LadingBillStatus.INITIAL_REGISTRATION.getCode());
@@ -65,8 +64,8 @@ public class LadingOfBillService extends AbstractGenericService<LadingOfBill, Lo
         ladingBillStatusHistory.setDate(LocalDate.now());
         iLadingBillStatusHistoryService.save(ladingBillStatusHistory);
         //
-
         return ladingBillStatusHistoryMapper.ladingBillStatusHistoryToLadingBillStatusHistoryDto( ladingBillStatusHistory );
+
     }
 
     @Override

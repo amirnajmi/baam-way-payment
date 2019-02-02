@@ -1,7 +1,9 @@
 package ir.co.sadad.eb.service.dto;
 
-import java.io.Serializable;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
+import java.io.Serializable;
+@Schema(name = "LadingBillStatusDto", description = "وضعیت بارنامه")
 public enum LadingBillStatusDto implements Serializable {
 
     INITIAL_REGISTRATION(1, "ثبت اولیه"),
@@ -11,7 +13,9 @@ public enum LadingBillStatusDto implements Serializable {
     PAID(5, "پرداخت شده"),
     UNSUCCESSFUL_PAYMENT(6, "پرداخت ناموفق");
 
+    @Schema(required = true ,example = "1", description = "کد" )
     private Integer code;
+    @Schema(required = true ,example = "ثبت اولیه", description = "صورت وضعیت" )
     private String title;
 
     LadingBillStatusDto(int i, String s) {

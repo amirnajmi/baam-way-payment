@@ -1,9 +1,9 @@
 package ir.co.sadad.eb.service.api;
 
-import ir.co.sadad.eb.service.dto.InvoiceDTO;
+import ir.co.sadad.eb.service.dto.InvoiceDto;
 
 public interface IInvoiceService {
 
-    InvoiceDTO createInvoice(InvoiceDTO invoiceDTO);
+    InvoiceDto createInvoice(InvoiceDto invoiceDTO);
 
 }

@@ -1,10 +1,14 @@
 package ir.co.sadad.eb.resource.v1;
 
 import ir.co.sadad.eb.service.api.IInvoiceService;
-import ir.co.sadad.eb.service.dto.InvoiceDTO;
+import ir.co.sadad.eb.service.dto.AccountDto;
+import ir.co.sadad.eb.service.dto.InvoiceDto;
 import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.eclipse.microprofile.openapi.annotations.media.Content;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.parameters.Parameters;
+import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 
 
@@ -33,7 +37,9 @@ public class InvoiceResource {
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response createInvoice(InvoiceDTO invoiceDTO) {
+    public Response createInvoice(@RequestBody(description = "صورتحساب"
+            ,content = @Content(mediaType = "application/json"
+            ,schema = @Schema(implementation = InvoiceDto.class)))InvoiceDto invoiceDTO) {
         return Response.ok(invoiceService.createInvoice(invoiceDTO)).build();
     }
     @Timed

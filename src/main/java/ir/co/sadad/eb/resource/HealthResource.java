@@ -4,6 +4,7 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.health.Health;
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
+import org.eclipse.microprofile.health.HealthCheckResponseBuilder;
 
 import javax.inject.Inject;
 
@@ -16,7 +17,11 @@ public class HealthResource implements HealthCheck {
 
     @Override
     public HealthCheckResponse call() {
-        return HealthCheckResponse.named(contextPath).up().build();
+        HealthCheckResponseBuilder builder = HealthCheckResponse.named(contextPath);
+        if (!System.getProperty("wlp.server.name").equals("defaultServer")) {
+            return builder.withData("services", "not available").down().build();
+        }
+        return builder.withData("services", "available").up().build();
     }
 
 }

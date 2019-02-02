@@ -17,8 +17,8 @@ public class ShippingCompany {
     @Column(name = "NAME")
     private String name;
 
-    @Column(name = "COMPANY_CODE")
-    private String companyCode;
+    @Column(name = "LEGAL_NO")
+    private String legalNo;;
 
     public Integer getId() {
         return id;
@@ -36,11 +36,11 @@ public class ShippingCompany {
         this.name = name;
     }
 
-    public String getCompanyCode() {
-        return companyCode;
+    public String getLegalNo() {
+        return legalNo;
     }
 
-    public void setCompanyCode(String companyCode) {
-        this.companyCode = companyCode;
+    public void setLegalNo(String legalNo) {
+        this.legalNo = legalNo;
     }
 }
