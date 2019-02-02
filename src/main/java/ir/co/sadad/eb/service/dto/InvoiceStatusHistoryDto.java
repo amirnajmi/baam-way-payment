@@ -1,14 +1,22 @@
 package ir.co.sadad.eb.service.dto;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
 import java.time.LocalDate;
 
 import java.io.Serializable;
 
+@Schema(name = "InvoiceStatusHistoryDto", description = "تاریخچه وضعیت صورتحساب")
 public class InvoiceStatusHistoryDto implements Serializable {
+    @Schema(example = "0", description = "کد" )
     private Long id;
-    private InvoiceDTO invoice;
+    @Schema(required = true , description = "صورتحساب" )
+    private InvoiceDto invoice;
+    @Schema(required = true , description = "وضعیت صورتحساب" )
     private InvoiceStatusDto invoiceStatus;
+    @Schema(required = true ,example = "", description = "توضیحات" )
     private String description;
+    @Schema(required = true ,example = "2019-02-15", description = "تاریخ" )
     private LocalDate date;
 
     public Long getId() {
@@ -19,11 +27,11 @@ public class InvoiceStatusHistoryDto implements Serializable {
         this.id = id;
     }
 
-    public InvoiceDTO getInvoice() {
+    public InvoiceDto getInvoice() {
         return invoice;
     }
 
-    public void setInvoice(InvoiceDTO invoice) {
+    public void setInvoice(InvoiceDto invoice) {
         this.invoice = invoice;
     }
 

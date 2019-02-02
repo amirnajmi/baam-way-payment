@@ -3,7 +3,6 @@ package ir.co.sadad.eb.util.file;
 import javax.json.*;
 import java.io.*;
 import java.net.URISyntaxException;
-import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Set;
 
@@ -11,8 +10,8 @@ public class JsonFileUtil {
 
     public JsonValue parseDtoMeta(String className) {
         ClassLoader classLoader = getClass().getClassLoader();
-        try(InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(new File(classLoader.getResource("resourcecontracts/dto-meta.json").toURI())),"UTF-8");
-            JsonReader reader = Json.createReader(new FileReader(classLoader.getResource("resourcecontracts/dto-meta.json").getFile()))) {
+        try(InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(new File(classLoader.getResource("WEB-INF/dto-meta.json").toURI())),"UTF-8");
+            JsonReader reader = Json.createReader(new FileReader(classLoader.getResource("WEB-INF/dto-meta.json").getFile()))) {
 
             JsonObject jsonObject = reader.readObject();
             //class which want to get its meta info
