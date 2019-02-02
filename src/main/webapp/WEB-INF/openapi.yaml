@@ -119,7 +119,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/InvoiceDTO'
+              $ref: '#/components/schemas/InvoiceDto'
       responses:
         200:
           description: OK
@@ -178,7 +178,7 @@ components:
         invoiceDetailDTOList:
           type: array
           items:
-            $ref: '#/components/schemas/InvoiceDetailDTO'
+            $ref: '#/components/schemas/InvoiceDetailDto'
     JsonValue:
       type: object
       properties:

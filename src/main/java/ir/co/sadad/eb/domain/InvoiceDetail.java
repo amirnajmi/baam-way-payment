@@ -21,6 +21,9 @@ public class InvoiceDetail {
 
     @ManyToOne(targetEntity = Invoice.class)
     private Invoice invoice;
+    //
+    @Column(name = "FINAL_AMOUNT")
+    private Double finalAmount;
 
     //  شماره ورود
 //    @Column(name = "LOAD_CODE")
@@ -86,5 +89,11 @@ public class InvoiceDetail {
         this.ladingOfBillCode = ladingOfBillCode;
     }
 
+    public Double getFinalAmount() {
+        return finalAmount;
+    }
 
+    public void setFinalAmount(Double finalAmount) {
+        this.finalAmount = finalAmount;
+    }
 }

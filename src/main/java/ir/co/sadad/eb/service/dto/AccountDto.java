@@ -1,20 +1,25 @@
 package ir.co.sadad.eb.service.dto;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
 import java.io.Serializable;
 
 
 //todo don't use lombok in dtos
 
+@Schema(name = "AccountDto", description = "Pojo that represent a AccountDto object")
 public class AccountDto implements Serializable {
 
+    @Schema(example = "0", description = "شناسه" )
     private Long id ;
     //شماره حساب
+    @Schema(required = true ,example = "1", description = "شماره حساب" )
     private String accountNo;
-    // نام صاحب حساب
+    @Schema(required = true ,example = "1", description = "نام صاحب حساب" )
     private String accountOwner;
-    //شماره شبا حساب
+    @Schema(required = true ,example = "1", description = "شماره شبا حساب" )
     private String iban;
-    //وضعیت حساب
+    @Schema(required = true ,example = "1", description = "وضعیت حساب" )
     private Integer state;
 
     public Long getId() {

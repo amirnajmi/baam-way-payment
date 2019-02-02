@@ -1,70 +1,73 @@
 package ir.co.sadad.eb.service.dto;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 //todo don't use lombok in dtos
-
+@Schema(name = "LadingOfBill", description = "بارنامه")
 public class LadingOfBillDto implements Serializable {
 
     public LadingOfBillDto() {
     }
 
+    @Schema(description = "شناسه")
     private Long id;
-    //تاریخ بارنامه
+    @Schema(required = true , example = "2019-02-15" , description = "تاریخ بارنامه")
     private LocalDate date;
-    //شماره بارنامه
+    @Schema(required = true , example = "12345" , description = "شماره بارنامه")
     private String no;
-    //سریال بارنامه
+    @Schema(required = true , example = "12345" , description = "سریال بارنامه")
     private String serial;
-    //شماره حواله
+    @Schema(required = true , example = "123" , description = "شماره حواله")
     private String orderNo;
-    //استان مبدا
+    @Schema(required = true , example = "بندر عباس" , description = "استان مبدا")
     private String sourceProvince;
-    //استان مقصد
+    @Schema(required = true , example = "تهران" , description = "استان مقصد")
     private String destinationProvince;
-    //شهر مبدا
+    @Schema(required = true , example = "100000" , description = "شهر مبدا")
     private String sourceCity;
-    //شهر مقصد
+    @Schema(required = true , example = "99000" , description = "شهر مقصد")
     private String destinationCity;
-    //مبلغ کرایه
+    @Schema(required = true , example = "0.0" , description = "مبلغ کرایه")
     private Double freightAmount;
-    //مبلغ قابل پرداخت
+    @Schema(required = true , example = "0.0" , description = "مبلغ قابل پرداخت")
     private Double payableAmount;
-    //سهم راننده
+    @Schema(required = true , example = "0.0" , description = "سهم راننده")
     private Double driverContribution;
-    //سهم شرکت حمل
+    @Schema(required = true , example = "0.0" , description = "سهم شرکت حمل")
     private Double shippingCompanyContribution;
-    //عوارض
+    @Schema(required = true , example = "0.0" , description = "عوارض")
     private Double toll;
-    //کسری مجاز
+    @Schema(required = true , example = "0.0" , description = "کسری مجاز")
     private Double allowedDeficit;
-    //کسری غیرمجاز
+    @Schema(required = true , example = "0.0" , description = "کسری غیرمجاز")
     private Double illegalDeficit;
-    //نرخ کرایه حمل
+    @Schema(required = true , example = "0.0" , description = "نرخ کرایه حمل")
     private Double carriageRate;
-    //کرایه حمل
+    @Schema(required = true , example = "0.0" , description = "کرایه حمل")
     private Double carriageFare;
-    //حق مدیریت
+    @Schema(required = true , example = "0.0" , description = "حق مدیریت")
     private Double managerSalary ;
-    //حق بیمه
+    @Schema(required = true , example = "0.0" , description = "حق بیمه")
     private Double premium;
-    // مقدار غرامت دستی :|
+    @Schema(required = true , example = "0.0" , description = "مقدار غرامت دستی")
     private Double amountOfHandyIndemnity;
-    // مبلغ غرامت دستی :|
+    @Schema(required = true , example = "0.0" , description = "مبلغ غرامت دستی")
     private Double feeOfHandyIndemnity;
-    // مقدار غرامت نرسیده :|
+    @Schema(required = true , example = "0.0" , description = "مقدار غرامت نرسیده")
     private Double amountOfNotArrivedIndemnity;
-    // مبلغ غرامت نرسیده :|
+    @Schema(required = true , example = "0.0" , description = "مبلغ غرامت نرسیده")
     private Double feeOfNotArrivedIndemnity;
-    // مسافت
+    @Schema(required = true , example = "136.4" , description = "مسافت")
     private Double distance ;
-    //راننده ها
+    @Schema(required = true , description = "راننده ها")
     private List<DriverDto> drivers;
-    // محموله
+    @Schema(required = true , description = "محموله")
     private CargoDto cargo;
-    //خودرو
+    @Schema(required = true , description = "خودرو")
     private VehicleDto vehicle;
 
     public String getOrderNo() {

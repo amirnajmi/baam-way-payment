@@ -1,18 +1,16 @@
 package ir.co.sadad.eb.resource.meta;
 
-import ir.co.sadad.eb.service.dto.InvoiceDTO;
 import ir.co.sadad.eb.util.file.JsonFileUtil;
 import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 
 import javax.inject.Inject;
-import javax.json.JsonObject;
 import javax.json.JsonValue;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.HashMap;
+
 @Path("/dtoMetaInfo")
 public class DtoMetaInfoResource {
 
