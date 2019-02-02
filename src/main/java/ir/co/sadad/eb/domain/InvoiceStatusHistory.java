@@ -2,6 +2,7 @@ package ir.co.sadad.eb.domain;
 
 import java.time.*;
 
+
 import javax.persistence.*;
 
 @Entity
