@@ -1,14 +1,19 @@
 package ir.co.sadad.eb.service.dto;
 
+
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
+import javax.persistence.GenerationType;
 import java.io.Serializable;
 
+@Schema(name = "ShippingCompanyDto", description = "شرکت حمل و نقل")
 public class ShippingCompanyDto implements Serializable {
-
+    @Schema(example = "0", description = "شناسه" )
     private Integer id;
-
+    @Schema(required = true ,example = "شرکت حمل و نقل آبادان", description = "نام شرکت حمل" )
     private String name;
-
-    private String companyCode;
+    @Schema(required = true ,example = "12345678911", description = "شناسه حقوقی شرکت صاحب بار" )
+    private String legalNo;
 
     public Integer getId() {
         return id;
@@ -26,11 +31,11 @@ public class ShippingCompanyDto implements Serializable {
         this.name = name;
     }
 
-    public String getCompanyCode() {
-        return companyCode;
+    public String getLegalNo() {
+        return legalNo;
     }
 
-    public void setCompanyCode(String companyCode) {
-        this.companyCode = companyCode;
+    public void setLegalNo(String legalNo) {
+        this.legalNo = legalNo;
     }
 }

@@ -35,7 +35,7 @@ public class Driver {
     @Column(name = "TELL" , length=11, nullable=false)
     private String tell;
 
-    @OneToOne(targetEntity = Account.class)
+    @OneToOne(targetEntity = Account.class,cascade = CascadeType.PERSIST)
     private Account account;
 
 //    @OneToOne(targetEntity = Vehicle.class, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
@@ -92,6 +92,7 @@ public class Driver {
     public void setAccount(Account account) {
         this.account = account;
     }
+
 
     public List<LadingOfBill> getLadingOfBills() {
         return ladingOfBills;

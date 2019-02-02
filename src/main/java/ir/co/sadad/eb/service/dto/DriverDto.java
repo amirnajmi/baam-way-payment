@@ -3,21 +3,30 @@ package ir.co.sadad.eb.service.dto;
 
 //todo don't use lombok in dtos
 
-import ir.co.sadad.eb.domain.Vehicle;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import java.io.Serializable;
 
+@Schema(name = "DriverDto", description = "راننده")
 public class DriverDto implements Serializable {
-
+    @Schema(example = "0", description = "شناسه" )
     private Long id;
+    @Schema(required = true ,example = "عباس", description = "نام راننده" )
     private String name;
+    @Schema(required = true ,example = "1", description = "کد ملی" )
     private String nationalCode;
+    @Schema(required = true ,example = "1", description = "شماره هوشمند راننده" )
     private String smartCardNo;
     // todo change to enum
+    @Schema(required = true ,example = "1", description = "نوع راننده از نظر استخدام" )
     private String kind;
+    @Schema(required = true ,example = "1", description = "شماره موبایل" )
     private String tell;
+    @Schema(required = true , description = "اطلاعات حساب" )
     private AccountDto account;
+    @Schema(required = true ,example = "77705058069", description = "شماره گواهینامه" )
     private String licenceNo;
+    @Schema(required = true , description = "آدرس" )
     private String address;
 
     public String getNationalCode() {

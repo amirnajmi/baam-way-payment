@@ -3,7 +3,7 @@ package ir.co.sadad.eb.domain;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.*;
 import java.util.List;
 
 @Entity
@@ -102,7 +102,7 @@ public class LadingOfBill {
     // محموله
     private Cargo cargo;
 
-    @ManyToOne(targetEntity = Vehicle.class)
+    @ManyToOne(targetEntity = Vehicle.class, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "VEHICLE_ID", referencedColumnName = "ID")
     private Vehicle vehicle;
 

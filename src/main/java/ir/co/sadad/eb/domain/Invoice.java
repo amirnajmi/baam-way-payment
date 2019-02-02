@@ -1,6 +1,6 @@
 package ir.co.sadad.eb.domain;
 
-import java.time.LocalDate;
+import java.time.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,11 +17,6 @@ public class Invoice {
     // تاریخ صورتحساب
     @Column(name = "INVOICE_DATE")
     private LocalDate invoiceDate;
-
-    // تاریخ
-    @Column(name = "DATE")
-    private LocalDate date;
-
     // شرکت حمل
     @ManyToOne(targetEntity = ShippingCompany.class)
     private ShippingCompany shippingCompany;
@@ -29,7 +24,6 @@ public class Invoice {
     @ManyToOne(targetEntity = OwnerCompany.class)
     //شرکت بازرگانی
     private OwnerCompany ownerCompany;
-
     // شماره قرارداد
     @Column(name = "CONTRACT_NUMBER")
     private String contractNumber;
@@ -55,14 +49,6 @@ public class Invoice {
 
     public void setInvoiceDate(LocalDate invoiceDate) {
         this.invoiceDate = invoiceDate;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
     }
 
     public ShippingCompany getShippingCompany() {

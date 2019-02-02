@@ -1,12 +1,21 @@
 package ir.co.sadad.eb.service.dto;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
 import java.io.Serializable;
 
+@Schema(name = "VehicleDto", description = "وسیله نقلیه")
 public class VehicleDto implements Serializable {
+    @Schema(example = "0", description = "شناسه" )
     private Long id;
+    @Schema(required = true ,example = "گروه بازرگانی ایران", description = "نام وسیله نقلیه" )
     private String name;
+    @Schema(required = true ,example = "12ع123", description = "پلاک" )
     private String tag;
+    @Schema(required = true ,example = "99", description = "سری پلاک" )
     private String tagSeries;
+    //todo must be change to ENUM
+    @Schema(required = true ,example = "کفی 18 چرخ", description = "نوع تریلر" )
     private String type;
 
     public VehicleDto() {

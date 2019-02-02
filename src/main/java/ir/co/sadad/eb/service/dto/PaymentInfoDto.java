@@ -7,7 +7,7 @@ import java.time.LocalDate;
 public class PaymentInfoDto implements Serializable {
 
     private Long id;
-    private InvoiceDetailDTO invoiceDetail;
+    private InvoiceDetailDto invoiceDetail;
 
     //شناسه یکتای درخواست
     private String guid;
@@ -62,11 +62,11 @@ public class PaymentInfoDto implements Serializable {
         this.id = id;
     }
 
-    public InvoiceDetailDTO getInvoiceDetail() {
+    public InvoiceDetailDto getInvoiceDetail() {
         return invoiceDetail;
     }
 
-    public void setInvoiceDetail(InvoiceDetailDTO invoiceDetail) {
+    public void setInvoiceDetail(InvoiceDetailDto invoiceDetail) {
         this.invoiceDetail = invoiceDetail;
     }
 
