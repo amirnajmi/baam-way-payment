@@ -15,7 +15,7 @@ public enum InvoiceStatusDto {
     @Schema(required = true ,example = "ثبت شده", description = "صورت وضعیت" )
     private String title;
 
-    public Integer getValue() {
+    public Integer getCode() {
         return code;
     }
 
@@ -27,4 +27,5 @@ public enum InvoiceStatusDto {
         this.code = code;
         this.title = title;
     }
+
 }
