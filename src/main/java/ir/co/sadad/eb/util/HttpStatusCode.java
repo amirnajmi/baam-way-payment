@@ -5,6 +5,7 @@ public enum HttpStatusCode {
     UN_AUTHORIZE(401),
     FORBIDDEN(403),
     NOT_FOUND(404),
+    PRECONDITION_FAILED(412),
     INTERNAL_SERVER(502);
 
     private final int statusCode;
