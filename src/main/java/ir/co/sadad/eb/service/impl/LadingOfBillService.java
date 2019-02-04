@@ -46,7 +46,6 @@ public class LadingOfBillService extends AbstractGenericService<LadingOfBill, Lo
     public LadingOfBillService() {
     }
 
-    //TODO: Transactional??
     public LadingBillStatusHistoryDto createLadingOfBill(LadingOfBillDto ladingOfBillDto) throws BusinessException {
 
         LadingBillStatusHistory ladingBillStatusHistory = new LadingBillStatusHistory();
