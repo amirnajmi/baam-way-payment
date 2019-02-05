@@ -8,5 +8,5 @@ import java.util.Optional;
 @Repository
 public interface InvoiceRepository extends IRepository<Invoice,Long> {
 
-    Optional<Invoice> findByInvoiceNumberLike(String invoiceNumber);
+    Optional<Invoice> findByInvoiceNumber(String invoiceNumber);
 }

@@ -14,6 +14,9 @@ public class LadingOfBill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
+    //کد پیگیری بارنامه
+    @Column(name = "TRACKING_CODE")
+    private Long trackingCode;
     //تاریخ بارنامه
     @Column(name = "DATE")
     private LocalDate date;
@@ -352,5 +355,13 @@ public class LadingOfBill {
 
     public void setToll(Double toll) {
         this.toll = toll;
+    }
+
+    public Long getTrackingCode() {
+        return trackingCode;
+    }
+
+    public void setTrackingCode(Long trackingCode) {
+        this.trackingCode = trackingCode;
     }
 }
