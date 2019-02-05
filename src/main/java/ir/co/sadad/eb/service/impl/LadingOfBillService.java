@@ -54,6 +54,8 @@ public class LadingOfBillService extends AbstractGenericService<LadingOfBill, Lo
         if(foundLadingOfBill.isPresent()){
             throw new BusinessException(HttpStatusCode.BAD_REQUEST, "LADING_OF_BILL_IS_DUPLICATE");
         }
+
+
         LadingOfBill ladingOfBill = ladingOfBillMapper.ladingOfBillDtoToLadingOfBill(ladingOfBillDto);
         LadingOfBill createdLadingOfBill =save(ladingOfBill);
         //TODO: external method:
@@ -62,9 +64,9 @@ public class LadingOfBillService extends AbstractGenericService<LadingOfBill, Lo
         ladingBillStatusHistory.setLadingBillStatus(ladingBillStatus);
         ladingBillStatusHistory.setDescription(LadingBillStatus.INITIAL_REGISTRATION.getTitle());
         ladingBillStatusHistory.setDate(LocalDate.now());
-        iLadingBillStatusHistoryService.save(ladingBillStatusHistory);
+        LadingBillStatusHistory ladingBillStatusHistory1=  iLadingBillStatusHistoryService.save(ladingBillStatusHistory);
         //
-        return ladingBillStatusHistoryMapper.ladingBillStatusHistoryToLadingBillStatusHistoryDto( ladingBillStatusHistory );
+        return ladingBillStatusHistoryMapper.ladingBillStatusHistoryToLadingBillStatusHistoryDto( ladingBillStatusHistory1 );
 
     }
 

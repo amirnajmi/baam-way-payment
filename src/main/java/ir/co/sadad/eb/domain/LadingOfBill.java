@@ -107,7 +107,7 @@ public class LadingOfBill {
     private Vehicle vehicle;
 
     // شرکت حمل
-    @ManyToOne(targetEntity = ShippingCompany.class)
+    @ManyToOne(targetEntity = ShippingCompany.class )
     private ShippingCompany shippingCompany;
 
     @ManyToOne(targetEntity = OwnerCompany.class)
