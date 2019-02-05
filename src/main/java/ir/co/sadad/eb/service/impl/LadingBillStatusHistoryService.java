@@ -35,8 +35,8 @@ public class LadingBillStatusHistoryService extends AbstractGenericService<Ladin
 
     public LadingBillStatusHistoryDto createLadingBillStatusHistory(LadingBillStatusHistoryDto ladingBillStatusHistoryDto) throws BusinessException {
         BusinessException businessException = new BusinessException(HttpStatusCode.BAD_REQUEST);
-        if(ladingBillStatusHistoryDto.getLadingOfBill().getTrackingCode() == null || ladingBillStatusHistoryDto.getLadingOfBill().getTrackingCode() == 0){
-            businessException.add("ladingOfBillNo.trackingCode.isNullOrZero");
+        if(ladingBillStatusHistoryDto.getLadingOfBill().getTrackingCode() == null || ladingBillStatusHistoryDto.getLadingOfBill().getTrackingCode().isEmpty()){
+            businessException.add("ladingOfBillNo.trackingCode.isNullOrEmpty");
         }
 
         if(ladingBillStatusHistoryDto.getLadingBillStatus() == null){

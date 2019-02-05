@@ -15,7 +15,7 @@ public class LadingOfBillDto implements Serializable {
     @Schema(description = "شناسه")
     private Long id;
     @Schema(required = true , example = "512689700" , description = "کد پیگیری بارنامه")
-    private Long trackingCode;
+    private String trackingCode;
     @Schema(required = true , example = "2019-02-15" , description = "تاریخ بارنامه")
     private LocalDate date;
     @Schema(required = true , example = "12345" , description = "شماره بارنامه")
@@ -167,11 +167,11 @@ public class LadingOfBillDto implements Serializable {
         this.serial = serial;
     }
 
-    public Long getTrackingCode() {
+    public String getTrackingCode() {
         return trackingCode;
     }
 
-    public void setTrackingCode(Long trackingCode) {
+    public void setTrackingCode(String trackingCode) {
         this.trackingCode = trackingCode;
     }
 }

@@ -73,7 +73,7 @@ public class LadingOfBillService extends AbstractGenericService<LadingOfBill, Lo
     public LadingBillStatusHistoryDto updateLadingOfBill(LadingOfBillDto ladingOfBillDto) throws BusinessException {
         LadingBillStatusHistory ladingBillStatusHistory = new LadingBillStatusHistory();
 
-        if (ladingOfBillDto.getTrackingCode() == null || ladingOfBillDto.getTrackingCode() == 0) {
+        if (ladingOfBillDto.getTrackingCode() == null || ladingOfBillDto.getTrackingCode().isEmpty()) {
             throw new BusinessException(HttpStatusCode.BAD_REQUEST, "TRACKING_CODE_IS_EMPTY");
         }
 
@@ -108,7 +108,7 @@ public class LadingOfBillService extends AbstractGenericService<LadingOfBill, Lo
     }
 
     @Override
-    public LadingOfBillDto findByTrackingCode(Long trackingCode) throws BusinessException {
+    public LadingOfBillDto findByTrackingCode(String trackingCode) throws BusinessException {
         Optional<LadingOfBill> ladingOfBill = ladingOfBillRepository.findByTrackingCode(trackingCode);
         if (ladingOfBill.isPresent()) {
             return ladingOfBillMapper.ladingOfBillToLadingOfBillDto(ladingOfBill.get());

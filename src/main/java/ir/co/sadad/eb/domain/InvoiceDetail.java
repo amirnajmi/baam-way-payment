@@ -14,7 +14,7 @@ public class InvoiceDetail {
 
     //کد پیگیری بارنامه
     @Column(name = "TRACKING_CODE")
-    private Long trackingCode;
+    private String trackingCode;
 
     @ManyToOne(targetEntity = Invoice.class)
     private Invoice invoice;
@@ -90,11 +90,11 @@ public class InvoiceDetail {
         this.financialAmounts = financialAmounts;
     }
 
-    public Long getTrackingCode() {
+    public String getTrackingCode() {
         return trackingCode;
     }
 
-    public void setTrackingCode(Long trackingCode) {
+    public void setTrackingCode(String trackingCode) {
         this.trackingCode = trackingCode;
     }
 }

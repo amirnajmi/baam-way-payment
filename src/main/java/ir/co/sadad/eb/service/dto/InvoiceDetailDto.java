@@ -7,7 +7,7 @@ public class InvoiceDetailDto {
     @Schema(example = "0", description = "شناسه" )
     private Long id;
     @Schema(required = true ,example = "254854210", description = "کد پیگیری بارنامه" )
-    private Long trackingCode;
+    private String trackingCode;
     @Schema(required = true ,example = "156322.5", description = "مبلغ نهایی بارنامه پس از کسورات" )
     private Double finalAmount;
     @Schema(required = true, description = "مبالغ مالی بارنامه" )
@@ -57,11 +57,11 @@ public class InvoiceDetailDto {
         this.financialAmounts = financialAmounts;
     }
 
-    public Long getTrackingCode() {
+    public String getTrackingCode() {
         return trackingCode;
     }
 
-    public void setTrackingCode(Long trackingCode) {
+    public void setTrackingCode(String trackingCode) {
         this.trackingCode = trackingCode;
     }
 }

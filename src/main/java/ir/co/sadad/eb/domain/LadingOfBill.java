@@ -16,7 +16,7 @@ public class LadingOfBill {
     private Long id;
     //کد پیگیری بارنامه
     @Column(name = "TRACKING_CODE")
-    private Long trackingCode;
+    private String trackingCode;
     //تاریخ بارنامه
     @Column(name = "DATE")
     private LocalDate date;
@@ -192,13 +192,11 @@ public class LadingOfBill {
         this.ownerCompany = ownerCompany;
     }
 
-    public Long getTrackingCode() {
+    public String getTrackingCode() {
         return trackingCode;
     }
 
-    public void setTrackingCode(Long trackingCode) {
+    public void setTrackingCode(String trackingCode) {
         this.trackingCode = trackingCode;
     }
-
-
 }

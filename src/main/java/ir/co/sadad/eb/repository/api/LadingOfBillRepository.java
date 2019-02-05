@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface LadingOfBillRepository extends IRepository<LadingOfBill, Long>{
 
-    Optional<LadingOfBill> findByTrackingCode(Long trackingCode);
+    Optional<LadingOfBill> findByTrackingCode(String trackingCode);
 }
