@@ -70,6 +70,28 @@ public class LadingOfBillDto implements Serializable {
     @Schema(required = true , description = "خودرو")
     private VehicleDto vehicle;
 
+    @Schema(required = true , description = "شرکت حمل" )
+    private ShippingCompanyDto shippingCompany;
+    @Schema(required = true , description = "شرکت کارفرما" )
+    private OwnerCompanyDto ownerCompany;
+
+
+    public ShippingCompanyDto getShippingCompany() {
+        return shippingCompany;
+    }
+
+    public void setShippingCompany(ShippingCompanyDto shippingCompany) {
+        this.shippingCompany = shippingCompany;
+    }
+
+    public OwnerCompanyDto getOwnerCompany() {
+        return ownerCompany;
+    }
+
+    public void setOwnerCompany(OwnerCompanyDto ownerCompany) {
+        this.ownerCompany = ownerCompany;
+    }
+
     public String getOrderNo() {
         return orderNo;
     }
