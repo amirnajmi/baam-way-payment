@@ -12,18 +12,19 @@ public class InvoiceDetail {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "LADING_OF_BILL_SERIES")
-    private String ladingOfBillSeries;
-
-    //  شماره بارنامه
-    @Column(name = "LADING_OF_BILL_CODE")
-    private String ladingOfBillCode;
+    //کد پیگیری بارنامه
+    @Column(name = "TRACKING_CODE")
+    private String trackingCode;
 
     @ManyToOne(targetEntity = Invoice.class)
     private Invoice invoice;
     //
     @Column(name = "FINAL_AMOUNT")
     private Double finalAmount;
+
+    @OneToOne(targetEntity = FinancialAmounts.class, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "FINANCIAL_AMOUNTS_ID")
+    private FinancialAmounts financialAmounts;
 
     //  شماره ورود
 //    @Column(name = "LOAD_CODE")
@@ -65,14 +66,6 @@ public class InvoiceDetail {
         this.id = id;
     }
 
-    public String getLadingOfBillSeries() {
-        return ladingOfBillSeries;
-    }
-
-    public void setLadingOfBillSeries(String ladingOfBillSeries) {
-        this.ladingOfBillSeries = ladingOfBillSeries;
-    }
-
     public Invoice getInvoice() {
         return invoice;
     }
@@ -81,19 +74,27 @@ public class InvoiceDetail {
         this.invoice = invoice;
     }
 
-    public String getLadingOfBillCode() {
-        return ladingOfBillCode;
-    }
-
-    public void setLadingOfBillCode(String ladingOfBillCode) {
-        this.ladingOfBillCode = ladingOfBillCode;
-    }
-
     public Double getFinalAmount() {
         return finalAmount;
     }
 
     public void setFinalAmount(Double finalAmount) {
         this.finalAmount = finalAmount;
+    }
+
+    public FinancialAmounts getFinancialAmounts() {
+        return financialAmounts;
+    }
+
+    public void setFinancialAmounts(FinancialAmounts financialAmounts) {
+        this.financialAmounts = financialAmounts;
+    }
+
+    public String getTrackingCode() {
+        return trackingCode;
+    }
+
+    public void setTrackingCode(String trackingCode) {
+        this.trackingCode = trackingCode;
     }
 }

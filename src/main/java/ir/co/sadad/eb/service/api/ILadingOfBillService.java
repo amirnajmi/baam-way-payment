@@ -12,5 +12,5 @@ public interface ILadingOfBillService extends IService<LadingOfBill, Long>{
 
     LadingBillStatusHistoryDto updateLadingOfBill(LadingOfBillDto ladingOfBillDto) throws BusinessException;
 
-    LadingOfBillDto findByNoAndSerial(String no, String serial) throws BusinessException;
+    LadingOfBillDto findByTrackingCode(String trackingCode) throws BusinessException;
 }

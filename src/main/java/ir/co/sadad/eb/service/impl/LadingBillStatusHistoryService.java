@@ -35,12 +35,8 @@ public class LadingBillStatusHistoryService extends AbstractGenericService<Ladin
 
     public LadingBillStatusHistoryDto createLadingBillStatusHistory(LadingBillStatusHistoryDto ladingBillStatusHistoryDto) throws BusinessException {
         BusinessException businessException = new BusinessException(HttpStatusCode.BAD_REQUEST);
-        if(ladingBillStatusHistoryDto.getLadingOfBill().getNo() == null || ladingBillStatusHistoryDto.getLadingOfBill().getNo().isEmpty()){
-            businessException.add("ladingOfBillNo.is.null.or.empty");
-        }
-
-        if(ladingBillStatusHistoryDto.getLadingOfBill().getSerial() == null || ladingBillStatusHistoryDto.getLadingOfBill().getSerial().isEmpty()){
-            businessException.add("ladingOfBillSerial.is.null.or.empty");
+        if(ladingBillStatusHistoryDto.getLadingOfBill().getTrackingCode() == null || ladingBillStatusHistoryDto.getLadingOfBill().getTrackingCode().isEmpty()){
+            businessException.add("ladingOfBillNo.trackingCode.isNullOrEmpty");
         }
 
         if(ladingBillStatusHistoryDto.getLadingBillStatus() == null){
@@ -57,7 +53,7 @@ public class LadingBillStatusHistoryService extends AbstractGenericService<Ladin
             throw businessException;
         }
 
-        LadingOfBillDto ladingOfBillDto = iLadingOfBillService.findByNoAndSerial(ladingBillStatusHistoryDto.getLadingOfBill().getNo(), ladingBillStatusHistoryDto.getLadingOfBill().getSerial());
+        LadingOfBillDto ladingOfBillDto = iLadingOfBillService.findByTrackingCode(ladingBillStatusHistoryDto.getLadingOfBill().getTrackingCode());
         ladingBillStatusHistoryDto.setLadingOfBill(ladingOfBillDto);
         ladingBillStatusHistoryDto.setLadingBillStatus(inputStatus);
         ladingBillStatusHistoryDto.setDate(LocalDate.now());

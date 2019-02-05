@@ -39,7 +39,7 @@ public class InvoiceService extends AbstractGenericService<Invoice,Long> impleme
 
     @Override
     public InvoiceDto findByInvoiceNumber(String invoiceNumber) throws BusinessException {
-        Optional<Invoice> invoice = invoiceRepository.findByInvoiceNumberLike(invoiceNumber);
+        Optional<Invoice> invoice = invoiceRepository.findByInvoiceNumber(invoiceNumber);
         if(invoice.isPresent()){
             return invoiceMapper.invoiceToInvoiceDto(invoice.get());
         }
