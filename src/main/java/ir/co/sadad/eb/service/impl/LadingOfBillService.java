@@ -76,6 +76,8 @@ public class LadingOfBillService extends AbstractGenericService<LadingOfBill, Lo
         if (ladingOfBillDto.getTrackingCode() == null || ladingOfBillDto.getTrackingCode() == 0) {
             throw new BusinessException(HttpStatusCode.BAD_REQUEST, "TRACKING_CODE_IS_EMPTY");
         }
+
+        /* TODO: change
         if (ladingOfBillDto.getDriverContribution() == null) {
             throw new BusinessException(HttpStatusCode.BAD_REQUEST, "DRIVER_CONTRIBUTION_IS_EMPTY");
         }
@@ -88,10 +90,13 @@ public class LadingOfBillService extends AbstractGenericService<LadingOfBill, Lo
             ladingOfBill.get().setDriverContribution(ladingOfBillDto.getDriverContribution());
             ladingOfBill.get().setShippingCompanyContribution(ladingOfBillDto.getShippingCompanyContribution());
         }
+
         LadingOfBill updatedLadingOfBill = update(ladingOfBill.get());
 
         //TODO: external method:
         ladingBillStatusHistory.setLadingOfBill(updatedLadingOfBill);
+        */
+
         LadingBillStatus ladingBillStatus = LadingBillStatus.getEnum(LadingBillStatus.CONTRIBUTIONS_DETERMINED.getCode());
         ladingBillStatusHistory.setLadingBillStatus(ladingBillStatus);
         ladingBillStatusHistory.setDescription(LadingBillStatus.CONTRIBUTIONS_DETERMINED.getTitle());

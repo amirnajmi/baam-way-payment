@@ -25,6 +25,10 @@ public class InvoiceDetail {
     @Column(name = "FINAL_AMOUNT")
     private Double finalAmount;
 
+    @OneToOne(targetEntity = FinancialAmounts.class, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "FINANCIAL_AMOUNTS_ID")
+    private FinancialAmounts financialAmounts;
+
     //  شماره ورود
 //    @Column(name = "LOAD_CODE")
 //    private String loadCode;
@@ -95,5 +99,13 @@ public class InvoiceDetail {
 
     public void setFinalAmount(Double finalAmount) {
         this.finalAmount = finalAmount;
+    }
+
+    public FinancialAmounts getFinancialAmounts() {
+        return financialAmounts;
+    }
+
+    public void setFinancialAmounts(FinancialAmounts financialAmounts) {
+        this.financialAmounts = financialAmounts;
     }
 }

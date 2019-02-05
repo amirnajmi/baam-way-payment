@@ -2,7 +2,6 @@ package ir.co.sadad.eb.service.dto;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
-//todo don't use lombok in dtos
 @Schema(name = "InvoiceDetailDto", description = "جزئیات صورتحساب")
 public class InvoiceDetailDto {
     @Schema(example = "0", description = "شناسه" )
@@ -13,7 +12,8 @@ public class InvoiceDetailDto {
     private String ladingOfBillCode;
     @Schema(required = true ,example = "156322.5", description = "مبلغ نهایی بارنامه پس از کسورات" )
     private Double finalAmount;
-
+    @Schema(required = true, description = "مبالغ مالی بارنامه" )
+    private FinancialAmountsDto financialAmounts;
 
     //     شماره ورود
 //    private String loadCode;
@@ -65,5 +65,13 @@ public class InvoiceDetailDto {
 
     public void setFinalAmount(Double finalAmount) {
         this.finalAmount = finalAmount;
+    }
+
+    public FinancialAmountsDto getFinancialAmounts() {
+        return financialAmounts;
+    }
+
+    public void setFinancialAmounts(FinancialAmountsDto financialAmounts) {
+        this.financialAmounts = financialAmounts;
     }
 }
