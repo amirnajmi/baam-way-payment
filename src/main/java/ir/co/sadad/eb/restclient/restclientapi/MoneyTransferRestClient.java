@@ -30,5 +30,5 @@ public interface MoneyTransferRestClient {
     @GET
     @Path("/{id}")
     MoneyTransferResponseDto inquiryMoneyTransfer(@HeaderParam("Authorization") String authorizationToken,
-                                  @PathParam("id") String id);
+                                                  @PathParam("id") String id);
 }
