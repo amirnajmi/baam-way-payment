@@ -18,7 +18,16 @@ public class ShippingCompany {
     private String name;
 
     @Column(name = "LEGAL_NO")
-    private String legalNo;;
+    private String legalNo;
+
+    @OneToOne(targetEntity = Account.class, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "ACCOUNT_ID")
+    private Account account;
+
+    @OneToOne(targetEntity = Account.class, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "ACCOUNT_ON_SIC_AUTHORITY")
+    //حساب در اختیار سداد
+    private Account accountOnSicAuthority;
 
     public Integer getId() {
         return id;
@@ -42,5 +51,21 @@ public class ShippingCompany {
 
     public void setLegalNo(String legalNo) {
         this.legalNo = legalNo;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public Account getAccountOnSicAuthority() {
+        return accountOnSicAuthority;
+    }
+
+    public void setAccountOnSicAuthority(Account accountOnSicAuthority) {
+        this.accountOnSicAuthority = accountOnSicAuthority;
     }
 }

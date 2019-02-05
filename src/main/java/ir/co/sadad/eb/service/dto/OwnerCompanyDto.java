@@ -8,13 +8,14 @@ import java.io.Serializable;
 @Schema(name = "OwnerCompanyDto", description = "شرکت صاحب بار")
 public class OwnerCompanyDto implements Serializable {
 
-    @Schema(example = "0", description = "شناسه" )
+    @Schema(example = "0", description = "شناسه")
     private Integer id;
-    @Schema(required = true ,example = "گروه بازرگانی ایران", description = "نام شرکت صاحب بار" )
+    @Schema(required = true, example = "گروه بازرگانی ایران", description = "نام شرکت صاحب بار")
     private String name;
-    @Schema(required = true ,example = "12345678911", description = "شناسه حقوقی شرکت صاحب بار" )
-
+    @Schema(required = true, example = "12345678911", description = "شناسه حقوقی شرکت صاحب بار")
     private String legalNo;
+    @Schema(required = true, description = "حساب شرکت صاحب بار")
+    private AccountDto account;
 
     public Integer getId() {
         return id;
@@ -38,5 +39,13 @@ public class OwnerCompanyDto implements Serializable {
 
     public void setLegalNo(String legalNo) {
         this.legalNo = legalNo;
+    }
+
+    public AccountDto getAccount() {
+        return account;
+    }
+
+    public void setAccount(AccountDto account) {
+        this.account = account;
     }
 }
