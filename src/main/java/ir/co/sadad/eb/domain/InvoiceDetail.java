@@ -12,12 +12,9 @@ public class InvoiceDetail {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "LADING_OF_BILL_SERIES")
-    private String ladingOfBillSeries;
-
-    //  شماره بارنامه
-    @Column(name = "LADING_OF_BILL_CODE")
-    private String ladingOfBillCode;
+    //کد پیگیری بارنامه
+    @Column(name = "TRACKING_CODE")
+    private Long trackingCode;
 
     @ManyToOne(targetEntity = Invoice.class)
     private Invoice invoice;
@@ -69,28 +66,12 @@ public class InvoiceDetail {
         this.id = id;
     }
 
-    public String getLadingOfBillSeries() {
-        return ladingOfBillSeries;
-    }
-
-    public void setLadingOfBillSeries(String ladingOfBillSeries) {
-        this.ladingOfBillSeries = ladingOfBillSeries;
-    }
-
     public Invoice getInvoice() {
         return invoice;
     }
 
     public void setInvoice(Invoice invoice) {
         this.invoice = invoice;
-    }
-
-    public String getLadingOfBillCode() {
-        return ladingOfBillCode;
-    }
-
-    public void setLadingOfBillCode(String ladingOfBillCode) {
-        this.ladingOfBillCode = ladingOfBillCode;
     }
 
     public Double getFinalAmount() {
@@ -107,5 +88,13 @@ public class InvoiceDetail {
 
     public void setFinancialAmounts(FinancialAmounts financialAmounts) {
         this.financialAmounts = financialAmounts;
+    }
+
+    public Long getTrackingCode() {
+        return trackingCode;
+    }
+
+    public void setTrackingCode(Long trackingCode) {
+        this.trackingCode = trackingCode;
     }
 }
