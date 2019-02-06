@@ -9,6 +9,7 @@ import java.time.LocalDate;
 public class Invoice_ {
 
     public static volatile SingularAttribute<Invoice, LocalDate> invoiceDate;
+    public static volatile SingularAttribute<Invoice, String> invoiceNumber;
 //    private Long id;
 //    private LocalDate invoiceDate;
 //    private ShippingCompany shippingCompany;

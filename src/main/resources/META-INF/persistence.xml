@@ -4,7 +4,7 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
     <persistence-unit name="BAAMWAY_PU" transaction-type="JTA">
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!--<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
         <jta-data-source>jdbc/bamwayDB</jta-data-source>
         <!--<class>ir.co.sadad.eb.domain.Vehicle</class>-->
         <properties>

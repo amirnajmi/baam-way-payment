@@ -53,15 +53,15 @@ public class InvoiceService extends AbstractGenericService<Invoice, Long> implem
     @Override
     public List<InvoiceDto> findByFilters(LocalDate from , LocalDate to) {
 
-        Criteria<Invoice, Invoice> criteria = invoiceRepository.criteria();
+//        Criteria<Invoice, Invoice> criteria = invoiceRepository.criteria();
 
-        if (from != null) {
-            criteria.gtOrEq(Invoice_.invoiceDate, from);
-        }
-        if (to != null) {
-            criteria.ltOrEq(Invoice_.invoiceDate, to);
-        }
-        return invoiceMapper.invoicesToInvoiceDtos(criteria.getResultList());
+//        if (from != null) {
+//            criteria.like(Invoice_.invoiceNumber, "66");
+//        }
+//        if (to != null) {
+//            criteria.ltOrEq(Invoice_.invoiceDate, to);
+//        }
+        return invoiceMapper.invoicesToInvoiceDtos(invoiceRepository.findByFilters(LocalDate.parse("2019-01-01"),LocalDate.parse("2019-01-01")));
 
     }
 
