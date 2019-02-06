@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 //محموله
 @Entity
-@Table(name = "CARGO", schema = "PUSH")
+@Table(name = "CARGO", schema = "BAMWAY")
 public class Cargo {
 
     @Id
