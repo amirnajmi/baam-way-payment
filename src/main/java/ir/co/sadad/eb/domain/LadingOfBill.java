@@ -7,7 +7,7 @@ import java.time.*;
 import java.util.List;
 
 @Entity
-@Table(name = "LADING_OF_BILL", schema = "PUSH")
+@Table(name = "LADING_OF_BILL", schema = "BAMWAY")
 public class LadingOfBill {
 
     @Id

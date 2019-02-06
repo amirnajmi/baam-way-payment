@@ -7,7 +7,7 @@ import java.time.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "LADING_BILL_STATUS_HISTORY", schema = "PUSH")
+@Table(name = "LADING_BILL_STATUS_HISTORY", schema = "BAMWAY")
 public class LadingBillStatusHistory {
 
     @Id

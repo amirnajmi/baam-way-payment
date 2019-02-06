@@ -13,7 +13,7 @@ public class AccountDto implements Serializable {
     @Schema(example = "0", description = "شناسه" )
     private Long id ;
     //شماره حساب
-    @Schema(required = true ,example = "1", description = "شماره حساب" )
+    @Schema(required = true ,example = "00524136254", description = "شماره حساب" )
     private String accountNo;
     @Schema(required = true ,example = "1", description = "نام صاحب حساب" )
     private String accountOwner;

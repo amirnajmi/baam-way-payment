@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 @Entity
-@Table(name = "SHIPPING_COMPANY", schema = "PUSH")
+@Table(name = "SHIPPING_COMPANY", schema = "BAMWAY")
 public class ShippingCompany {
 
     @Id

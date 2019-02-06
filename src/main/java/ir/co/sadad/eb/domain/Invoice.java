@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "INVOICE",schema = "PUSH")
+@Table(name = "INVOICE",schema = "BAMWAY")
 public class Invoice {
 
     @Id
