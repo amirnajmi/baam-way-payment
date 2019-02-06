@@ -6,7 +6,7 @@ import java.time.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "INVOICE_STATUS_HISTORY", schema = "PUSH")
+@Table(name = "INVOICE_STATUS_HISTORY", schema = "BAMWAY")
 public class InvoiceStatusHistory {
 
     @Id
@@ -14,7 +14,7 @@ public class InvoiceStatusHistory {
     @Column(name = "ID", nullable = false)
     private Long id;
 
-    @ManyToOne(targetEntity = LadingOfBill.class)
+    @ManyToOne(targetEntity = Invoice.class)
     @JoinColumn(name = "INVOICE_ID", referencedColumnName = "ID")
     private Invoice invoice;
 
