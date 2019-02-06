@@ -22,7 +22,7 @@
     <httpEndpoint id="defaultHttpEndpoint" host="*" httpPort="9030" httpsPort="9443" />
     <jpa defaultPersistenceProvider="org.eclipse.persistence.jpa.PersistenceProvider" />
     <!--<jpa defaultPersistenceProvider="org.hibernate.jpa.HibernatePersistenceProvider" />-->
-    <fileset id="db2Fileset" dir="${external.lib.directory}" includes="db2jcc4.jar, db2jcc4_license_cu.jarو db2jcc4_license_cisuz.jar" />
+    <fileset id="db2Fileset" dir="${external.lib.directory}" includes="db2jcc4.jar, db2jcc4_license_cu.jar,db2jcc4_license_cisuz.jar" />
     <library id="db2-lib" filesetRef="db2Fileset" />
     <jdbcDriver id="db2Driver" libraryRef="db2-lib" />
     <!--datasource-->
