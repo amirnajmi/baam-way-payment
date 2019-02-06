@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 //مقادیر مالی بارنامه
 @Entity
-@Table(name = "FINANCIAL_AMOUNTS", schema = "PUSH")
+@Table(name = "FINANCIAL_AMOUNTS", schema = "BAMWAY")
 public class FinancialAmounts {
 
     @Id
