@@ -63,8 +63,11 @@ public class InvoiceResource {
     @GET
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response getInvoiceListByDate(@Valid InvoiceDto filter) {
-        return Response.ok(invoiceService.findByFilters(filter)).build();
+    public Response getInvoiceListByDate(@Valid @QueryParam("fromDate") String fromDate , @QueryParam("toDate") String toDate) {
+        LocalDate from = LocalDate.parse(fromDate);
+        LocalDate to = LocalDate.parse(toDate);
+
+        return Response.ok(invoiceService.findByFilters(from , to)).build();
     }
 
 }

@@ -8,14 +8,12 @@ import ir.co.sadad.eb.repository.api.InvoiceDetailRepository;
 import ir.co.sadad.eb.repository.api.InvoiceRepository;
 import ir.co.sadad.eb.service.api.IInvoiceService;
 import ir.co.sadad.eb.service.dto.InvoiceDto;
-import ir.co.sadad.eb.service.dto.SearchParam;
 import ir.co.sadad.eb.util.HttpStatusCode;
 import org.apache.deltaspike.data.api.criteria.Criteria;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,12 +33,13 @@ public class InvoiceService extends AbstractGenericService<Invoice, Long> implem
     @Inject
     public InvoiceService(InvoiceRepository genericRepository) {
         super(genericRepository);
+        this.invoiceRepository = genericRepository;
     }
 
     public InvoiceDto createInvoice(InvoiceDto invoiceDTO) {
-        Invoice invoice = invoiceMapper.invoiceDtoToInvoice(invoiceDTO);
-        System.out.println("test");
-        return null;
+
+        return invoiceMapper.invoiceToInvoiceDto(save(invoiceMapper.invoiceDtoToInvoice(invoiceDTO)));
+
     }
 
     @Override
@@ -52,15 +51,15 @@ public class InvoiceService extends AbstractGenericService<Invoice, Long> implem
         throw new BusinessException(HttpStatusCode.BAD_REQUEST, "INVOICE_NOT_FOUND");
     }
     @Override
-    public List<InvoiceDto> findByFilters(InvoiceDto filter) {
+    public List<InvoiceDto> findByFilters(LocalDate from , LocalDate to) {
 
         Criteria<Invoice, Invoice> criteria = invoiceRepository.criteria();
 
-        if (filter.getFromDate() != null) {
-            criteria.gtOrEq(Invoice_.invoiceDate, filter.getFromDate());
+        if (from != null) {
+            criteria.gtOrEq(Invoice_.invoiceDate, from);
         }
-        if (filter.getToDate() != null) {
-            criteria.ltOrEq(Invoice_.invoiceDate, filter.getToDate());
+        if (to != null) {
+            criteria.ltOrEq(Invoice_.invoiceDate, to);
         }
         return invoiceMapper.invoicesToInvoiceDtos(criteria.getResultList());
 

@@ -18,10 +18,10 @@ public class Invoice {
     @Column(name = "INVOICE_DATE")
     private LocalDate invoiceDate;
     // شرکت حمل
-    @ManyToOne(targetEntity = ShippingCompany.class)
+    @ManyToOne(targetEntity = ShippingCompany.class , cascade = CascadeType.PERSIST)
     private ShippingCompany shippingCompany;
 
-    @ManyToOne(targetEntity = OwnerCompany.class)
+    @ManyToOne(targetEntity = OwnerCompany.class , cascade = CascadeType.PERSIST)
     //شرکت بازرگانی
     private OwnerCompany ownerCompany;
     // شماره قرارداد
