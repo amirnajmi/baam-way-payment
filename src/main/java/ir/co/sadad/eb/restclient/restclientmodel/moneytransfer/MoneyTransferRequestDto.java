@@ -1,4 +1,8 @@
 package ir.co.sadad.eb.restclient.restclientmodel.moneytransfer;
+
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 public class MoneyTransferRequestDto {
@@ -12,7 +16,7 @@ public class MoneyTransferRequestDto {
     private String counterpartyAccount;
     private String paymentReference;
     private String paymentDescription;
-    private Date onDate;
+    private Long onDate;
     @JsonIgnore
     private String responseString;
     @JsonIgnore
@@ -90,11 +94,11 @@ public class MoneyTransferRequestDto {
         this.paymentDescription = paymentDescription;
     }
 
-    public Date getOnDate() {
+    public Long getOnDate() {
         return onDate;
     }
 
-    public void setOnDate(Date onDate) {
+    public void setOnDate(Long onDate) {
         this.onDate = onDate;
     }
 

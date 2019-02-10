@@ -4,6 +4,7 @@ import java.util.List;
 
 public class MoneyTransferResponseDto {
 
+
     private ResultSet resultSet;
 
     private Metadata metaData;
@@ -33,4 +34,6 @@ public class MoneyTransferResponseDto {
     public void setNotifications(List<Notification> notifications) {
         this.notifications = notifications;
     }
+
+
 }
