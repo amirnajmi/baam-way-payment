@@ -52,8 +52,6 @@ public class FinancialAmountsDto implements Serializable {
     @Schema(required = true , example = "0.0" , description = "مبلغ غرامت نرسیده")
     private Double feeOfNotArrivedIndemnity;
     // آیتم صورتحصاب
-    @Schema(required = true , description = "آیتم صورتحساب" )
-    private InvoiceDetailDto invoiceDetail;
 
     public Long getId() {
         return id;
@@ -183,11 +181,4 @@ public class FinancialAmountsDto implements Serializable {
         this.feeOfNotArrivedIndemnity = feeOfNotArrivedIndemnity;
     }
 
-    public InvoiceDetailDto getInvoiceDetail() {
-        return invoiceDetail;
-    }
-
-    public void setInvoiceDetail(InvoiceDetailDto invoiceDetail) {
-        this.invoiceDetail = invoiceDetail;
-    }
 }

@@ -27,6 +27,9 @@ public class InvoiceDto implements Serializable {
     @Schema(required = true , description = "جزئیات صورتجساب" )
     private List<InvoiceDetailDto> invoiceDetails;
 
+    private LocalDate fromDate ;
+    private LocalDate toDate ;
+
     public Long getId() {
         return id;
     }
@@ -81,5 +84,21 @@ public class InvoiceDto implements Serializable {
 
     public void setShippingCompany(ShippingCompanyDto shippingCompany) {
         this.shippingCompany = shippingCompany;
+    }
+
+    public LocalDate getFromDate() {
+        return fromDate;
+    }
+
+    public void setFromDate(LocalDate fromDate) {
+        this.fromDate = fromDate;
+    }
+
+    public LocalDate getToDate() {
+        return toDate;
+    }
+
+    public void setToDate(LocalDate toDate) {
+        this.toDate = toDate;
     }
 }
