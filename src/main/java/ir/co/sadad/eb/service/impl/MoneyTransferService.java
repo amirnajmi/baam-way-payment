@@ -9,7 +9,9 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import java.security.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
 
@@ -28,26 +30,28 @@ public class MoneyTransferService {
             businessException.add("createMoneyTransfer.sourceAccount.isNullOrEmpty");
         }
 
-        if(destinationAccount == null || destinationAccount.isEmpty()){
+        if (destinationAccount == null || destinationAccount.isEmpty()) {
             businessException.add("createMoneyTransfer.destinationAccount.isNullOrEmpty");
         }
 
-        if(amount == null || amount == 0){
+        if (amount == null || amount == 0) {
             businessException.add("createMoneyTransfer.amount.isNullOrZero");
         }
 
-        if(counterpartyName == null || counterpartyName.isEmpty()){
+        if (counterpartyName == null || counterpartyName.isEmpty()) {
             businessException.add("createMoneyTransfer.counterpartyName.isNullOrEmpty");
         }
 
-        if(!businessException.messageIsEmpty()){
+        if (!businessException.messageIsEmpty()) {
             throw businessException;
         }
 
         String authorizationToken = httpServletRequest.getHeader("Authorization");
         Boolean submit = true;
-        Boolean ignoreHints = true;
-        String channel = "ISC_MB";
+        //Boolean ignoreHints = true;
+        Boolean ignoreHints = null;
+        //String channel = "ISC_MB";
+        String channel = null;
         String uuid = UUID.randomUUID().toString();
 
         MoneyTransferRequestDto moneyTransferRequestDto = new MoneyTransferRequestDto();
@@ -60,9 +64,11 @@ public class MoneyTransferService {
         moneyTransferRequestDto.setCounterpartyName(counterpartyName);
         moneyTransferRequestDto.setPaymentReference("");
         moneyTransferRequestDto.setPaymentDescription("");
-        moneyTransferRequestDto.setOnDate(new Date());
+        moneyTransferRequestDto.setOnDate(new Date().getTime());
 
-        return moneyTransferRestClient.createMoneyTransfer(authorizationToken, submit, ignoreHints, channel, moneyTransferRequestDto);
+        MoneyTransferResponseDto response = moneyTransferRestClient.createMoneyTransfer(authorizationToken, submit, ignoreHints, channel, moneyTransferRequestDto);
+
+        return response;
     }
 
     public MoneyTransferResponseDto inquiryMoneyTransfer(String uuid) throws BusinessException {
@@ -71,7 +77,8 @@ public class MoneyTransferService {
         }
 
         String authorizationToken = httpServletRequest.getHeader("Authorization");
-        return moneyTransferRestClient.inquiryMoneyTransfer(authorizationToken, uuid);
+        MoneyTransferResponseDto response = moneyTransferRestClient.inquiryMoneyTransfer(authorizationToken, uuid);
+        return response;
     }
 
 }
