@@ -17,12 +17,12 @@
     <quickStartSecurity userName="admin" userPassword="adminpwd" />
     <!-- <httpEndpoint httpPort="8083" httpsPort="8444" id="defaultHttpEndpoint" host="*" /> -->
     <!-- artifact properties -->
-    <webApplication  location="${app.war.address}" contextRoot="" />
+    <webApplication  location="/home/amir/IdeaProjects/baam-way-payment/target/baam-way-payment-1.0-SNAPSHOT.war" contextRoot="" />
     <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
     <httpEndpoint id="defaultHttpEndpoint" host="*" httpPort="9030" httpsPort="9443" />
-    <jpa defaultPersistenceProvider="org.eclipse.persistence.jpa.PersistenceProvider" />
-    <!--<jpa defaultPersistenceProvider="org.hibernate.jpa.HibernatePersistenceProvider" />-->
-    <fileset id="db2Fileset" dir="${external.lib.directory}" includes="db2jcc4.jar, db2jcc4_license_cu.jar, db2jcc4_license_cisuz.jar" />
+    <!--<jpa defaultPersistenceProvider="org.eclipse.persistence.jpa.PersistenceProvider" />-->
+    <jpa defaultPersistenceProvider="org.hibernate.jpa.HibernatePersistenceProvider" />
+    <fileset id="db2Fileset" dir="${wlp.install.dir}\lib" includes="db2jcc4.jar, db2jcc4_license_cu.jar, db2jcc4_license_cisuz.jar" />
     <library id="db2-lib" filesetRef="db2Fileset" />
     <jdbcDriver id="db2Driver" libraryRef="db2-lib" />
     <!--datasource-->

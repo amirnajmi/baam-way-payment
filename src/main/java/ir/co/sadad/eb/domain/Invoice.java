@@ -24,9 +24,6 @@ public class Invoice {
     @ManyToOne(targetEntity = OwnerCompany.class , cascade = CascadeType.PERSIST)
     //شرکت بازرگانی
     private OwnerCompany ownerCompany;
-    // شماره قرارداد
-    @Column(name = "CONTRACT_NUMBER")
-    private String contractNumber;
     // شماره صورتحساب
     @Column(name = "INVOICE_NUMBER")
     private String invoiceNumber;
@@ -57,14 +54,6 @@ public class Invoice {
 
     public void setShippingCompany(ShippingCompany shippingCompany) {
         this.shippingCompany = shippingCompany;
-    }
-
-    public String getContractNumber() {
-        return contractNumber;
-    }
-
-    public void setContractNumber(String contractNumber) {
-        this.contractNumber = contractNumber;
     }
 
     public String getInvoiceNumber() {

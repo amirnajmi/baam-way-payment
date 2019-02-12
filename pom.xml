@@ -8,49 +8,55 @@
     <artifactId>baam-way-payment</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
+    <!--<parent>-->
+    <!--<groupId>net.wasdev.wlp.maven.parent</groupId>-->
+    <!--<artifactId>liberty-maven-app-parent</artifactId>-->
+    <!--<version>2.0</version>-->
+    <!--</parent>-->
     <parent>
-        <groupId>net.wasdev.wlp.maven.parent</groupId>
-        <artifactId>liberty-maven-app-parent</artifactId>
-        <version>2.0</version>
+        <groupId>org.apache</groupId>
+        <artifactId>apache</artifactId>
+        <version>18</version>
     </parent>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <!--tag::linux-user[]-->
+        <linux.user.name>amir</linux.user.name>
+        <!--end::linux-user[]-->
         <!-- tag::appdetails[] -->
         <app.name>baam-way-payment</app.name>
         <testServerHttpPort>9080</testServerHttpPort>
         <testServerHttpsPort>9443</testServerHttpsPort>
         <!-- end::appdetails[] -->
-        <warContext>${app.name}</warContext>
+        <war.context>${app.name}</war.context>
         <package.file>${project.build.directory}/${app.name}.zip</package.file>
         <packaging.type>usr</packaging.type>
-        <war-address>${project.build.directory}/baam-way-payment-1.0-SNAPSHOT.war</war-address>
+        <appaddress>${project.build.directory}/baam-way-payment-1.0-SNAPSHOT.war</appaddress>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <!-- Zipkin user feature download link -->
         <zipkin.usr.feature>
             https://github.com/WASdev/sample.opentracing.zipkintracer/releases/download/1.1/liberty-opentracing-zipkintracer-1.1-sample.zip
         </zipkin.usr.feature>
-        <!-- versions -->
+        <!-- tag::versions[] -->
         <version.microprofile>2.1</version.microprofile>
         <version.slf4j>1.7.25</version.slf4j>
         <version.logback>1.2.3</version.logback>
         <version.javaee>8.0</version.javaee>
         <!-- delta spike -->
-        <deltaspike.version>1.8.1</deltaspike.version>
-        <deltaspike.version>1.8.1</deltaspike.version>
+        <version.deltaspike>1.8.2</version.deltaspike>
         <!-- Lombok -->
         <version.lombok>1.18.4</version.lombok>
         <version.dropwizard>4.0.5</version.dropwizard>
-        <kumuluzee-logs.version>1.3.0</kumuluzee-logs.version>
         <version.dockerfile-maven-plugin>1.4.3</version.dockerfile-maven-plugin>
         <!-- Arquillian -->
         <version.arquillian>1.1.13.Final</version.arquillian>
-        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <!-- MapStruct -->
-        <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
-        <log4j.version>2.11.1</log4j.version>
-
+        <version.org.mapstruct>1.2.0.Final</version.org.mapstruct>
+        <version.log4j>2.11.1</version.log4j>
+        <!-- end::versions[] -->
     </properties>
 
     <profiles>
@@ -60,7 +66,8 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <external-lib-directory>D:/externallib/</external-lib-directory>
+                <wlp.dir></wlp.dir>
+                <!--<external-lib-directory>D:/externallib/</external-lib-directory>-->
             </properties>
         </profile>
         <profile>
@@ -69,7 +76,9 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <external-lib-directory>/home/amir/Documents/externallib</external-lib-directory>
+                <!--<external-lib-directory>/home/amir/Documents/externallib</external-lib-directory>-->
+                <wlp.dir>/home/${linux.user.name}/Documents/java/appserver/openliberty-18.0.0.4/wlp</wlp.dir>
+                <wlp.conf.dir>najmi</wlp.conf.dir>
             </properties>
         </profile>
 
@@ -120,17 +129,17 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>${log4j.version}</version>
+            <version>${version.log4j}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>${log4j.version}</version>
+            <version>${version.log4j}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-to-slf4j</artifactId>
-            <version>${log4j.version}</version>
+            <version>${version.log4j}</version>
         </dependency>
         <!-- end::log4j[]-->
         <!-- tag::hazelcast[] -->
@@ -161,16 +170,20 @@
         </dependency>
 
         <!-- tag::Hibernate[] -->
+        <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>5.4.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jpamodelgen</artifactId>
+            <version>5.4.1.Final</version>
+        </dependency>
         <!--<dependency>-->
-            <!--<groupId>org.hibernate</groupId>-->
-            <!--<artifactId>hibernate-core</artifactId>-->
-            <!--<version>5.4.0.Final</version>-->
-            <!--<scope>provided</scope>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.hibernate</groupId>-->
-            <!--<artifactId>hibernate-ehcache</artifactId>-->
-            <!--<version>5.4.0.Final</version>-->
+        <!--<groupId>org.hibernate</groupId>-->
+        <!--<artifactId>hibernate-ehcache</artifactId>-->
+        <!--<version>5.4.0.Final</version>-->
         <!--</dependency>-->
         <!-- tag::Hibernate[] -->
         <!-- tag::Deltaspike[] -->
@@ -189,21 +202,25 @@
         <dependency>
             <groupId>org.apache.deltaspike.modules</groupId>
             <artifactId>deltaspike-jpa-module-api</artifactId>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>org.apache.deltaspike.modules</groupId>
             <artifactId>deltaspike-jpa-module-impl</artifactId>
+            <scope>runtime</scope>
         </dependency>
 
         <dependency>
             <groupId>org.apache.deltaspike.modules</groupId>
             <artifactId>deltaspike-data-module-api</artifactId>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>org.apache.deltaspike.modules</groupId>
             <artifactId>deltaspike-data-module-impl</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <!-- data & jpa -->
         <!-- end::Deltaspike[] -->
@@ -291,7 +308,7 @@
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
-            <version>${org.mapstruct.version}</version>
+            <version>${version.org.mapstruct}</version>
         </dependency>
 
         <!--end::mapstruct[]-->
@@ -356,7 +373,7 @@
             <dependency>
                 <groupId>org.apache.deltaspike.distribution</groupId>
                 <artifactId>distributions-bom</artifactId>
-                <version>${deltaspike.version}</version>
+                <version>${version.deltaspike}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -384,37 +401,37 @@
                         <path>
                             <groupId>org.mapstruct</groupId>
                             <artifactId>mapstruct-processor</artifactId>
-                            <version>${org.mapstruct.version}</version>
+                            <version>${version.org.mapstruct}</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
             <!-- end::compilerPlugin[]-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${endorsed.dir}</outputDirectory>
-                            <silent>true</silent>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>javax</groupId>
-                                    <artifactId>javaee-endorsed-api</artifactId>
-                                    <version>7.0</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+            <!--<plugin>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-dependency-plugin</artifactId>-->
+            <!--<version>3.1.0</version>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<phase>validate</phase>-->
+            <!--<goals>-->
+            <!--<goal>copy</goal>-->
+            <!--</goals>-->
+            <!--<configuration>-->
+            <!--<outputDirectory>${endorsed.dir}</outputDirectory>-->
+            <!--<silent>true</silent>-->
+            <!--<artifactItems>-->
+            <!--<artifactItem>-->
+            <!--<groupId>javax</groupId>-->
+            <!--<artifactId>javaee-endorsed-api</artifactId>-->
+            <!--<version>7.0</version>-->
+            <!--<type>jar</type>-->
+            <!--</artifactItem>-->
+            <!--</artifactItems>-->
+            <!--</configuration>-->
+            <!--</execution>-->
+            <!--</executions>-->
+            <!--</plugin>-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -431,23 +448,25 @@
                 <groupId>net.wasdev.wlp.maven.plugins</groupId>
                 <artifactId>liberty-maven-plugin</artifactId>
                 <version>2.6.1</version>
+                <extensions>true</extensions>
                 <configuration>
-                    <assemblyArtifact>
-                        <groupId>io.openliberty</groupId>
-                        <artifactId>openliberty-runtime</artifactId>
-                        <version>RELEASE</version>
-                        <type>zip</type>
-                    </assemblyArtifact>
-                    <configFile>src/main/liberty/config/server.xml</configFile>
+                    <outputDirectory>target</outputDirectory>
+                    <!--<assemblyArtifact>-->
+                    <!--<groupId>io.openliberty</groupId>-->
+                    <!--<artifactId>openliberty-runtime</artifactId>-->
+                    <!--<version>RELEASE</version>-->
+                    <!--<type>zip</type>-->
+                    <!--</assemblyArtifact>-->
+                    <installDirectory>${wlp.dir}</installDirectory>
+                    <configFile>src/main/liberty/config/${wlp.conf.dir}</configFile>
                     <packageFile>${package.file}</packageFile>
+                    <serverName>baam-way</serverName>
                     <include>${packaging.type}</include>
                     <!-- tag::bootstrap[] -->
                     <bootstrapProperties>
                         <default.http.port>${testServerHttpPort}</default.http.port>
                         <default.https.port>${testServerHttpsPort}</default.https.port>
-                        <app.context.root>${warContext}</app.context.root>
-                        <app.war.address>${war-address}</app.war.address>
-                        <external.lib.directory>${external-lib-directory}</external.lib.directory>
+                        <app.context.root>${war.context}</app.context.root>
                     </bootstrapProperties>
                     <!-- end::bootstrap[] -->
                 </configuration>
@@ -486,18 +505,40 @@
                         </goals>
                     </execution>
                     <!--<execution>-->
-                        <!--<id>package-app</id>-->
-                        <!--<phase>package</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>package-server</goal>-->
-                        <!--</goals>-->
-                        <!--<configuration>-->
-                            <!--<outputDirectory>target/wlp-package</outputDirectory>-->
-                        <!--</configuration>-->
+                    <!--<id>package-app</id>-->
+                    <!--<phase>package</phase>-->
+                    <!--<goals>-->
+                    <!--<goal>package-server</goal>-->
+                    <!--</goals>-->
+                    <!--<configuration>-->
+                    <!--<outputDirectory>target/wlp-package</outputDirectory>-->
+                    <!--</configuration>-->
                     <!--</execution>-->
                 </executions>
             </plugin>
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/src/main/resources/config</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                            <outputDirectory>${project.build.directory}/config</outputDirectory>
+                        </configuration>
+                        <id>filter-resource</id>
+                        <phase>process-resources</phase>
+                    </execution>
+                </executions>
+                <version>3.1.0</version>
+            </plugin>
         </plugins>
     </build>
 
