@@ -3,11 +3,12 @@
              xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
     <persistence-unit name="BAAMWAY_PU" transaction-type="JTA">
-        <!--<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>jdbc/bamwayDB</jta-data-source>
-        <class>ir.co.sadad.eb.domain.Invoice</class>
+        <!--<class>ir.co.sadad.eb.domain.Invoice</class>-->
+        <!--<exclude-unlisted-classes>false</exclude-unlisted-classes>-->
         <properties>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.hbm2ddl.auto" value="none"/>
             <property name="hibernate.show_sql" value="true"/>
             <!--second level cache-->
             <!--<property name="hibernate.cache.use_second_level_cache" value="true"/>-->
