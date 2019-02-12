@@ -1,5 +1,6 @@
 package ir.co.sadad.eb.resource.v1;
 
+import ir.co.sadad.eb.exception.BaseRestClientException;
 import ir.co.sadad.eb.exception.BusinessException;
 import ir.co.sadad.eb.service.AccountService;
 import ir.co.sadad.eb.service.dto.AccountDto;
@@ -17,6 +18,7 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.IOException;
 
 @Path("/account")
 public class AccountResource {
@@ -57,7 +59,7 @@ public class AccountResource {
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response testMoneyTransfer() throws BusinessException {
+    public Response testMoneyTransfer() throws BusinessException, BaseRestClientException, IOException {
         return Response.ok(moneyTransferService.createMoneyTransfer("0223189148006","0348218349005", 10000d, "شهربانو غلامی")).build();
     }
 
