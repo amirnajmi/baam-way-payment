@@ -1,7 +1,6 @@
 package ir.co.sadad.eb.service.impl;
 
 import ir.co.sadad.eb.domain.Invoice;
-import ir.co.sadad.eb.domain.metamodel.Invoice_;
 import ir.co.sadad.eb.exception.BusinessException;
 import ir.co.sadad.eb.mapper.InvoiceMapper;
 import ir.co.sadad.eb.repository.api.InvoiceDetailRepository;
@@ -9,7 +8,6 @@ import ir.co.sadad.eb.repository.api.InvoiceRepository;
 import ir.co.sadad.eb.service.api.IInvoiceService;
 import ir.co.sadad.eb.service.dto.InvoiceDto;
 import ir.co.sadad.eb.util.HttpStatusCode;
-import org.apache.deltaspike.data.api.criteria.Criteria;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;

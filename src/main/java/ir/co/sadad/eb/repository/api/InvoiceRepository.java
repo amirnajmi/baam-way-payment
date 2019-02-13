@@ -1,8 +1,7 @@
 package ir.co.sadad.eb.repository.api;
 
 import ir.co.sadad.eb.domain.Invoice;
-import ir.co.sadad.eb.domain.metamodel.Invoice_;
-import ir.co.sadad.eb.service.dto.InvoiceDto;
+import ir.co.sadad.eb.domain.Invoice_;
 import org.apache.deltaspike.data.api.Repository;
 import org.apache.deltaspike.data.api.criteria.Criteria;
 

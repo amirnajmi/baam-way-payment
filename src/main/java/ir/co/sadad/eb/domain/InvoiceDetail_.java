@@ -1,4 +1,4 @@
-package ir.co.sadad.eb.domain.metamodel;
+package ir.co.sadad.eb.domain;
 
 import ir.co.sadad.eb.domain.InvoiceDetail;
 
