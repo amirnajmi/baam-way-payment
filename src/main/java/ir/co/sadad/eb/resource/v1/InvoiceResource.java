@@ -37,10 +37,12 @@ public class InvoiceResource {
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Response createInvoice(@RequestBody(description = "صورتحساب"
-            ,content = @Content(mediaType = "application/json"
-            ,schema = @Schema(implementation = InvoiceDto.class)))InvoiceDto invoiceDTO) {
+            , content = @Content(mediaType = "application/json"
+            , schema = @Schema(implementation = InvoiceDto.class))) InvoiceDto invoiceDTO) {
         return Response.ok(invoiceService.createInvoice(invoiceDTO)).build();
     }
+
+
     @Timed
     @Operation(summary = "get invoice by its code")
     @APIResponse(responseCode = "200", description = "OK")
@@ -53,6 +55,19 @@ public class InvoiceResource {
         return Response.ok(LocalDate.now()).build();
     }
 
+    @Timed
+    @Operation(summary = "get all invoice headers related to a specific company")
+    @APIResponse(responseCode = "200", description = "OK")
+    @APIResponse(responseCode = "401", description = "Unauthorized")
+    @Path("/getInvoiceListByDate")
+    @GET
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response getInvoiceListByDate(@Valid @QueryParam("fromDate") String fromDate , @QueryParam("toDate") String toDate) {
+        LocalDate from = LocalDate.parse(fromDate);
+        LocalDate to = LocalDate.parse(toDate);
 
+        return Response.ok(invoiceService.findByFilters(from , to)).build();
+    }
 
 }
