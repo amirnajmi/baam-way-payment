@@ -16,8 +16,8 @@ public class MoneyTransferRequestDto {
     private String counterpartyAccount;
     private String paymentReference;
     private String paymentDescription;
-    private LocalDateTime onDate;
-    //private Long onDate;
+    //private LocalDateTime onDate;
+    private Long onDate;
     @JsonIgnore
     private String responseString;
     @JsonIgnore
@@ -95,11 +95,11 @@ public class MoneyTransferRequestDto {
         this.paymentDescription = paymentDescription;
     }
 
-    public LocalDateTime getOnDate() {
+    public Long getOnDate() {
         return onDate;
     }
 
-    public void setOnDate(LocalDateTime onDate) {
+    public void setOnDate(Long onDate) {
         this.onDate = onDate;
     }
 

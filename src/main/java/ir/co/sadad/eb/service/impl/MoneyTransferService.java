@@ -1,7 +1,5 @@
 package ir.co.sadad.eb.service.impl;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import ir.co.sadad.eb.exception.BaseRestClientException;
 import ir.co.sadad.eb.exception.BusinessException;
 import ir.co.sadad.eb.restclient.restclientapi.MoneyTransferRestClient;
@@ -14,9 +12,6 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
-import java.security.Timestamp;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
 
@@ -69,8 +64,8 @@ public class MoneyTransferService {
         moneyTransferRequestDto.setCounterpartyName(counterpartyName);
         moneyTransferRequestDto.setPaymentReference("");
         moneyTransferRequestDto.setPaymentDescription("");
-        moneyTransferRequestDto.setOnDate(LocalDateTime.now());
-        //new Date().getTime()
+        moneyTransferRequestDto.setOnDate(new Date().getTime());
+        //LocalDateTime.now()
 
         MoneyTransferResponseDto response = moneyTransferRestClient.createMoneyTransfer(authorizationToken, submit, ignoreHints, channel, moneyTransferRequestDto);
         return response;

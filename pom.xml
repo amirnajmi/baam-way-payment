@@ -63,17 +63,17 @@
         <profile>
             <id>windows</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <wlp.dir></wlp.dir>
+                <wlp.dir>D:\Projects\JavaProjects_Related\ApplicationServers\openliberty-18.0.0.4\wlp</wlp.dir>
                 <!--<external-lib-directory>D:/externallib/</external-lib-directory>-->
             </properties>
         </profile>
         <profile>
             <id>linux</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <!--<external-lib-directory>/home/amir/Documents/externallib</external-lib-directory>-->

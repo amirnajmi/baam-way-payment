@@ -20,7 +20,7 @@ public class RestClientResponseExceptionMapper implements ResponseExceptionMappe
     public BaseRestClientException toThrowable(Response response) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            MoneyTransferResponseDto moneyTransferResponseDto = objectMapper.readValue(String.valueOf(response.getEntity()), new TypeReference<MoneyTransferResponseDto>() {
+            MoneyTransferResponseDto moneyTransferResponseDto = objectMapper.readValue(response.readEntity(String.class), new TypeReference<MoneyTransferResponseDto>() {
             });
 
             if (response.getStatus() == 200) {
@@ -34,8 +34,10 @@ public class RestClientResponseExceptionMapper implements ResponseExceptionMappe
                     } else {
                         return new BaseRestClientException(HttpStatusCode.getEnum(response.getStatus()), HttpStatusCode.getEnum(response.getStatus()).getDescription());
                     }
-                } else {
-                    throw new BaseRestClientException(HttpStatusCode.getEnum(response.getStatus()), "MONEY_TRANSFER_NOT_OK_AND_NOTIFICATIONS_IS_NULL");
+                } else if(moneyTransferResponseDto.getCode() != null && !moneyTransferResponseDto.getCode().isEmpty()){
+                    return new BaseRestClientException(HttpStatusCode.BAD_REQUEST, moneyTransferResponseDto.getCode(), moneyTransferResponseDto.getType(), moneyTransferResponseDto.getMessage());
+                } else{
+                    return new BaseRestClientException(HttpStatusCode.getEnum(response.getStatus()), "MONEY_TRANSFER_NOT_OK_AND_NOTIFICATIONS_IS_NULL");
                 }
             } else {
                 return new BaseRestClientException(HttpStatusCode.getEnum(response.getStatus()), "MONEY_TRANSFER_NOT_OK_AND_RESPONSE_IS_NULL");
