@@ -8,8 +8,6 @@ public class InvoiceDetailDto {
     private Long id;
     @Schema(required = true ,example = "254854210", description = "کد پیگیری بارنامه" )
     private String trackingCode;
-    @Schema(required = true ,example = "156322.5", description = "مبلغ نهایی بارنامه پس از کسورات" )
-    private Double finalAmount;
     @Schema(required = true, description = "مبالغ مالی بارنامه" )
     private FinancialAmountsDto financialAmounts;
 
@@ -39,14 +37,6 @@ public class InvoiceDetailDto {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Double getFinalAmount() {
-        return finalAmount;
-    }
-
-    public void setFinalAmount(Double finalAmount) {
-        this.finalAmount = finalAmount;
     }
 
     public FinancialAmountsDto getFinancialAmounts() {

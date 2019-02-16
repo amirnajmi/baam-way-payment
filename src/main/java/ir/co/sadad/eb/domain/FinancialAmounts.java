@@ -11,6 +11,9 @@ public class FinancialAmounts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
+    //مبلغ نهایی
+    @Column(name = "FINAL_AMOUNT")
+    private Double finalAmount;
     //مبلغ کرایه
     @Column(name = "FREIGHT_AMOUNT")
     private Double freightAmount;
@@ -195,6 +198,14 @@ public class FinancialAmounts {
 
     public void setInvoiceDetail(InvoiceDetail invoiceDetail) {
         this.invoiceDetail = invoiceDetail;
+    }
+
+    public Double getFinalAmount() {
+        return finalAmount;
+    }
+
+    public void setFinalAmount(Double finalAmount) {
+        this.finalAmount = finalAmount;
     }
 }
 

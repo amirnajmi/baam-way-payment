@@ -6,6 +6,8 @@ import java.io.Serializable;
 public class FinancialAmountsDto implements Serializable {
     @Schema(description = "شناسه")
     private Long id;
+    @Schema(required = true ,example = "156322.5", description = "مبلغ نهایی بارنامه پس از کسورات" )
+    private Double finalAmount;
     //مبلغ کرایه
     @Schema(required = true , example = "0.0" , description = "مبلغ کرایه")
     private Double freightAmount;
@@ -181,4 +183,11 @@ public class FinancialAmountsDto implements Serializable {
         this.feeOfNotArrivedIndemnity = feeOfNotArrivedIndemnity;
     }
 
+    public Double getFinalAmount() {
+        return finalAmount;
+    }
+
+    public void setFinalAmount(Double finalAmount) {
+        this.finalAmount = finalAmount;
+    }
 }
