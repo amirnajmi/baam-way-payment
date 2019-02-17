@@ -18,15 +18,18 @@ public class Invoice {
     @Column(name = "INVOICE_DATE")
     private LocalDate invoiceDate;
     // شرکت حمل
-    @ManyToOne(targetEntity = ShippingCompany.class , cascade = CascadeType.PERSIST)
+    @ManyToOne(targetEntity = ShippingCompany.class , cascade = CascadeType.PERSIST ,fetch = FetchType.LAZY)
     private ShippingCompany shippingCompany;
 
-    @ManyToOne(targetEntity = OwnerCompany.class , cascade = CascadeType.PERSIST)
+    @ManyToOne(targetEntity = OwnerCompany.class , cascade = CascadeType.PERSIST ,fetch = FetchType.LAZY)
     //شرکت بازرگانی
     private OwnerCompany ownerCompany;
     // شماره صورتحساب
     @Column(name = "INVOICE_NUMBER")
     private String invoiceNumber;
+
+    @ManyToOne(targetEntity = InvoiceStatusHistory.class , cascade =  CascadeType.PERSIST)
+    private InvoiceStatusHistory invoiceStatusHistory;
 
     // لاین های صورتحساب
     @OneToMany(targetEntity = InvoiceDetail.class , mappedBy = "invoice" , cascade = {CascadeType.REMOVE,CascadeType.PERSIST},fetch = FetchType.LAZY)

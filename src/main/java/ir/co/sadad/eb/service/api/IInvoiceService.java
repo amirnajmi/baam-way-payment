@@ -12,5 +12,5 @@ public interface IInvoiceService {
     InvoiceDto createInvoice(InvoiceDto invoiceDTO);
 
     InvoiceDto findByInvoiceNumber(String invoiceNumber) throws BusinessException;
-    List<InvoiceDto> findByFilters(LocalDate fromDate , LocalDate toDate);
+    List<InvoiceDto> findByFilters(LocalDate fromDate , LocalDate toDate,String shippingCompanyLegalCode , String invoiceStatusCode);
 }

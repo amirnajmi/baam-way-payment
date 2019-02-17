@@ -6,6 +6,6 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(ShippingCompany.class)
 public class ShippingCompany_ {
 
-    private static volatile SingularAttribute<ShippingCompany , String> legalNo;
+    public static volatile SingularAttribute<ShippingCompany , String> legalNo;
 
 }

@@ -1,5 +1,8 @@
 package ir.co.sadad.eb.service.api;
 
+import org.apache.deltaspike.data.api.criteria.Criteria;
+
+import javax.persistence.criteria.JoinType;
 import javax.persistence.metamodel.SingularAttribute;
 import java.io.Serializable;
 import java.util.List;
@@ -16,5 +19,7 @@ public interface IService<E , Id extends Serializable> {
     void remove(E var1);
     void removeAndFlush(E var1);
     void flush();
-
+    <T> Criteria<T, T> where(Class<T> aclass);
+    <T> Criteria<T, T> where(Class<T> aclass , JoinType joinType);
+    Criteria<E, E> criteria();
 }

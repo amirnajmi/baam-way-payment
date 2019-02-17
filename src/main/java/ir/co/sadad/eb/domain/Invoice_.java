@@ -14,9 +14,9 @@ public class Invoice_ {
 
     public static volatile SingularAttribute<Invoice, LocalDate> invoiceDate;
     public static volatile SingularAttribute<Invoice, String> invoiceNumber;
-    private static volatile SingularAttribute<Invoice , ShippingCompany> shippingCompany;
-    private static volatile SingularAttribute< Invoice , OwnerCompany> ownerCompany;
-    private static volatile SingularAttribute<Invoice , String> contractNumber;
+    public static volatile SingularAttribute<Invoice, ShippingCompany> shippingCompany;
+    public static volatile SingularAttribute<Invoice, OwnerCompany> ownerCompany;
+    public static volatile SingularAttribute<Invoice, String> contractNumber;
 //    private Long id;
 //    private LocalDate invoiceDate;
 //    private ShippingCompany shippingCompany;

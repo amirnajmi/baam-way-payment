@@ -5,16 +5,15 @@
     <persistence-unit name="BAAMWAY_PU" transaction-type="JTA">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>jdbc/bamwayDB</jta-data-source>
+        <shared-cache-mode>ALL</shared-cache-mode>
         <!--<class>ir.co.sadad.eb.domain.Invoice</class>-->
         <!--<exclude-unlisted-classes>false</exclude-unlisted-classes>-->
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="none"/>
             <property name="hibernate.show_sql" value="true"/>
-            <!--second level cache-->
-            <!--<property name="hibernate.cache.use_second_level_cache" value="true"/>-->
-            <!--<property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>-->
-            <!-- use whenever want to execute some queries on startup -->
-            <!--<property name="javax.persistence.sql-load-script-source" value="META-INF/sql/insert.sql"/>-->
+            <!--<property name="hibernate.cache.region.factory_class"-->
+                      <!--value="org.hibernate.cache.ehcache.internal.EhCacheRegionFactory"/>-->
+
         </properties>
     </persistence-unit>
 </persistence>
