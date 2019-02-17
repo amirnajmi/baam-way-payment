@@ -28,8 +28,8 @@ public class Invoice {
     @Column(name = "INVOICE_NUMBER")
     private String invoiceNumber;
 
-    @ManyToOne(targetEntity = InvoiceStatusHistory.class , cascade =  CascadeType.PERSIST)
-    private InvoiceStatusHistory invoiceStatusHistory;
+//    @ManyToOne(targetEntity = InvoiceStatusHistory.class , cascade =  CascadeType.PERSIST)
+//    private InvoiceStatusHistory invoiceStatusHistory;
 
     // لاین های صورتحساب
     @OneToMany(targetEntity = InvoiceDetail.class , mappedBy = "invoice" , cascade = {CascadeType.REMOVE,CascadeType.PERSIST},fetch = FetchType.LAZY)
