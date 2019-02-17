@@ -16,6 +16,7 @@ public class MoneyTransferRequestDto {
     private String counterpartyAccount;
     private String paymentReference;
     private String paymentDescription;
+    //private LocalDateTime onDate;
     private Long onDate;
     @JsonIgnore
     private String responseString;

@@ -15,7 +15,7 @@ public class BaseRestClientException extends RuntimeException{
     private Throwable cause;
 
     public BaseRestClientException() {
-        this(HttpStatusCode.INTERNAL_SERVER);
+        this(HttpStatusCode.INTERNAL_SERVER_ERROR);
         messageList = new ArrayList<>();
         messageParamMap = new HashMap<>();
     }
@@ -60,7 +60,7 @@ public class BaseRestClientException extends RuntimeException{
     }
 
     public BaseRestClientException(Throwable cause) {
-        this(HttpStatusCode.INTERNAL_SERVER);
+        this(HttpStatusCode.INTERNAL_SERVER_ERROR);
         messageList = new ArrayList<>();
         messageParamMap = new HashMap<>();
         this.cause = cause;

@@ -18,9 +18,6 @@ public class InvoiceDetail {
 
     @ManyToOne(targetEntity = Invoice.class)
     private Invoice invoice;
-    //
-    @Column(name = "FINAL_AMOUNT")
-    private Double finalAmount;
 
     @OneToOne(targetEntity = FinancialAmounts.class, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "FINANCIAL_AMOUNTS_ID")
@@ -72,14 +69,6 @@ public class InvoiceDetail {
 
     public void setInvoice(Invoice invoice) {
         this.invoice = invoice;
-    }
-
-    public Double getFinalAmount() {
-        return finalAmount;
-    }
-
-    public void setFinalAmount(Double finalAmount) {
-        this.finalAmount = finalAmount;
     }
 
     public FinancialAmounts getFinancialAmounts() {

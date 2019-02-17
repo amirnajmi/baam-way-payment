@@ -1,5 +1,6 @@
 package ir.co.sadad.eb.service.impl;
 
+import ir.co.sadad.eb.exception.BaseRestClientException;
 import ir.co.sadad.eb.exception.BusinessException;
 import ir.co.sadad.eb.restclient.restclientapi.MoneyTransferRestClient;
 import ir.co.sadad.eb.restclient.restclientmodel.moneytransfer.MoneyTransferRequestDto;
@@ -9,9 +10,8 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import java.security.Timestamp;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import javax.ws.rs.core.Response;
+import java.io.IOException;
 import java.util.Date;
 import java.util.UUID;
 
@@ -24,7 +24,7 @@ public class MoneyTransferService {
     @Inject
     private HttpServletRequest httpServletRequest;
 
-    public MoneyTransferResponseDto createMoneyTransfer(String sourceAccount, String destinationAccount, Double amount, String counterpartyName) throws BusinessException {
+    public MoneyTransferResponseDto createMoneyTransfer(String sourceAccount, String destinationAccount, Double amount, String counterpartyName) throws BusinessException, BaseRestClientException, IOException {
         BusinessException businessException = new BusinessException(HttpStatusCode.BAD_REQUEST);
         if (sourceAccount == null || sourceAccount.isEmpty()) {
             businessException.add("createMoneyTransfer.sourceAccount.isNullOrEmpty");
@@ -65,9 +65,9 @@ public class MoneyTransferService {
         moneyTransferRequestDto.setPaymentReference("");
         moneyTransferRequestDto.setPaymentDescription("");
         moneyTransferRequestDto.setOnDate(new Date().getTime());
+        //LocalDateTime.now()
 
         MoneyTransferResponseDto response = moneyTransferRestClient.createMoneyTransfer(authorizationToken, submit, ignoreHints, channel, moneyTransferRequestDto);
-
         return response;
     }
 

@@ -15,7 +15,7 @@ public class BusinessException extends Exception {
     private Throwable cause;
 
     public BusinessException() {
-        this(HttpStatusCode.INTERNAL_SERVER);
+        this(HttpStatusCode.INTERNAL_SERVER_ERROR);
         messageList = new ArrayList<>();
         messageParamMap = new HashMap<>();
     }
@@ -66,7 +66,7 @@ public class BusinessException extends Exception {
     }
 
     public BusinessException(Throwable cause) {
-        this(HttpStatusCode.INTERNAL_SERVER);
+        this(HttpStatusCode.INTERNAL_SERVER_ERROR);
         messageList = new ArrayList<>();
         messageParamMap = new HashMap<>();
         this.cause = cause;
