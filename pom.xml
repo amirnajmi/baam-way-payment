@@ -82,6 +82,17 @@
             </properties>
         </profile>
 
+        <profile>
+            <id>server</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!--<external-lib-directory>/home/amir/Documents/externallib</external-lib-directory>-->
+                <wlp.dir>/home/${linux.user.name}/Documents/java/appserver/openliberty-18.0.0.4/wlp</wlp.dir>
+                <wlp.conf.dir>najmi</wlp.conf.dir>
+            </properties>
+        </profile>
         <!-- tag::profile-docker-image[] -->
         <!--<profile>-->
         <!--<id>docker-image</id>-->
@@ -180,13 +191,19 @@
             <artifactId>hibernate-jpamodelgen</artifactId>
             <version>5.4.1.Final</version>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.hibernate</groupId>-->
-        <!--<artifactId>hibernate-ehcache</artifactId>-->
-        <!--<version>5.4.0.Final</version>-->
-        <!--</dependency>-->
-        <!-- tag::Hibernate[] -->
-        <!-- tag::Deltaspike[] -->
+        <!-- https://mvnrepository.com/artifact/org.ehcache/ehcache -->
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-ehcache -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>5.4.0.Final</version>
+        </dependency>
+        <!-- end::Hibernate[] -->
         <dependency>
             <groupId>org.apache.deltaspike.core</groupId>
             <artifactId>deltaspike-core-api</artifactId>

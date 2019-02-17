@@ -13,6 +13,7 @@ import ir.co.sadad.eb.service.dto.LadingBillStatusHistoryDto;
 import ir.co.sadad.eb.util.HttpStatusCode;
 
 import javax.inject.Inject;
+import java.util.Optional;
 
 public class InvoiceStatusHistoryService extends AbstractGenericService<InvoiceStatusHistory, Long> implements IInvoiceStatusHistoryService {
 
@@ -41,5 +42,10 @@ public class InvoiceStatusHistoryService extends AbstractGenericService<InvoiceS
         invoiceStatusHistoryDto.setInvoice(invoiceDto);
         InvoiceStatusHistory invoiceStatusHistory = invoiceStatusHistoryMapper.InvoiceStatusHistoryDtoToInvoiceStatusHistory(invoiceStatusHistoryDto);
         return invoiceStatusHistoryMapper.InvoiceStatusHistoryToInvoiceStatusHistoryDto(save(invoiceStatusHistory));
+    }
+
+    @Override
+    public Optional<InvoiceStatusHistory> findByInvoiceStatus(String statusCode) {
+        return Optional.empty();
     }
 }

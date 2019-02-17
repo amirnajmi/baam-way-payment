@@ -1,5 +1,6 @@
 package ir.co.sadad.eb.resource.v1;
 
+import ir.co.sadad.eb.domain.InvoiceStatus;
 import ir.co.sadad.eb.service.api.IInvoiceService;
 import ir.co.sadad.eb.service.dto.AccountDto;
 import ir.co.sadad.eb.service.dto.InvoiceDto;
@@ -63,11 +64,15 @@ public class InvoiceResource {
     @GET
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response getInvoiceListByDate(@Valid @QueryParam("fromDate") String fromDate , @QueryParam("toDate") String toDate) {
-        LocalDate from = LocalDate.parse(fromDate);
-        LocalDate to = LocalDate.parse(toDate);
+    public Response getInvoiceListByDate(@Valid @QueryParam("fromDate") String fromDate , @QueryParam("toDate") String toDate
+                                                ,@QueryParam("shippingCompanyLegalNo") String shippingCompanyLegalNo ,@QueryParam("invoiceStatusCode") String invoiceStatusCode) {
+        LocalDate from =null, to = null;
+        if ( fromDate != null && !fromDate.isEmpty())
+            from = LocalDate.parse(fromDate);
+        if ( toDate != null && !toDate.isEmpty())
+            to = LocalDate.parse(toDate);
 
-        return Response.ok(invoiceService.findByFilters(from , to)).build();
+        return Response.ok(invoiceService.findByFilters(from , to,shippingCompanyLegalNo,invoiceStatusCode)).build();
     }
 
 }

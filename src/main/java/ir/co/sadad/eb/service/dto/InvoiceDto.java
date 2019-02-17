@@ -20,15 +20,11 @@ public class InvoiceDto implements Serializable {
     private ShippingCompanyDto shippingCompany;
     @Schema(required = true , description = "شرکت کارفرما" )
     private OwnerCompanyDto ownerCompany;
-    @Schema(required = true ,example = "1111", description = "شماره قرارداد" )
-    private String contractNumber;
     @Schema(required = true ,example = "0", description = "شماره صورتحساب" )
     private String invoiceNumber;
     @Schema(required = true , description = "جزئیات صورتجساب" )
     private List<InvoiceDetailDto> invoiceDetails;
 
-    private LocalDate fromDate ;
-    private LocalDate toDate ;
 
     public Long getId() {
         return id;
@@ -44,14 +40,6 @@ public class InvoiceDto implements Serializable {
 
     public void setInvoiceDate(LocalDate invoiceDate) {
         this.invoiceDate = invoiceDate;
-    }
-
-    public String getContractNumber() {
-        return contractNumber;
-    }
-
-    public void setContractNumber(String contractNumber) {
-        this.contractNumber = contractNumber;
     }
 
     public String getInvoiceNumber() {
@@ -86,19 +74,4 @@ public class InvoiceDto implements Serializable {
         this.shippingCompany = shippingCompany;
     }
 
-    public LocalDate getFromDate() {
-        return fromDate;
-    }
-
-    public void setFromDate(LocalDate fromDate) {
-        this.fromDate = fromDate;
-    }
-
-    public LocalDate getToDate() {
-        return toDate;
-    }
-
-    public void setToDate(LocalDate toDate) {
-        this.toDate = toDate;
-    }
 }

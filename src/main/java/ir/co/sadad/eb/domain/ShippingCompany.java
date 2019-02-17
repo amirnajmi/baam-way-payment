@@ -1,4 +1,6 @@
 package ir.co.sadad.eb.domain;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 
 import javax.persistence.Entity;
@@ -20,11 +22,11 @@ public class ShippingCompany {
     @Column(name = "LEGAL_NO")
     private String legalNo;
 
-    @OneToOne(targetEntity = Account.class, cascade = CascadeType.PERSIST)
+    @OneToOne(targetEntity = Account.class, cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
     @JoinColumn(name = "ACCOUNT_ID")
     private Account account;
 
-    @OneToOne(targetEntity = Account.class, cascade = CascadeType.PERSIST)
+    @OneToOne(targetEntity = Account.class, cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
     @JoinColumn(name = "ACCOUNT_ON_SIC_AUTHORITY")
     //حساب در اختیار سداد
     private Account accountOnSicAuthority;
