@@ -19,8 +19,7 @@
 :page-permalink: /guides/{projectid}
 :common-includes: https://raw.githubusercontent.com/OpenLiberty/guides-common/master
 
-= سرویس بامراه
-
+= Bammway Payment
 == Authors
 AmirHossein Najmi<am.nj@outlook.com> , Shahrbanoo Gholami ,
 Shadi Ghadimi , Meysam Sherafatian
